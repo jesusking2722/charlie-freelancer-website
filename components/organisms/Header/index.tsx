@@ -17,8 +17,8 @@ const Header: React.FC<HeaderProps> = ({ navItems }) => {
           <Navbar navItems={navItems} />
         </div>
         {/* Sign in & Sign up Buttons */}
-        <div className="flex items-center gap-4">
-          <Button type="text" label="Sign in" size="medium" />
+        <div className="flex items-center gap-8">
+          <Button type="text" label="Log in" size="medium" />
           <Button type="primary" label="Sign up" size="medium" />
         </div>
       </div>

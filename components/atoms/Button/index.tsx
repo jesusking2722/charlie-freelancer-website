@@ -37,18 +37,18 @@ const Button: React.FC<ButtonProps> = ({
       size === "small"
         ? "px-3 py-1 text-xs"
         : size === "medium"
-        ? "px-5 py-2 text-sm"
-        : "px-5 py-2 text-base"
+        ? "px-7 py-3 text-sm"
+        : "px-7 py-3 text-base"
     }`,
     fontSize: `${
-      size === "small" ? "text-xs" : size === "medium" ? "text-sm" : "text-base"
+      size === "small" ? "text-xs" : size === "medium" ? "text-sm" : "text-sm"
     }`,
   };
 
   if (type === "primary") {
     return (
       <button
-        className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-lg transition-all duration-300 ease-in-out`}
+        className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-xl transition-all duration-300 ease-in-out`}
         onClick={onClick}
       >
         {icon && !loading && (

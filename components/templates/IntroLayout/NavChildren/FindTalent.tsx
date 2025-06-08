@@ -67,9 +67,9 @@ const TalentMarketplace = () => {
           {catalogs.map((catalog, index) => (
             <li
               key={index}
-              className="w-full py-2 px-4 rounded-lg hover:bg-gray-200"
+              className="w-full py-2 px-4 rounded-lg hover:bg-gray-200 cursor-pointer"
             >
-              <Link href={catalog.path} className="text-sm">
+              <Link href={catalog.path} className="text-sm w-full">
                 {catalog.label}
               </Link>
             </li>
