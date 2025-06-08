@@ -4,3 +4,10 @@ export interface INavItem {
   active: boolean;
   children?: React.ReactNode;
 }
+
+export type TFindTalentNavItem = {
+  title: string;
+  subtitle: string;
+  path: string;
+  children?: React.ReactNode;
+};

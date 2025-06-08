@@ -1,5 +1,6 @@
 import { Header } from "@/components/organisms";
 import { INavItem } from "@/types/components.types";
+import { FindTalent } from "./NavChildren";
 
 const IntroLayout = ({ children }: { children: React.ReactNode }) => {
   const navItems: INavItem[] = [
@@ -7,7 +8,7 @@ const IntroLayout = ({ children }: { children: React.ReactNode }) => {
       label: "Find talent",
       path: "/",
       active: false,
-      children: <div>Find talent</div>,
+      children: <FindTalent />,
     },
     {
       label: "Find work",
