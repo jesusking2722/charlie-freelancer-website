@@ -14,16 +14,33 @@
   }
 }
 
-text-light-primary {
-  color: #2563eb;
-}
-
 bg-light {
   background-color: #f9fafb;
 }
 
 bg-dark {
   background-color: #0f172a;
+}
+
+text-light {
+  color: black;
+}
+
+text-dark {
+  color: white;
+}
+
+/* Primary Colors */
+bg-light-primary {
+  background-color: #2563eb;
+}
+
+bg-dark-primary {
+  background-color: #3b82f6;
+}
+
+text-light-primary {
+  color: #2563eb;
 }
 
 text-dark-primary {
