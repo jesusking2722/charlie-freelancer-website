@@ -1,6 +1,7 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 interface ButtonProps {
   type: "primary" | "secondary" | "outline" | "link" | "icon" | "text";
@@ -45,9 +46,16 @@ const Button: React.FC<ButtonProps> = ({
     }`,
   };
 
+  const sizeClasses = {
+    small: "px-3 py-1 text-xs",
+    medium: "px-7 py-3 text-sm",
+    large: "px-7 py-3 text-base",
+  };
+
   if (type === "primary") {
     return (
-      <button
+      <motion.button
+        whileTap={{ scale: 0.95 }}
         className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-xl transition-all duration-300 ease-in-out`}
         onClick={onClick}
       >
@@ -62,7 +70,28 @@ const Button: React.FC<ButtonProps> = ({
             color="white"
           />
         )}
-      </button>
+      </motion.button>
+    );
+  }
+
+  if (type === "outline" && size) {
+    return (
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        className={`border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-xl transition-all duration-300 ease-in-out ${
+          loading || disabled
+            ? "opacity-50 cursor-not-allowed"
+            : "cursor-pointer"
+        } ${sizeClasses[size]}`}
+        onClick={onClick}
+        disabled={disabled || loading}
+      >
+        {icon && !loading && <Icon icon={icon} className="w-4 h-4 mr-2" />}
+        {label}
+        {loading && (
+          <Icon icon="svg-spinners:bars-rotate-fade" className="w-4 h-4 ml-2" />
+        )}
+      </motion.button>
     );
   }
 

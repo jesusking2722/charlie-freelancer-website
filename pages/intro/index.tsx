@@ -4,14 +4,62 @@ import SearchSectionBgImage from "@/public/assets/jpgs/intro/intro_section1.jpg"
 import { Button, Switch } from "@/components/atoms";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
+import EnterpriseSuiteImage from "@/public/assets/jpgs/intro/intro_enterprise_suite.jpg";
+import ForClientsImage from "@/public/assets/jpgs/intro/intro_for_clients.jpg";
+
+type TFirstIntroSectionItem = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
+type TTalentCategory = {
+  label: string;
+  rate: number;
+  skills: number;
+  path: string;
+};
 
 const Intro = () => {
   const [activeSwitchIndex, setActiveSwitchIndex] = useState<number>(0);
 
+  const firstIntroSectionItems: TFirstIntroSectionItem[] = [
+    {
+      title: "No cost to join",
+      description:
+        "Register and browse talent profiles, explore projects, or even book a consultation.",
+      icon: "material-symbols:edit-square-outline-rounded",
+    },
+    {
+      title: "Post a job and hire top talent",
+      description:
+        "Finding talent doesn’t have to be a chore. Post a job or we can search for you!",
+      icon: "solar:pin-outline",
+    },
+    {
+      title: "Work with the best—without breaking the bank",
+      description:
+        "Charlie Unicorn AI makes it affordable to up your work and take advantage of low transaction rates.",
+      icon: "solar:shield-star-outline",
+    },
+  ];
+
+  const talentCategories: TTalentCategory[] = [
+    { label: "Development & IT", rate: 4.85, skills: 1853, path: "/" },
+    { label: "AI Services", rate: 4.8, skills: 294, path: "/" },
+    { label: "Design & Creative", rate: 4.91, skills: 968, path: "/" },
+    { label: "Sales & Marketing", rate: 4.77, skills: 392, path: "/" },
+    { label: "Writing & Translation", rate: 4.92, skills: 505, path: "/" },
+    { label: "Admin & Customer Support", rate: 4.77, skills: 508, path: "/" },
+    { label: "Finance & Accounting", rate: 4.79, skills: 214, path: "/" },
+    { label: "Engineering & Architecture", rate: 4.85, skills: 650, path: "/" },
+  ];
+
   return (
     <IntroLayout>
-      <div className="w-[70%] mx-auto py-8">
-        {/* Search Section */}
+      <div className="w-[70%] flex flex-col gap-14 mx-auto py-8">
+        {/* Search */}
         <div className="relative w-full h-[700px]">
           <Image
             src={SearchSectionBgImage}
@@ -108,6 +156,156 @@ const Intro = () => {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Intro1 */}
+        <div className="w-full flex gap-8 py-4">
+          <div className="w-2/5 rounded-md bg-blue-200"></div>
+          <div className="w-3/5">
+            <h2 className="text-5xl font-semibold">
+              Up your work game, it’s easy
+            </h2>
+            <div className="w-full flex flex-col items-start gap-4 mt-8">
+              {firstIntroSectionItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-row items-start gap-4 w-full overflow-hidden"
+                >
+                  <Icon icon={item.icon} className="w-6 h-6 mt-1" />
+                  <div className="w-full">
+                    <h2 className="font-semibold text-lg ">{item.title}</h2>
+                    <p className="text-base">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="flex items-center gap-4 mb-4 mt-4">
+                <Button type="primary" label="Sign up for free" size="medium" />
+                <Button
+                  type="outline"
+                  label="Learn how to hire"
+                  size="medium"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Browse talent */}
+        <div className="w-full py-4">
+          <h1 className="text-5xl font-semibold">Browse talent by category</h1>
+          <p className="text-xl mt-4 text-gray-600">
+            Looking for work?{" "}
+            <Link href="/" className="text-blue-500 underline">
+              Browse jobs
+            </Link>
+          </p>
+
+          {/* Talent Categories Cards */}
+          <div className="w-full grid grid-cols-4 gap-8 mt-8">
+            {talentCategories.map((category, index) => (
+              <Link
+                href={category.path}
+                key={index}
+                className="px-4 py-6 rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <h2 className="font-semibold text-xl">{category.label}</h2>
+                <div className="flex items-center gap-8 mt-4">
+                  <div className="flex items-center gap-1">
+                    <Icon
+                      icon="solar:star-bold"
+                      className="text-blue-500 w-5 h-5"
+                    />
+                    <span>{category.rate} / 5</span>
+                  </div>
+                  <span>{category.skills} skills</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Enterprise suite */}
+        <div className="w-full bg-[#1034a6] flex rounded-lg">
+          {/* Intro section */}
+          <div className="w-[55%] p-8">
+            {/* Titles */}
+            <h1 className="text-white font-semibold text-2xl">
+              Enterprise Suite
+            </h1>
+            <div>
+              <h2 className="text-white font-semibold text-5xl mt-4">
+                This is how
+              </h2>
+              <h2 className="text-blue-300 font-semibold text-5xl mt-2">
+                good companies
+              </h2>
+              <h2 className="text-blue-300 font-semibold text-5xl mt-1">
+                find good company.
+              </h2>
+            </div>
+
+            {/* Description */}
+            <p className="text-white font-semibold text-lg mt-6">
+              Access the top 1% of talent on Charlie Unicorn AI, and a full
+              suite of hybrid
+              <br />
+              workforce management tools. This is how innovation works now.
+            </p>
+
+            {/* Descriptions Group */}
+            <div className="w-full flex flex-col items-start gap-2 mt-4">
+              <div className="w-full flex items-center gap-2">
+                <Icon
+                  icon="material-symbols-light:handyman-outline"
+                  className="w-5 h-5 text-blue-300"
+                />
+                <p className="text-white">
+                  Access expert talent to fill your skill gaps
+                </p>
+              </div>
+              <div className="w-full flex items-center gap-2">
+                <Icon
+                  icon="material-symbols-light:work"
+                  className="w-5 h-5 text-blue-300"
+                />
+                <p className="text-white">
+                  Control your workflow: hire, classify and pay your talent
+                </p>
+              </div>
+              <div className="w-full flex items-center gap-2">
+                <Icon
+                  icon="material-symbols-light:headset-mic-rounded"
+                  className="w-5 h-5 text-blue-300"
+                />
+                <p className="text-white">
+                  Partner with Charlie Unicorn AI for end-to-end support
+                </p>
+              </div>
+            </div>
+
+            {/* Learn more button */}
+            <button className="rounded-lg text-[#1034a6] bg-white text-base py-2 px-7 mt-4 cursor-pointer">
+              Learn more
+            </button>
+          </div>
+
+          {/* Image Section */}
+          <div className="w-[45%]">
+            <Image
+              src={EnterpriseSuiteImage}
+              alt="Enterprise Suite"
+              className="w-full h-full object-cover rounded-r-lg"
+            />
+          </div>
+        </div>
+
+        {/* For Clients */}
+        <div className="w-full rounded-lg relative h-[600px]">
+          <Image
+            src={ForClientsImage}
+            alt="For Clients"
+            className="absolute top-0 left-0 w-full h-full object-cover object-top"
+          />
         </div>
       </div>
     </IntroLayout>
