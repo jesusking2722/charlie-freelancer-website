@@ -1,4 +1,4 @@
-import { Header } from "@/components/organisms";
+import { Footer, Header } from "@/components/organisms";
 import { INavItem } from "@/types/components.types";
 import { FindTalent } from "./NavChildren";
 
@@ -38,6 +38,7 @@ const IntroLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="w-full min-h-screen">
       <Header navItems={navItems} />
       {children}
+      <Footer />
     </div>
   );
 };

@@ -52,6 +52,12 @@ const Button: React.FC<ButtonProps> = ({
     large: "px-7 py-3 text-base",
   };
 
+  const iconSizeClasses = {
+    small: "w-4 h-4",
+    medium: "w-5 h-5",
+    large: "w-6 h-6",
+  };
+
   if (type === "primary") {
     return (
       <motion.button
@@ -117,6 +123,23 @@ const Button: React.FC<ButtonProps> = ({
       </button>
     );
   }
+
+  if (type === "icon" && icon && size) {
+    return (
+      <button
+        className="p-2 rounded-full hover:bg-[#252525] transition-all duration-300 ease-in-out cursor-pointer"
+        onClick={onClick}
+      >
+        <Icon
+          icon={icon}
+          className={`${iconSizeClasses[size]}`}
+          color="white"
+        />
+      </button>
+    );
+  }
+
+  return null;
 };
 
 export default Button;
