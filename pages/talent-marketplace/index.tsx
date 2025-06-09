@@ -1,4 +1,4 @@
-import { Button, LinkDropdown } from "@/components/atoms";
+import { Button, LinkDropdown, SEO } from "@/components/atoms";
 import { IntroLayout, NavLayout } from "@/components/templates";
 import { TLinkDropdownItem } from "@/types/components.types";
 import Image, { StaticImageData } from "next/image";
@@ -18,6 +18,7 @@ import CustomerSupportImage from "@/public/assets/pngs/icons/customer-support-si
 import FinanceAccountingImage from "@/public/assets/pngs/icons/financial-analysis-valuation.png";
 import PostJobImage from "@/public/assets/jpgs/talent-marketplace/post-job.jpg";
 import ProjectCatalogImage from "@/public/assets/webps/talent-marketplace/project_catalog.webp";
+import Head from "next/head";
 
 type TNavItem = {
   label: string;
@@ -151,6 +152,14 @@ const TalentMarketplace = () => {
 
   return (
     <IntroLayout>
+      {/* SEO */}
+      <SEO
+        title="Talent Marketplace - Post a Job - Talent Marketplace | Charlie Unicorn AI"
+        description="Find and hire quality freelancers in development, marketing, design, and more with Charlie Unicorn AI."
+        url="/talent-marketplace"
+        keywords="talent marketplace, post a job, hire freelancers, freelance developers, freelance marketers, freelance designers, find freelancers, quality freelancers, Charlie Unicorn AI, AI-powered talent marketplace, remote freelancers, freelance job posting"
+      />
+
       {/* Nav Menu */}
       <div className="fixed top-[80px] left-0 w-full">
         <NavLayout>
