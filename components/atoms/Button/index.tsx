@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
         ? "px-3 py-1 text-xs"
         : size === "medium"
         ? "px-7 py-3 text-sm"
-        : "px-7 py-3 text-base"
+        : "w-[60%] py-3 text-lg"
     }`,
     fontSize: `${
       size === "small" ? "text-xs" : size === "medium" ? "text-sm" : "text-sm"
@@ -62,7 +62,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
       <motion.button
         whileTap={{ scale: 0.95 }}
-        className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-xl transition-all duration-300 ease-in-out`}
+        className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-xl transition-all duration-150 ease-in-out`}
         onClick={onClick}
       >
         {icon && !loading && (

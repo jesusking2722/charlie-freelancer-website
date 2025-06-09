@@ -18,3 +18,9 @@ export type TMenuItem = {
   value?: any;
   icon?: string;
 };
+
+export type TLinkDropdownItem = {
+  label: string;
+  path: string;
+  icon?: string;
+};

@@ -1,4 +1,4 @@
-import IntroLayout from "@/components/templates/IntroLayout";
+import { IntroLayout } from "@/components/templates";
 import Image from "next/image";
 import SearchSectionBgImage from "@/public/assets/jpgs/intro/intro_section1.jpg";
 import { Button, Switch } from "@/components/atoms";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import EnterpriseSuiteImage from "@/public/assets/jpgs/intro/intro_enterprise_suite.jpg";
 import ForClientsImage from "@/public/assets/jpgs/intro/intro_for_clients.jpg";
 import FindWorkImage from "@/public/assets/jpgs/intro/intro_find_work.jpg";
+import Head from "next/head";
 
 type TFirstIntroSectionItem = {
   title: string;
@@ -237,9 +238,37 @@ const Intro = () => {
 
   return (
     <IntroLayout>
-      <div ref={pageRef} className="w-[70%] flex flex-col gap-24 mx-auto py-8">
+      {/* SEO */}
+      <Head>
+        <title>Charlie Unicorn AI Freelancer — Find Freelancers & Jobs</title>
+        <meta
+          name="description"
+          content="Join Charlie Unicorn AI Freelancer to find skilled freelancers or discover new job opportunities powered by AI."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://charlieunicornai-freelancer.com/" />
+        <meta
+          property="og:title"
+          content="Charlie Unicorn AI Freelancer — Find Freelancers & Jobs"
+        />
+        <meta
+          property="og:description"
+          content="Join Charlie Unicorn AI Freelancer to find skilled freelancers or discover new job opportunities powered by AI."
+        />
+        <meta
+          property="og:url"
+          content="https://charlieunicornai-freelancer.com/"
+        />
+        <meta property="og:type" content="website" />
+      </Head>
+
+      {/* Main */}
+      <div
+        ref={pageRef}
+        className="w-[70%] flex flex-col gap-24 mx-auto py-8 mt-[90px]"
+      >
         {/* Search */}
-        <div className="relative w-full h-[700px] mt-[90px]">
+        <div className="relative w-full h-[700px]">
           <Image
             src={SearchSectionBgImage}
             alt="Search Section Background"
