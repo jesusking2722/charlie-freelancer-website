@@ -209,11 +209,11 @@ const Intro = () => {
     <IntroLayout>
       <div className="w-[70%] flex flex-col gap-24 mx-auto py-8">
         {/* Search */}
-        <div className="relative w-full h-[700px]">
+        <div className="relative w-full h-[700px] mt-[90px]">
           <Image
             src={SearchSectionBgImage}
             alt="Search Section Background"
-            className="absolute w-full h-full object-cover rounded-4xl"
+            className="absolute w-full h-full object-cover rounded-lg"
           />
           <div className="absolute top-5 w-1/2 h-full flex flex-col items-center justify-center pl-8 gap-20">
             <h1 className="text-6xl text-white font-semibold">

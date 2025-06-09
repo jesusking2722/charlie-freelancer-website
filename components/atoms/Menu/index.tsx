@@ -102,7 +102,7 @@ const Menu: React.FC<MenuProps> = ({
               <button
                 onClick={() => handleItemClick(item)}
                 className={`
-                  w-full flex items-start gap-3 p-3 text-left transition-colors duration-150 cursor-pointer
+                  w-full flex items-start gap-2 p-3 text-left transition-colors duration-150 cursor-pointer
                   ${theme === "dark" ? "text-white" : "text-black"}
                   ${
                     selectedItemValue === item.value
