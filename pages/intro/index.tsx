@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import EnterpriseSuiteImage from "@/public/assets/jpgs/intro/intro_enterprise_suite.jpg";
 import ForClientsImage from "@/public/assets/jpgs/intro/intro_for_clients.jpg";
+import FindWorkImage from "@/public/assets/jpgs/intro/intro_find_work.jpg";
 
 type TFirstIntroSectionItem = {
   title: string;
@@ -18,6 +19,11 @@ type TTalentCategory = {
   label: string;
   rate: number;
   skills: number;
+  path: string;
+};
+
+type TSkillCategory = {
+  label: string;
   path: string;
 };
 
@@ -54,6 +60,40 @@ const Intro = () => {
     { label: "Admin & Customer Support", rate: 4.77, skills: 508, path: "/" },
     { label: "Finance & Accounting", rate: 4.79, skills: 214, path: "/" },
     { label: "Engineering & Architecture", rate: 4.85, skills: 650, path: "/" },
+  ];
+
+  const reasonsTurningToUs: TFirstIntroSectionItem[] = [
+    {
+      title: "Proof of quality",
+      description:
+        "Check any pro’s work samples, client reviews, and identity verification.",
+      icon: "solar:star-circle-outline",
+    },
+    {
+      title: "No cost until you hire",
+      description:
+        "Interview potential fits for your job, negotiate rates, and only pay for work you approve.",
+      icon: "solar:dollar-outline",
+    },
+    {
+      title: "Safe and secure",
+      description:
+        "Focus on your work knowing we help protect your data and privacy. We’re here with 24/7 support if you need it.",
+      icon: "solar:check-circle-outline",
+    },
+  ];
+
+  const adus: TFirstIntroSectionItem[] = [
+    {
+      title: "4.9/5",
+      description: "Clients rate professionals on Charle Unicorn AI",
+      icon: "solar:star-bold",
+    },
+    {
+      title: "Award winner",
+      description: "G2’s 2021 Best Software Awards",
+      icon: "solar:star-circle-outline",
+    },
   ];
 
   return (
@@ -157,7 +197,6 @@ const Intro = () => {
             </div>
           </div>
         </div>
-
         {/* Intro1 */}
         <div className="w-full flex gap-8 py-4">
           <div className="w-2/5 rounded-md bg-blue-200"></div>
@@ -189,7 +228,6 @@ const Intro = () => {
             </div>
           </div>
         </div>
-
         {/* Browse talent */}
         <div className="w-full py-4">
           <h1 className="text-5xl font-semibold">Browse talent by category</h1>
@@ -223,7 +261,6 @@ const Intro = () => {
             ))}
           </div>
         </div>
-
         {/* Enterprise suite */}
         <div className="w-full bg-[#1034a6] flex rounded-lg">
           {/* Intro section */}
@@ -298,15 +335,203 @@ const Intro = () => {
             />
           </div>
         </div>
-
         {/* For Clients */}
         <div className="w-full rounded-lg relative h-[600px]">
           <Image
             src={ForClientsImage}
             alt="For Clients"
-            className="absolute top-0 left-0 w-full h-full object-cover object-top"
+            className="absolute top-0 left-0 w-full h-full object-cover object-top rounded-lg"
           />
+
+          <div className="absolute top-0 p-8 w-full">
+            {/* Title */}
+            <h1 className="text-white text-2xl font-semibold">For clients</h1>
+
+            {/* Descriptions */}
+            <div className="mt-10">
+              <h2 className="text-white text-6xl font-semibold">
+                Find talent <br /> your way
+              </h2>
+              <p className="mt-14 font-semibold text-xl text-white">
+                Work with the largest network of independent <br />{" "}
+                professionals and get things done—from <br /> quick turnarounds
+                to big transformations.
+              </p>
+            </div>
+
+            {/* Cards Group */}
+            <div className="w-full grid grid-cols-3 gap-8 mt-8">
+              <Link
+                href="/"
+                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
+              >
+                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                  Post a job <br />
+                  and hire a pro
+                </h2>
+                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                  Talent Marketplace
+                  <Icon
+                    icon="solar:arrow-right-outline"
+                    className="group-hover:text-blue-600 text-white"
+                  />
+                </button>
+              </Link>
+              <Link
+                href="/"
+                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
+              >
+                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                  Browse and
+                  <br />
+                  buy projects
+                </h2>
+                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                  Project Catalog
+                  <Icon
+                    icon="solar:arrow-right-outline"
+                    className="group-hover:text-blue-600 text-white"
+                  />
+                </button>
+              </Link>
+              <Link
+                href="/"
+                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
+              >
+                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                  Get advice from an
+                  <br />
+                  industry expert
+                </h2>
+                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                  Consultations
+                  <Icon
+                    icon="solar:arrow-right-outline"
+                    className="group-hover:text-blue-600 text-white"
+                  />
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
+        {/* Why businesses turn to us */}
+        <div className="w-full relative flex gap-4">
+          <div className="w-[70%] bg-gray-100 rounded-lg px-8 py-16">
+            {/* Title */}
+            <h1 className="text-6xl font-semibold">
+              Why businesses
+              <br />
+              turn to Charlie Unicorn AI
+            </h1>
+
+            {/* Reasons */}
+            <div className="w-[70%] flex flex-col items-start gap-8 mt-8">
+              {reasonsTurningToUs.map((reason, index) => (
+                <div
+                  key={index}
+                  className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                >
+                  <Icon
+                    icon={reason.icon}
+                    color="black"
+                    className="w-6 h-6 mt-2"
+                  />
+                  <div className="w-full">
+                    <h2 className="text-3xl font-semibold">{reason.title}</h2>
+                    <p className="text-base text-gray-500">
+                      {reason.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="w-[30%] bg-blue-600 rounded-lg relative">
+            <div className="absolute bottom-0 left-0 px-10 py-16">
+              {/* Title */}
+              <h1 className="text-3xl font-semibold text-white">
+                We're
+                <br />
+                the world's work
+                <br />
+                marketplace
+              </h1>
+
+              {/* Ads */}
+              <div className="w-full flex flex-col items-start gap-4 mt-8">
+                {adus.map((ad, index) => (
+                  <div
+                    key={index}
+                    className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                  >
+                    <Icon
+                      icon={ad.icon}
+                      color="white"
+                      className="w-6 h-6 mt-2"
+                    />
+                    <div className="w-full">
+                      <h2 className="text-3xl font-semibold text-white">
+                        {ad.title}
+                      </h2>
+                      <p className="text-base text-white">{ad.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Find greate work */}
+        <div className="w-full flex bg-green-600 rounded-lg overflow-hidden">
+          <Image
+            src={FindWorkImage}
+            alt="Find great work"
+            className="w-1/2 h-auto object-cover"
+          />
+          <div className="w-1/2 p-8">
+            {/* Title */}
+            <h1 className="text-white text-2xl font-semibold">For talent</h1>
+
+            {/* Description */}
+            <div className="mt-8">
+              <h2 className="text-white text-6xl font-semibold">
+                Find great
+                <br />
+                work
+              </h2>
+              <p className="text-white text-xl mt-8">
+                Meet clients you’re excited to work with and take
+                <br />
+                your career or business to new heights.
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="w-full h-[1px] bg-white mt-32"></div>
+            <div className="w-full grid grid-cols-3 gap-8 mt-4">
+              <p className="text-white">
+                Find opportunities for
+                <br />
+                every stage of your <br />
+                freelance career
+              </p>
+              <p className="text-white">
+                Control when, where, <br />
+                and how you work
+              </p>
+              <p className="text-white">
+                Explore different ways
+                <br /> to earn
+              </p>
+            </div>
+            <button className="mt-10 bg-white py-3 px-7 text-green-600 rounded-lg cursor-pointer hover:bg-gray-300 transition-all duration-300 ease-in-out">
+              Find opportunities
+            </button>
+          </div>
+        </div>
+        {/* Trusted by leading brands and startups */}
+
+        {/* Skills categories */}
       </div>
     </IntroLayout>
   );
