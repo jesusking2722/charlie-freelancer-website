@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
         ? "px-3 py-1 text-xs"
         : size === "medium"
         ? "px-7 py-3 text-sm"
-        : "w-[60%] py-3 text-lg"
+        : "px-12 py-3 text-lg"
     }`,
     fontSize: `${
       size === "small" ? "text-xs" : size === "medium" ? "text-sm" : "text-sm"

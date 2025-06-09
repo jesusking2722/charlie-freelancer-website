@@ -16,6 +16,8 @@ import DesignImage from "@/public/assets/pngs/icons/design-and-creative.png";
 import WritingImage from "@/public/assets/pngs/icons/writing.png";
 import CustomerSupportImage from "@/public/assets/pngs/icons/customer-support-simple.png";
 import FinanceAccountingImage from "@/public/assets/pngs/icons/financial-analysis-valuation.png";
+import PostJobImage from "@/public/assets/jpgs/talent-marketplace/post-job.jpg";
+import ProjectCatalogImage from "@/public/assets/webps/talent-marketplace/project_catalog.webp";
 
 type TNavItem = {
   label: string;
@@ -27,6 +29,12 @@ type TProjectCatalog = {
   subtitle: string;
   image: StaticImageData;
   path: string;
+};
+
+type TBenefit = {
+  title: string;
+  descriptions: string[];
+  icon: string;
 };
 
 const TalentMarketplace = () => {
@@ -86,6 +94,61 @@ const TalentMarketplace = () => {
     },
   ];
 
+  const companyTutorials: TNavItem[] = [
+    {
+      label:
+        "How Flexible Talent Helps a Fast-Paced Company Improve Productivity",
+      path: "/",
+    },
+    {
+      label:
+        "How On-Demand Devs Provide PGA of America Time and Budget for Testing New Ideas",
+      path: "/",
+    },
+    {
+      label:
+        "Singularity University Invents Their Future with On-Demand Independent Experts",
+      path: "/",
+    },
+  ];
+
+  const benefits: TBenefit[] = [
+    {
+      title: "Discover quality talent fast",
+      descriptions: [
+        "Post a job and receive proposals from talent",
+        "See verified work history and reviews",
+        "Send 30 invitations to talent per job post",
+        "Use advanced search filters",
+      ],
+      icon: "solar:shield-star-linear",
+    },
+    {
+      title: "Safe, easy payments",
+      descriptions: [
+        "Get an extra level of security with Upwork Payment Protection",
+        "Pay as you go billing for milestone and hourly contracts",
+        "3-5% marketplace fee depending on billing method",
+      ],
+      icon: "solar:dollar-minimalistic-linear",
+    },
+    {
+      title: "Collaboration tools for project tracking",
+      descriptions: [
+        "Chat, video call, and share files with talent",
+        "Get advanced reporting and tracking",
+        "Set coworker teams and member permission settings",
+        "Customize your invoice with activity codes",
+      ],
+      icon: "mdi-light:pencil",
+    },
+    {
+      title: "Account support and guidance",
+      descriptions: ["Account support and guidance"],
+      icon: "material-symbols-light:headset-mic-outline",
+    },
+  ];
+
   return (
     <IntroLayout>
       {/* Nav Menu */}
@@ -129,7 +192,9 @@ const TalentMarketplace = () => {
 
               {/* Get started Button */}
               <div className="w-full mt-8">
-                <Button type="primary" label="Get started" size="large" />
+                <button className="bg-blue-600 hover:bg-blue-500 w-[60%] py-3 rounded-lg text-lg text-white font-semibold transition-all duration-150 ease-in-out cursor-pointer">
+                  Get started
+                </button>
               </div>
             </div>
             <div className="w-1/2">
@@ -243,6 +308,129 @@ const TalentMarketplace = () => {
                 </Link>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Post a job */}
+        <div className="w-[70%] mx-auto flex items-center gap-16">
+          <div className="w-1/2 rounded-xl overflow-hidden">
+            <Image
+              src={PostJobImage}
+              alt="Post a Job"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="w-1/2">
+            {/* Title & Description */}
+            <h1 className="text-5xl font-semibold">
+              Post today, hire tomorrow
+            </h1>
+            <p className="text-xl mt-4">
+              We've got you covered from idea to delivery. Post your job and
+              you'll start getting proposals. Once you've found your expert, you
+              can talk timings, availability, and prices before going ahead.
+            </p>
+
+            {/* Payment protection */}
+            <div className="w-full flex flex-row items-center gap-4 mt-6">
+              <Icon
+                icon="solar:dollar-minimalistic-linear"
+                className="w-10 h-10"
+                color="black"
+              />
+              <div className="">
+                <h2 className="text-lg font-semibold">
+                  Charlie Unicorn AI Payment Protection
+                </h2>
+                <p className="text-lg font-semibold text-gray-600">
+                  Gives you security and peace of mind
+                </p>
+              </div>
+            </div>
+
+            {/* Post a job Button */}
+            <div className="mt-6">
+              <Button type="primary" label="Post a job" />
+            </div>
+          </div>
+        </div>
+
+        {/* You are in good company */}
+        <div className="w-[70%] mx-auto">
+          <h1 className="text-5xl font-semibold">You’re in good company</h1>
+          <p className="text-xl mt-4">
+            Millions of companies, big and small, use Charlie Unicorn AI to get
+            great work done. Join them today.
+          </p>
+          <div className="w-full grid grid-cols-3 gap-4 mt-6">
+            {companyTutorials.map((tutorial, index) => (
+              <Link
+                key={index}
+                href={tutorial.path}
+                className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
+              >
+                <h2 className="text-xl font-semibold">{tutorial.label}</h2>
+                <div className="mt-4">
+                  <Icon
+                    icon="solar:arrow-right-linear"
+                    className="text-blue-600 w-6 h-6"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* What you will get */}
+        <div className="w-[70%] mx-auto">
+          <h1 className="text-5xl font-semibold">What you’ll get</h1>
+          <div className="w-full mt-10 grid grid-cols-2 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="w-full flex items-start gap-6 overflow-hidden"
+              >
+                <Icon icon={benefit.icon} className="w-12 h-12" color="black" />
+                <div className="w-full">
+                  <h2 className="text-2xl font-semibold">{benefit.title}</h2>
+                  <ul className="mt-2 list-disc list-inside">
+                    {benefit.descriptions.map((des, index) => (
+                      <li key={index}>{des}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Project Catalog */}
+        <div className="w-[70%] mx-auto bg-green-600 p-4 rounded-xl flex items-center gap-8">
+          <div className="w-2/3 pl-4">
+            <h1 className="text-white text-sm">PROJECT CATALOG</h1>
+            <h2 className="text-white text-5xl font-semibold mt-2">
+              Take the first step toward a
+              <br />
+              smarter talent strategy
+            </h2>
+            <p className="text-white text-xl mt-4">
+              Browse and buy projects from talent
+            </p>
+            <div className="mt-10">
+              <Link
+                href="/"
+                className="bg-white text-lg font-semibold py-3 px-8 rounded-xl"
+              >
+                Browse projects
+              </Link>
+            </div>
+          </div>
+          <div className="w-1/3">
+            <Image
+              src={ProjectCatalogImage}
+              alt="Project Catalog"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </div>
