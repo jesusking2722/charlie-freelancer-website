@@ -1,6 +1,6 @@
 import { Footer, Header } from "@/components/organisms";
 import { INavItem } from "@/types/components.types";
-import { FindTalent } from "./NavChildren";
+import { FindTalent, FindWork, WhatNew, WhyCharlie } from "./NavChildren";
 import Head from "next/head";
 
 const IntroLayout = ({ children }: { children: React.ReactNode }) => {
@@ -15,13 +15,19 @@ const IntroLayout = ({ children }: { children: React.ReactNode }) => {
       label: "Find work",
       path: "/",
       active: false,
-      children: <div>Find work</div>,
+      children: <FindWork />,
+    },
+    {
+      label: "Why Charlie",
+      path: "/",
+      active: false,
+      children: <WhyCharlie />,
     },
     {
       label: "What's new",
       path: "/",
       active: false,
-      children: <div>What's new</div>,
+      children: <WhatNew />,
     },
     {
       label: "Enterprise",
