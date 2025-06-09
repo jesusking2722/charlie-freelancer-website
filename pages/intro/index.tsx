@@ -29,6 +29,8 @@ type TSkillCategory = {
 
 const Intro = () => {
   const [activeSwitchIndex, setActiveSwitchIndex] = useState<number>(0);
+  const [activeSkillCategoryIndex, setActiveSkillCategoryIndex] =
+    useState<number>(0);
 
   const firstIntroSectionItems: TFirstIntroSectionItem[] = [
     {
@@ -96,9 +98,116 @@ const Intro = () => {
     },
   ];
 
+  const skillCategories = ["Top skills", "Trending skills", "Project Catalog"];
+
+  const skills: TSkillCategory[][] = [
+    [
+      { label: "Generative AI Specialists", path: "/" },
+      { label: "Data Entry Specialists", path: "/" },
+      { label: "Video Editors", path: "/" },
+      { label: "Data Analyst", path: "/" },
+      { label: "Shopify Developer", path: "/" },
+      { label: "Ruby on Rails Developer", path: "/" },
+      { label: "Android Developer", path: "/" },
+      { label: "Bookkeeper", path: "/" },
+      { label: "Content Writer", path: "/" },
+      { label: "Copywriter", path: "/" },
+      { label: "Data Scientist", path: "/" },
+      { label: "Front-End Developer", path: "/" },
+      { label: "Game Developer", path: "/" },
+      { label: "Graphic Designer", path: "/" },
+      { label: "iOS Developer", path: "/" },
+      { label: "Java Developer", path: "/" },
+      { label: "JavaScript Developer", path: "/" },
+      { label: "Logo Designer", path: "/" },
+      { label: "Mobile App Developer", path: "/" },
+      { label: "PHP Developer", path: "/" },
+      { label: "Python Developer", path: "/" },
+      { label: "Resume Writer", path: "/" },
+      { label: "SEO Expert", path: "/" },
+      { label: "Social Media Manager", path: "/" },
+      { label: "Software Developer", path: "/" },
+      { label: "Software Engineer", path: "/" },
+      { label: "Technical Writer", path: "/" },
+      { label: "UI Designer", path: "/" },
+      { label: "UX Designer", path: "/" },
+      { label: "Virtual Assistant", path: "/" },
+      { label: "Web Designer", path: "/" },
+      { label: "Wordpress Developer", path: "/" },
+    ],
+    [
+      { label: "Generative AI Specialists", path: "/" },
+      { label: "Prompt Engineering Specialists", path: "/" },
+      { label: "AI Content Creators", path: "/" },
+      { label: "ChatGPT Specialists", path: "/" },
+      { label: "AI Chatbot Specialists", path: "/" },
+      { label: "Stable Diffusion Artists", path: "/" },
+      { label: "Blockchain", path: "/" },
+      { label: "Go development", path: "/" },
+      { label: "Node.js", path: "/" },
+      { label: "Vue.js", path: "/" },
+      { label: "HR consulting", path: "/" },
+      { label: "Microsoft Power BI", path: "/" },
+      { label: "Instructional design", path: "/" },
+      { label: "React.js", path: "/" },
+      { label: "Videographers", path: "/" },
+      { label: "HTML5 Developers", path: "/" },
+      { label: "Ghostwriters", path: "/" },
+      { label: "Unity 3D Developers", path: "/" },
+      { label: "Business Consultants", path: "/" },
+      { label: "Coders", path: "/" },
+      { label: "Web Developers", path: "/" },
+      { label: "Illustrators", path: "/" },
+      { label: "Google AdWords Experts", path: "/" },
+      { label: "Digital Marketers", path: "/" },
+      { label: "Project Managers", path: "/" },
+      { label: "Ruby Developers", path: "/" },
+      { label: "AngularJS Devleopers", path: "/" },
+      { label: "Full Stack Developers", path: "/" },
+      { label: "React Native Developers", path: "/" },
+      { label: "Swift Developers", path: "/" },
+      { label: "CSS Developers", path: "/" },
+      { label: "Back End Developers", path: "/" },
+    ],
+    [
+      { label: "Generative AI Services", path: "/" },
+      { label: "Resume Writing Services", path: "/" },
+      { label: "SEO Services", path: "/" },
+      { label: "Translation Services", path: "/" },
+      { label: "Transcription Services", path: "/" },
+      { label: "Virtual Assistant Services", path: "/" },
+      { label: "Email Marketing Services", path: "/" },
+      { label: "Web Design Services", path: "/" },
+      { label: "Proofreading Services", path: "/" },
+      { label: "Business Consulting Services", path: "/" },
+      { label: "Logo Design Services", path: "/" },
+      { label: "Architecture/Interior Design Services", path: "/" },
+      { label: "Branding Services", path: "/" },
+      { label: "Social Media Management Services", path: "/" },
+      { label: "Video Editing Services", path: "/" },
+      { label: "Lead Generation Services", path: "/" },
+      { label: "Content Marketing Services", path: "/" },
+      { label: "Survey Services", path: "/" },
+      { label: "Landscape Design Services", path: "/" },
+      { label: "Photoshop Services", path: "/" },
+      { label: "Mobile App Development Services", path: "/" },
+      { label: "Data Entry Services", path: "/" },
+      { label: "Building Information Modeling Services", path: "/" },
+      { label: "Podcast Editing Services", path: "/" },
+      { label: "Wellness Services", path: "/" },
+      { label: "Video Marketing Services", path: "/" },
+      { label: "WordPress Development Services", path: "/" },
+      { label: "Ecommerce Services", path: "/" },
+      { label: "Influencer Marketing Services", path: "/" },
+      { label: "Public Relations Services", path: "/" },
+      { label: "QA Services", path: "/" },
+      { label: "Podcast Marketing Services", path: "/" },
+    ],
+  ];
+
   return (
     <IntroLayout>
-      <div className="w-[70%] flex flex-col gap-14 mx-auto py-8">
+      <div className="w-[70%] flex flex-col gap-24 mx-auto py-8">
         {/* Search */}
         <div className="relative w-full h-[700px]">
           <Image
@@ -532,6 +641,49 @@ const Intro = () => {
         {/* Trusted by leading brands and startups */}
 
         {/* Skills categories */}
+        <div className="w-full flex gap-8">
+          <div className="w-1/3 flex flex-col items-start gap-4">
+            {skillCategories.map((skillCategory, index) => (
+              <button
+                key={index}
+                className={`w-full font-semibold text-4xl hover:text-blue-600 ${
+                  activeSkillCategoryIndex === index
+                    ? "text-blue-600"
+                    : "text-gray-300"
+                } cursor-pointer text-left`}
+                onClick={() => setActiveSkillCategoryIndex(index)}
+              >
+                {skillCategory}
+              </button>
+            ))}
+          </div>
+          <div className="w-1/3 flex flex-col items-start gap-4">
+            {skills[activeSkillCategoryIndex]
+              .slice(0, 16)
+              .map((skill, index) => (
+                <Link
+                  key={index}
+                  href={skill.path}
+                  className="text-2xl text-gray-500 hover:text-blue-600"
+                >
+                  {skill.label}
+                </Link>
+              ))}
+          </div>
+          <div className="w-1/3 flex flex-col items-start gap-4">
+            {skills[activeSkillCategoryIndex]
+              .slice(16, skills[activeSkillCategoryIndex].length)
+              .map((skill, index) => (
+                <Link
+                  key={index}
+                  href={skill.path}
+                  className="text-2xl text-gray-500 hover:text-blue-600"
+                >
+                  {skill.label}
+                </Link>
+              ))}
+          </div>
+        </div>
       </div>
     </IntroLayout>
   );
