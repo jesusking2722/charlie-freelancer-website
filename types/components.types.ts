@@ -11,3 +11,10 @@ export type TFindTalentNavItem = {
   path: string;
   children?: React.ReactNode;
 };
+
+export type TMenuItem = {
+  label?: string;
+  description?: string;
+  value?: any;
+  icon?: string;
+};

@@ -1,6 +1,7 @@
 import { INavItem } from "@/types/components.types";
 import Navbar from "../Navbar";
 import { Button } from "@/components/atoms";
+import { HeaderSearch } from "@/components/molecules";
 
 interface HeaderProps {
   navItems: INavItem[];
@@ -18,6 +19,7 @@ const Header: React.FC<HeaderProps> = ({ navItems }) => {
         </div>
         {/* Sign in & Sign up Buttons */}
         <div className="flex items-center gap-8">
+          <HeaderSearch />
           <Button type="text" label="Log in" size="medium" />
           <Button type="primary" label="Sign up" size="medium" />
         </div>
