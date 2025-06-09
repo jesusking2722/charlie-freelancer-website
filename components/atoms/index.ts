@@ -1,3 +1,4 @@
+export { default as AvatarGroup } from "./AvatarGroup";
 export { default as Button } from "./Button";
 export { default as LinkDropdown } from "./LinkDropdown";
 export { default as Menu } from "./Menu";

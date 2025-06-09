@@ -4,7 +4,7 @@ import { TLinkDropdownItem } from "@/types/components.types";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import Intro1Image from "@/public/assets/webps/talent-marketplace/intro1.webp";
+import Intro1Image from "@/public/assets/webps/talent-marketplace/intro.webp";
 import MicroSoftImage from "@/public/assets/svgs/talent-marketplace/microsoft.svg";
 import AirbnbImage from "@/public/assets/svgs/talent-marketplace/airbnb.svg";
 import AutomatticImage from "@/public/assets/svgs/talent-marketplace/automattic.svg";
@@ -18,7 +18,6 @@ import CustomerSupportImage from "@/public/assets/pngs/icons/customer-support-si
 import FinanceAccountingImage from "@/public/assets/pngs/icons/financial-analysis-valuation.png";
 import PostJobImage from "@/public/assets/jpgs/talent-marketplace/post-job.jpg";
 import ProjectCatalogImage from "@/public/assets/webps/talent-marketplace/project_catalog.webp";
-import Head from "next/head";
 
 type TNavItem = {
   label: string;
@@ -40,7 +39,7 @@ type TBenefit = {
 
 const TalentMarketplace = () => {
   const navs: TNavItem[] = [
-    { label: "Development & IT", path: "/" },
+    { label: "Development & IT", path: "/cat/dev-it" },
     { label: "AI Services", path: "/" },
     { label: "Design & Creative", path: "/" },
     { label: "Sales & Marketing", path: "/" },
@@ -183,7 +182,7 @@ const TalentMarketplace = () => {
 
       {/* Main */}
       <div className="w-full flex flex-col gap-24 py-8 mt-[150px]">
-        {/* Intro1 Part */}
+        {/* Intro Part */}
         <div className="w-[70%] mx-auto">
           {/* Describe */}
           <div className="w-full flex gap-20">
@@ -193,7 +192,7 @@ const TalentMarketplace = () => {
                 <h1 className="text-6xl font-semibold">
                   Post a job today, hire tomorrow
                 </h1>
-                <p className="text-lg mt-8">
+                <p className="text-xl mt-8">
                   Connect with talent that gets you, and hire them to take your
                   business to the next level.
                 </p>
