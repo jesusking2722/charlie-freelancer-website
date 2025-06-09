@@ -2,7 +2,7 @@ import IntroLayout from "@/components/templates/IntroLayout";
 import Image from "next/image";
 import SearchSectionBgImage from "@/public/assets/jpgs/intro/intro_section1.jpg";
 import { Button, Switch } from "@/components/atoms";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import EnterpriseSuiteImage from "@/public/assets/jpgs/intro/intro_enterprise_suite.jpg";
@@ -31,6 +31,36 @@ const Intro = () => {
   const [activeSwitchIndex, setActiveSwitchIndex] = useState<number>(0);
   const [activeSkillCategoryIndex, setActiveSkillCategoryIndex] =
     useState<number>(0);
+  const [activeSearch, setActiveSearch] = useState<boolean>(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  // Popular search keywords
+  const popularSearches = [
+    "Design my mobile app",
+    "Hire a virtual assistance",
+    "AI/ML consultant for AI startup",
+  ];
+
+  // Click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setActiveSearch(false);
+      }
+    };
+
+    if (activeSearch) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeSearch]);
 
   const firstIntroSectionItems: TFirstIntroSectionItem[] = [
     {
@@ -42,7 +72,7 @@ const Intro = () => {
     {
       title: "Post a job and hire top talent",
       description:
-        "Finding talent doesn’t have to be a chore. Post a job or we can search for you!",
+        "Finding talent doesn't have to be a chore. Post a job or we can search for you!",
       icon: "solar:pin-outline",
     },
     {
@@ -68,7 +98,7 @@ const Intro = () => {
     {
       title: "Proof of quality",
       description:
-        "Check any pro’s work samples, client reviews, and identity verification.",
+        "Check any pro's work samples, client reviews, and identity verification.",
       icon: "solar:star-circle-outline",
     },
     {
@@ -80,7 +110,7 @@ const Intro = () => {
     {
       title: "Safe and secure",
       description:
-        "Focus on your work knowing we help protect your data and privacy. We’re here with 24/7 support if you need it.",
+        "Focus on your work knowing we help protect your data and privacy. We're here with 24/7 support if you need it.",
       icon: "solar:check-circle-outline",
     },
   ];
@@ -93,7 +123,7 @@ const Intro = () => {
     },
     {
       title: "Award winner",
-      description: "G2’s 2021 Best Software Awards",
+      description: "G2's 2021 Best Software Awards",
       icon: "solar:star-circle-outline",
     },
   ];
@@ -207,7 +237,7 @@ const Intro = () => {
 
   return (
     <IntroLayout>
-      <div className="w-[70%] flex flex-col gap-24 mx-auto py-8">
+      <div ref={pageRef} className="w-[70%] flex flex-col gap-24 mx-auto py-8">
         {/* Search */}
         <div className="relative w-full h-[700px] mt-[90px]">
           <Image
@@ -216,16 +246,28 @@ const Intro = () => {
             className="absolute w-full h-full object-cover rounded-lg"
           />
           <div className="absolute top-5 w-1/2 h-full flex flex-col items-center justify-center pl-8 gap-20">
-            <h1 className="text-6xl text-white font-semibold">
+            <h1
+              className={`text-6xl text-white font-semibold transition-all duration-300 ${
+                activeSearch
+                  ? "opacity-0 transform -translate-y-8"
+                  : "opacity-100 transform translate-y-0"
+              }`}
+            >
               Connecting clients in need to freelancers who deliver
             </h1>
 
             {/* Search Part */}
             <div
-              className="w-full rounded-4xl p-8"
+              ref={searchContainerRef}
+              className={`w-full rounded-4xl p-8 transition-all duration-300 ease-in-out ${
+                activeSearch
+                  ? "transform -translate-y-20"
+                  : "transform translate-y-0"
+              }`}
               style={{
                 backgroundColor: "rgba(20, 20, 20, 0.7)",
                 backdropFilter: "blur(8px)",
+                height: activeSearch ? "400px" : "auto",
               }}
             >
               {/* Switch */}
@@ -244,6 +286,7 @@ const Intro = () => {
                       type="search"
                       placeholder="Search by role, skills or keywords"
                       className="bg-transparent py-3 px-5 w-full rounded-full border-none outline-none"
+                      onClick={() => setActiveSearch(true)}
                     />
                     <button className="flex items-center justify-center bg-black text-white font-semibold rounded-full py-2 px-5 mr-[2px] text-lg">
                       <Icon
@@ -254,41 +297,66 @@ const Intro = () => {
                     </button>
                   </div>
 
-                  {/* Brands */}
-                  <div className="flex flex-row items-center justify-center gap-8 mt-6 w-[80%] mx-auto">
-                    <Image
-                      src={
-                        "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-microsoft-grey.svg"
-                      }
-                      alt="Microsoft"
-                      width={100}
-                      height={50}
-                    />
-                    <Image
-                      src={
-                        "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-airbnb-grey.svg"
-                      }
-                      alt="Microsoft"
-                      width={70}
-                      height={30}
-                    />
-                    <Image
-                      src={
-                        "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-bissell-grey.svg"
-                      }
-                      alt="Microsoft"
-                      width={40}
-                      height={30}
-                    />
-                    <Image
-                      src={
-                        "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-glassdoor.svg"
-                      }
-                      alt="Microsoft"
-                      width={80}
-                      height={30}
-                    />
-                  </div>
+                  {/* Popular Searches - Show when search is active */}
+                  {activeSearch && (
+                    <div className="w-full mt-6">
+                      <p className="text-white text-sm font-semibold mb-4">
+                        POPULAR SEARCHES
+                      </p>
+                      <div className="flex flex-col gap-3">
+                        {popularSearches.map((search, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-3 cursor-pointer hover:bg-white/10 rounded-lg p-2 transition-colors"
+                          >
+                            <Icon
+                              icon="mingcute:search-line"
+                              className="w-4 h-4 text-gray-300"
+                            />
+                            <span className="text-white text-sm">{search}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Brands - Show when search is not active */}
+                  {!activeSearch && (
+                    <div className="flex flex-row items-center justify-center gap-8 mt-6 w-[80%] mx-auto">
+                      <Image
+                        src={
+                          "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-microsoft-grey.svg"
+                        }
+                        alt="Microsoft"
+                        width={100}
+                        height={50}
+                      />
+                      <Image
+                        src={
+                          "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-airbnb-grey.svg"
+                        }
+                        alt="Airbnb"
+                        width={70}
+                        height={30}
+                      />
+                      <Image
+                        src={
+                          "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-bissell-grey.svg"
+                        }
+                        alt="Bissell"
+                        width={40}
+                        height={30}
+                      />
+                      <Image
+                        src={
+                          "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-glassdoor.svg"
+                        }
+                        alt="Glassdoor"
+                        width={80}
+                        height={30}
+                      />
+                    </div>
+                  )}
                 </>
               ) : (
                 <div className="w-full flex flex-col items-center justify-center mt-6">
@@ -306,12 +374,13 @@ const Intro = () => {
             </div>
           </div>
         </div>
+
         {/* Intro1 */}
         <div className="w-full flex gap-8 py-4">
           <div className="w-2/5 rounded-md bg-blue-200"></div>
           <div className="w-3/5">
             <h2 className="text-5xl font-semibold">
-              Up your work game, it’s easy
+              Up your work game, it's easy
             </h2>
             <div className="w-full flex flex-col items-start gap-4 mt-8">
               {firstIntroSectionItems.map((item, index) => (
@@ -337,6 +406,7 @@ const Intro = () => {
             </div>
           </div>
         </div>
+
         {/* Browse talent */}
         <div className="w-full py-4">
           <h1 className="text-5xl font-semibold">Browse talent by category</h1>
@@ -370,6 +440,7 @@ const Intro = () => {
             ))}
           </div>
         </div>
+
         {/* Enterprise suite */}
         <div className="w-full bg-[#1034a6] flex rounded-lg">
           {/* Intro section */}
@@ -444,6 +515,7 @@ const Intro = () => {
             />
           </div>
         </div>
+
         {/* For Clients */}
         <div className="w-full rounded-lg relative h-[600px]">
           <Image
@@ -523,6 +595,7 @@ const Intro = () => {
             </div>
           </div>
         </div>
+
         {/* Why businesses turn to us */}
         <div className="w-full relative flex gap-4">
           <div className="w-[70%] bg-gray-100 rounded-lg px-8 py-16">
@@ -590,6 +663,7 @@ const Intro = () => {
             </div>
           </div>
         </div>
+
         {/* Find greate work */}
         <div className="w-full flex bg-green-600 rounded-lg overflow-hidden">
           <Image
@@ -609,7 +683,7 @@ const Intro = () => {
                 work
               </h2>
               <p className="text-white text-xl mt-8">
-                Meet clients you’re excited to work with and take
+                Meet clients you're excited to work with and take
                 <br />
                 your career or business to new heights.
               </p>
@@ -638,6 +712,7 @@ const Intro = () => {
             </button>
           </div>
         </div>
+
         {/* Trusted by leading brands and startups */}
 
         {/* Skills categories */}
