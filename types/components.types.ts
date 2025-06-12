@@ -60,3 +60,11 @@ export interface ICatFreelancerCategory {
   title: string;
   items: TLink[];
 }
+
+export type TSEO = {
+  title: string;
+  description: string;
+  keywords?: string;
+  url: string;
+  image?: string;
+};

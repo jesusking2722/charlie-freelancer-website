@@ -23,7 +23,7 @@ import {
 } from "@/static/data/cat/design-creative";
 import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
 import DesignProjectOverviewImage from "@/public/assets/pngs/cat/design-creative/project_overview.png";
-import { IExpandableText } from "@/types/components.types";
+import { IExpandableText, TSEO } from "@/types/components.types";
 import {
   DevConnectionMethodsFaq,
   DevHiringBenefitsFaq,
@@ -34,10 +34,13 @@ import {
   DesignCreativeHiringBenefitsFaq,
   HiringDesignCostIntroFaq,
 } from "@/components/templates/CatLayout/Faqs/DesignCreativeFaqs";
+import { getMonthName } from "@/utils/date";
 
 const Category = () => {
   const router = useRouter();
   const { category } = router.query;
+
+  const now = new Date();
 
   if (!category && typeof category !== "string") {
     <div>Page Not Found</div>;
@@ -229,6 +232,33 @@ const Category = () => {
     }
   };
 
+  const getSEO = (): TSEO | null => {
+    switch (category) {
+      case "dev-it":
+        return {
+          title: `Top Development & IT Experts for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Discover and hire top Development & IT experts on Charlie Unicorn AI - Freelancer. From web and mobile development to DevOps and data science, find the right freelancer for your project with ease. Learn how to get started, explore expert services, and streamline your development process.`,
+          keywords:
+            "development freelancers, IT experts for hire, web developers, mobile app developers, DevOps freelancers, hire developers, freelance IT services, software engineers, Charlie Unicorn AI, top development talent, remote developers, full-stack developers, freelance development services",
+          url: "/cat/dev-it",
+        };
+      case "design-creative":
+        return {
+          title: `Top Designers & Creatives for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Find and hire top design and creative talent on Charlie Unicorn AI - Freelancer. From graphic design and branding to video editing and UX/UI design, connect with skilled freelancers to bring your vision to life. Learn how to start your project and explore our expert services today.`,
+          keywords:
+            "design freelancers, creative talent, graphic designers, UX UI designers, video editors, logo designers, branding experts, hire creatives, freelance design services, Charlie Unicorn AI, top designers for hire, digital artists, animation freelancers, web design freelancers",
+          url: "/cat/design-creative",
+        };
+      default:
+        return null;
+    }
+  };
+
   return (
     <CatLayout
       intro={getIntro()}
@@ -238,6 +268,7 @@ const Category = () => {
       projectOverview={getProjectOverview()}
       freelancerCategory={getFreelancerCategory()}
       faqs={getFaqs()}
+      seo={getSEO()}
     />
   );
 };

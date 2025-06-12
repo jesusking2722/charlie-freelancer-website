@@ -7,6 +7,7 @@ import {
   ExpandableText,
   LinkDropdown,
   Rater,
+  SEO,
   SkillTag,
 } from "@/components/atoms";
 import type {
@@ -15,6 +16,7 @@ import type {
   TAccordionImageViewerItem,
   TCatLayoutExpertCategory,
   TLinkDropdownItem,
+  TSEO,
 } from "@/types/components.types";
 import Image, { StaticImageData } from "next/image";
 import { Icon } from "@iconify/react";
@@ -26,11 +28,6 @@ import BissellImage from "@/public/assets/svgs/talent-marketplace/bissell.svg";
 import ClouldflareImage from "@/public/assets/pngs/talent-marketplace/cloudflare.png";
 import { AccordionImageViewer } from "@/components/organisms";
 import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_experts_work_now.webp";
-import {
-  DevConnectionMethodsFaq,
-  DevHiringBenefitsFaq,
-  HiringDevCostIntroFaq,
-} from "./Faqs/DeveloperFaqs";
 import { formatNumberWithCommas } from "@/utils/math";
 
 type TNavItem = {
@@ -89,6 +86,7 @@ interface CatLayoutProps {
   freelancerCategory: TCatLayoutFreelancerCategory | null;
   projectOverview: TCatLayoutProjectOverview | null;
   faqs: IExpandableText[] | null;
+  seo: TSEO | null;
 }
 
 const CatLayout: React.FC<CatLayoutProps> = ({
@@ -99,6 +97,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
   freelancerCategory,
   projectOverview,
   faqs,
+  seo,
 }) => {
   const navs: TNavItem[] = [
     { label: "Development & IT", path: "/cat/dev-it" },
@@ -119,6 +118,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
 
   return (
     <IntroLayout>
+      {seo && <SEO {...seo} />}
       {/* Nav Menu */}
       <NavLayout>
         <ul className="flex flex-row items-center gap-6">
