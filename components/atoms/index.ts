@@ -1,6 +1,9 @@
+export { default as Accordion } from "./Accordion";
 export { default as AvatarGroup } from "./AvatarGroup";
 export { default as Button } from "./Button";
 export { default as LinkDropdown } from "./LinkDropdown";
 export { default as Menu } from "./Menu";
+export { default as Rater } from "./Rater";
+export { default as SkillTag } from "./SkillTag";
 export { default as Switch } from "./Switch";
 export { default as SEO } from "./SEO";

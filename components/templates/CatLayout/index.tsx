@@ -1,8 +1,18 @@
 import Link from "next/link";
 import IntroLayout from "../IntroLayout";
 import NavLayout from "../NavLayout";
-import { LinkDropdown } from "@/components/atoms";
-import type { TLinkDropdownItem } from "@/types/components.types";
+import {
+  AvatarGroup,
+  Button,
+  LinkDropdown,
+  Rater,
+  SkillTag,
+} from "@/components/atoms";
+import type {
+  TAccordionImageViewerItem,
+  TCatLayoutExpertCategory,
+  TLinkDropdownItem,
+} from "@/types/components.types";
 import Image, { StaticImageData } from "next/image";
 import { Icon } from "@iconify/react";
 
@@ -11,6 +21,9 @@ import AirbnbImage from "@/public/assets/svgs/talent-marketplace/airbnb.svg";
 import AutomatticImage from "@/public/assets/svgs/talent-marketplace/automattic.svg";
 import BissellImage from "@/public/assets/svgs/talent-marketplace/bissell.svg";
 import ClouldflareImage from "@/public/assets/pngs/talent-marketplace/cloudflare.png";
+import { AccordionImageViewer } from "@/components/organisms";
+import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_experts_work_now.webp";
+import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
 
 type TNavItem = {
   label: string;
@@ -26,9 +39,18 @@ export type TCatLayoutIntro = {
 interface CatLayoutProps {
   params: string;
   intro: TCatLayoutIntro;
+  expertCategory?: TCatLayoutExpertCategory[];
+  services: TAccordionImageViewerItem[];
+  skills?: string[];
 }
 
-const CatLayout: React.FC<CatLayoutProps> = ({ params, intro }) => {
+const CatLayout: React.FC<CatLayoutProps> = ({
+  params,
+  intro,
+  expertCategory,
+  services,
+  skills,
+}) => {
   const navs: TNavItem[] = [
     { label: "Development & IT", path: "/" },
     { label: "AI Services", path: "/" },
@@ -49,25 +71,23 @@ const CatLayout: React.FC<CatLayoutProps> = ({ params, intro }) => {
   return (
     <IntroLayout>
       {/* Nav Menu */}
-      <div className="fixed top-[80px] left-0 w-full">
-        <NavLayout>
-          <ul className="flex flex-row items-center gap-6">
-            {navs.map((nav, index) => (
-              <li key={index}>
-                <Link
-                  href={nav.path}
-                  className="text-sm hover:text-blue-600 hover:underline"
-                >
-                  {nav.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <LinkDropdown placeholder="More" items={dropdowns} />
+      <NavLayout>
+        <ul className="flex flex-row items-center gap-6">
+          {navs.map((nav, index) => (
+            <li key={index}>
+              <Link
+                href={nav.path}
+                className="text-sm hover:text-blue-600 hover:underline"
+              >
+                {nav.label}
+              </Link>
             </li>
-          </ul>
-        </NavLayout>
-      </div>
+          ))}
+          <li>
+            <LinkDropdown placeholder="More" items={dropdowns} />
+          </li>
+        </ul>
+      </NavLayout>
 
       {/* Main */}
       <div className="w-full flex flex-col gap-16 py-8 mt-[150px]">
@@ -119,6 +139,8 @@ const CatLayout: React.FC<CatLayoutProps> = ({ params, intro }) => {
             <h1 className="text-5xl font-semibold">
               Trusted remote development and IT experts
             </h1>
+
+            {/* Rate */}
             <div className="w-full flex flex-row items-center justify-between mt-16">
               <div>
                 <div className="flex items-center gap-2">
@@ -145,7 +167,162 @@ const CatLayout: React.FC<CatLayoutProps> = ({ params, intro }) => {
                 </p>
               </div>
             </div>
+
+            {/* Experts category */}
+            {expertCategory && (
+              <>
+                <div className="w-full grid grid-cols-4 gap-6 mt-14">
+                  {expertCategory.map((cat, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
+                    >
+                      <Link href={cat.path}>
+                        {/* Title */}
+                        <h2 className="text-lg font-semibold">{cat.name}</h2>
+
+                        {/* Average rating */}
+                        <div className="w-full flex items-center gap-2 mt-6">
+                          <Icon
+                            icon="solar:star-bold"
+                            className="text-yellow-500 w-5 h-5"
+                          />
+                          <span>{cat.rate} average rating</span>
+                        </div>
+
+                        {/* Experts Avatars Group */}
+                        <div className="w-full flex items-center justify-between mt-4">
+                          <AvatarGroup avatars={cat.experts} />
+                          <Icon
+                            icon="solar:arrow-right-linear"
+                            className="text-blue-600 w-8 h-8"
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-10">
+                  <Button type="outline" label="See more skills" size="large" />
+                </div>
+              </>
+            )}
           </div>
+        </div>
+
+        {/* Service Descriptions */}
+        <div className="w-[70%] mx-auto">
+          {/* Title */}
+          <h1 className="text-5xl font-semibold">
+            Development and IT projects for your most
+            <br />
+            pressing work
+          </h1>
+
+          {/* Accordian image viewer */}
+          <div className="mt-14">
+            <AccordionImageViewer items={services} defaultSelected="1" />
+            <div className="mt-10">
+              <Button type="outline" label="Browse projects" size="large" />
+            </div>
+          </div>
+        </div>
+
+        {/* How works */}
+        <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4">
+          {/* Title & Descriptions */}
+          <div className="w-1/2 p-6 flex flex-col items-start gap-4">
+            <h2 className="text-sm font-semibold text-white">
+              ENTERPRISE SUITE
+            </h2>
+            <h3 className="text-5xl font-semibold text-white mt-2">
+              This is how IT Experts
+              <br />
+              work now
+            </h3>
+            <p className="text-white mt-4">
+              Build an agile workforce that moves faster than the pace of
+              <br />
+              business with Enterprise Suite.
+            </p>
+            <div className="mt-6 mb-4">
+              <Link
+                href="/enterprise"
+                className="bg-[#95df00] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
+              >
+                Find out how
+              </Link>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-1/2 rounded-2xl overflow-auto">
+            <Image
+              src={HowITExpertsWorkNowImage}
+              alt="How IT experts work now"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Expert's project overview */}
+        <div className="w-[70%] mx-auto flex gap-10 mt-14">
+          {/* Project overview */}
+          <div className="w-1/2 flex flex-col items-start justify-center">
+            <h1 className="text-5xl font-semibold">
+              Dev expertise at your
+              <br />
+              fingertips
+            </h1>
+
+            {/* Overview title & description */}
+            <h2 className="text-xl font-semibold mt-6">
+              An iOS/Android developer saved his client money, time, and stress
+            </h2>
+            <p className="mt-8">
+              "Igor has great knowledge in mobile application development [and]
+              always suggests a<br />
+              better and cost-effective solution. Superfast turnaround. Thank
+              you Igor!"
+            </p>
+
+            {/* Rate & Budget */}
+            <div className="mt-6 flex flex-row items-center gap-6">
+              <Rater rate={5} />
+              <span className="text-lg text-[#001e00]">
+                <strong>Budget: $14,520</strong>
+              </span>
+            </div>
+
+            <div className="flex flex-row items-center gap-2 mt-4">
+              <h3 className="text-lg">Skills: </h3>
+              {skills &&
+                skills.map((skill, index) => (
+                  <SkillTag label={skill} value={skill} />
+                ))}
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="w-1/2 rounded-2xl overflow-hidden">
+            <Image
+              src={DevProjectOverviewImage}
+              alt="Dev project overview"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
+          <div className="w-1/3">
+            <h1 className="text-5xl font-semibold">
+              Frequently asked
+              <br />
+              questions
+            </h1>
+          </div>
+          <div className="w-2/3"></div>
         </div>
       </div>
     </IntroLayout>

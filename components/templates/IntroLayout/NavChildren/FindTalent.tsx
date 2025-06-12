@@ -30,7 +30,7 @@ type TProjectCatalog = {
 
 const TalentMarketplace = () => {
   const catalogs: TTalentMarketplaceCatalog[] = [
-    { label: "Development & IT", path: "/" },
+    { label: "Development & IT", path: "/cat/dev-it" },
     { label: "Design & Creative", path: "/" },
     { label: "Sales & Marketing", path: "/" },
     { label: "Writing & Translation", path: "/" },
@@ -210,7 +210,7 @@ const FindTalent = () => {
     {
       title: "Post a job and hire a pro",
       subtitle: "Talent Marketplace",
-      path: "/",
+      path: "/talent-marketplace",
       children: <TalentMarketplace />,
     },
     {

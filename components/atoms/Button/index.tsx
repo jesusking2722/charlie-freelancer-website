@@ -49,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
   const sizeClasses = {
     small: "px-3 py-1 text-xs",
     medium: "px-7 py-3 text-sm",
-    large: "px-7 py-3 text-base",
+    large: "px-12 py-3 text-lg",
   };
 
   const iconSizeClasses = {

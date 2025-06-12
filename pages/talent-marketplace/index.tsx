@@ -160,25 +160,23 @@ const TalentMarketplace = () => {
       />
 
       {/* Nav Menu */}
-      <div className="fixed top-[80px] left-0 w-full">
-        <NavLayout>
-          <ul className="flex flex-row items-center gap-6">
-            {navs.map((nav, index) => (
-              <li key={index}>
-                <Link
-                  href={nav.path}
-                  className="text-sm hover:text-blue-600 hover:underline"
-                >
-                  {nav.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <LinkDropdown placeholder="More" items={dropdowns} />
+      <NavLayout>
+        <ul className="flex flex-row items-center gap-6">
+          {navs.map((nav, index) => (
+            <li key={index}>
+              <Link
+                href={nav.path}
+                className="text-sm hover:text-blue-600 hover:underline"
+              >
+                {nav.label}
+              </Link>
             </li>
-          </ul>
-        </NavLayout>
-      </div>
+          ))}
+          <li>
+            <LinkDropdown placeholder="More" items={dropdowns} />
+          </li>
+        </ul>
+      </NavLayout>
 
       {/* Main */}
       <div className="w-full flex flex-col gap-24 py-8 mt-[150px]">
