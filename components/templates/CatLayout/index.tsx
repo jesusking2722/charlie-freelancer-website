@@ -2,6 +2,7 @@ import Link from "next/link";
 import IntroLayout from "../IntroLayout";
 import NavLayout from "../NavLayout";
 import {
+  Avatar,
   AvatarGroup,
   Button,
   ExpandableText,
@@ -15,6 +16,7 @@ import type {
   IExpandableText,
   TAccordionImageViewerItem,
   TCatLayoutExpertCategory,
+  TFreelancerBadge,
   TLinkDropdownItem,
   TSEO,
 } from "@/types/components.types";
@@ -29,6 +31,8 @@ import ClouldflareImage from "@/public/assets/pngs/talent-marketplace/cloudflare
 import { AccordionImageViewer } from "@/components/organisms";
 import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_experts_work_now.webp";
 import { formatNumberWithCommas } from "@/utils/math";
+
+import ReadArticleImage from "@/public/assets/pngs/cat/admin-customer-support/read_article.png";
 
 type TNavItem = {
   label: string;
@@ -78,6 +82,21 @@ export type TCatLayoutFreelancerCategory = {
   categories: ICatFreelancerCategory[];
 };
 
+export type TCatLayoutProfessionalCardItem = {
+  message: string;
+  user: {
+    name: string;
+    pic: string;
+    badge: TFreelancerBadge;
+    profession: string;
+  };
+};
+
+export type TCatLayoutProfessionals = {
+  title: string;
+  professionals: TCatLayoutProfessionalCardItem[];
+};
+
 interface CatLayoutProps {
   params: string;
   intro: TCatLayoutIntro | null;
@@ -85,6 +104,7 @@ interface CatLayoutProps {
   services: TCatLayoutService | null;
   freelancerCategory: TCatLayoutFreelancerCategory | null;
   projectOverview: TCatLayoutProjectOverview | null;
+  professionals: TCatLayoutProfessionals | null;
   faqs: IExpandableText[] | null;
   seo: TSEO | null;
 }
@@ -96,6 +116,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
   services,
   freelancerCategory,
   projectOverview,
+  professionals,
   faqs,
   seo,
 }) => {
@@ -104,7 +125,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
     { label: "AI Services", path: "" },
     { label: "Design & Creative", path: "/cat/design-creative" },
     { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
-    { label: "Admin & Customer Support", path: "/" },
+    { label: "Admin & Customer Support", path: "/cat/admin-customer-support" },
   ];
 
   const dropdowns: TLinkDropdownItem[] = [
@@ -314,6 +335,8 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 ? "IT Experts"
                 : params === "sales-and-marketing"
                 ? "Sales & Marketing"
+                : params === "admin-customer-support"
+                ? "Administrators"
                 : "Creatives"}{" "}
               work now
             </h3>
@@ -369,13 +392,15 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 </span>
               </div>
 
-              <div className="flex flex-row items-center gap-2 mt-4">
+              <div className="flex flex-row items-start gap-2 mt-4">
                 <h3 className="text-lg font-semibold text-[#0e183d]">
                   Skills:{" "}
                 </h3>
-                {projectOverview.skills.map((skill, index) => (
-                  <SkillTag key={index} label={skill} value={skill} />
-                ))}
+                <div className="grid grid-cols-3 gap-2">
+                  {projectOverview.skills.map((skill, index) => (
+                    <SkillTag key={index} label={skill} value={skill} />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -384,6 +409,68 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               <Image
                 src={projectOverview.image}
                 alt="Dev project overview"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Professionals Intro */}
+        {professionals && (
+          <div className="w-full py-20 bg-[#f9f9f9]">
+            <div className="w-[70%] mx-auto">
+              {/* Title */}
+              <div className="w-4/5">
+                <h1 className="text-5xl font-semibold text-[#0e183d]">
+                  {professionals.title}
+                </h1>
+              </div>
+
+              {/* Professionals Cards */}
+              <div className="w-full grid grid-cols-2 gap-8 mt-14">
+                {professionals.professionals.map((pro, index) => (
+                  <div
+                    key={index}
+                    className="rounded-2xl bg-white p-8 flex flex-col items-start justify-between gap-16"
+                  >
+                    {/* Message */}
+                    <h2 className="text-3xl">“{pro.message}”</h2>
+
+                    {/* User */}
+                    <div className="">
+                      {/* Avatar & Badge */}
+                      <Avatar {...pro.user} />
+
+                      {/* Profession Title */}
+                      <h4 className="mt-4">{pro.user.profession}</h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Read article */}
+        {params === "admin-customer-support" && (
+          <div className="w-[70%] mx-auto rounded-2xl bg-[#053b8d] px-12 flex flex-row items-center justify-between gap-14">
+            {/* Title & Button */}
+            <div className="w-3/4 flex flex-col items-start justify-between gap-8">
+              <h2 className="text-4xl font-semibold text-white">
+                Discover how you can build a virtual Customer Service team to
+                help unlock new levels of productivity within your organization.
+              </h2>
+              <button className="bg-white text-[#0e183d] py-3 px-10 rounded-xl text-lg">
+                Read article
+              </button>
+            </div>
+
+            {/* Image */}
+            <div className="w-1/4">
+              <Image
+                src={ReadArticleImage}
+                alt="Discover how you can build a virtual Customer Service team to
+                help unlock new levels of productivity within your organization."
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -412,13 +499,12 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             </div>
           </div>
         )}
-
         {/* Freelancers Category */}
         {freelancerCategory && (
           <div className="w-[70%] mx-auto mt-14">
             {/* Title */}
             <div className="w-2/3">
-              <h1 className="text-5xl font-semibold">
+              <h1 className="text-5xl font-semibold text-[#0e183d]">
                 {freelancerCategory.title}
               </h1>
             </div>
@@ -426,7 +512,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             {/* Category */}
             {freelancerCategory.categories.map((cat, index) => (
               <div key={index} className="w-full mt-10">
-                <h1 className="text-3xl font-semibold">{cat.title}</h1>
+                <h1 className="text-3xl font-semibold text-[#0e183d]">
+                  {cat.title}
+                </h1>
                 <div className="w-full grid grid-cols-4 gap-4 mt-6">
                   {cat.items.map((item, index) => (
                     <Link

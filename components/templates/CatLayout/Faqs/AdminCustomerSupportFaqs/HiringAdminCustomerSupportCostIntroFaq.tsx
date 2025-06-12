@@ -1,16 +1,18 @@
-const HiringSalesMarketingCostIntroFaq = () => {
+const HiringAdminCustomerSupportCostIntroFaq = () => {
   return (
     <div className="w-full">
       {/* Part 1 */}
       <div className="w-full">
         <ul className="list-disc p-4 px-12">
-          <li>Sales calls and pitch decks</li>
-          <li>Sales development</li>
-          <li>Social media advertising</li>
-          <li>Marketing Automation</li>
-          <li>Podcast Promotion</li>
-          <li>SEO</li>
-          <li>Content marketing</li>
+          <li>Data entry</li>
+          <li>Virtual/administrative assistance</li>
+          <li>Online research</li>
+          <li>Order processing</li>
+          <li>Project management</li>
+          <li>Transcription</li>
+          <li>Live chat support</li>
+          <li>Email support</li>
+          <li>Social media support</li>
         </ul>
         <p className="">
           The cost of your project depends largely on your scope of work and the
@@ -20,16 +22,17 @@ const HiringSalesMarketingCostIntroFaq = () => {
 
       {/* Part 2 */}
       <div className="w-full mt-14">
-        <p>A sales and marketing project includes the following:</p>
+        <p>An admin and customer support project includes the following:</p>
         <ul className="list-disc p-4 px-12">
           <li>
             Deliverables: What do you need done? Perhaps you need a professional
-            to develop strategy and planning or marketing campaigns.
+            to do data entry, create shipping labels, appointments, or project
+            plans.
           </li>
           <li>
-            Skills: Identify the talent needed to complete the project (e.g.,
-            someone to integrate CRM with your marketing automation platform or
-            a specialist to set up tracking and analytics).
+            Skills: Identify the admin and customer support talent needed to
+            complete the project (e.g., project manager or data entry
+            specialist).
           </li>
           <li>
             Project Length: Your job post should indicate whether this is a
@@ -45,4 +48,4 @@ const HiringSalesMarketingCostIntroFaq = () => {
   );
 };
 
-export default HiringSalesMarketingCostIntroFaq;
+export default HiringAdminCustomerSupportCostIntroFaq;

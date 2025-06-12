@@ -4,12 +4,14 @@ import type {
   TCatLayoutExpert,
   TCatLayoutFreelancerCategory,
   TCatLayoutIntro,
+  TCatLayoutProfessionals,
   TCatLayoutProjectOverview,
   TCatLayoutService,
 } from "@/components/templates/CatLayout";
 import DevIntroImage from "@/public/assets/webps/cat/dev-it/intro.webp";
 import DesignCreativeIntroImage from "@/public/assets/webps/cat/design-creative/intro.webp";
 import SalesAndMarketingIntroImage from "@/public/assets/webps/cat/sale-and-marketing/intro.webp";
+import AdminCustomerSupportIntroImage from "@/public/assets/webps/cat/admin-customer-support/intro.webp";
 import {
   CAT_DEVELOPER_SERVICES,
   CAT_DEVELOPERS,
@@ -25,6 +27,7 @@ import {
 import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
 import DesignProjectOverviewImage from "@/public/assets/pngs/cat/design-creative/project_overview.png";
 import SalesAndMarketingProjectOverviewImage from "@/public/assets/jpgs/cat/sales-and-marketing/project_overview.jpg";
+import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/admin-customer-support/project_overview.jpg";
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
   DevConnectionMethodsFaq,
@@ -48,6 +51,18 @@ import {
   SalesMarketingConnectionMethodsFaq,
   SalesMarketingHiringBenefitsFaq,
 } from "@/components/templates/CatLayout/Faqs/SalesMarketingFaqs";
+import {
+  CAT_ADMIN_CUSTOMER_SUPPORT_EXPERTS_CATEGORIES,
+  CAT_ADMIN_CUSTOMER_SUPPORT_FREELANCER_CATEGORIES,
+  CAT_ADMIN_CUSTOMER_SUPPORT_PROFESSIONALS,
+  CAT_ADMIN_CUSTOMER_SUPPORT_PROJECT_OVERVIEW_SKILLS,
+  CAT_ADMIN_CUSTOMER_SUPPORT_SERVICES,
+} from "@/static/data/cat/admin-customer-support";
+import {
+  AdminCustomerSupportConnectionMethodsFaq,
+  AdminCustomerSupportHiringBenefitsFaq,
+  HiringAdminCustomerSupportCostIntroFaq,
+} from "@/components/templates/CatLayout/Faqs/AdminCustomerSupportFaqs";
 
 const Category = () => {
   const router = useRouter();
@@ -68,7 +83,6 @@ const Category = () => {
             "Hire independent professionals to shorten development cycles, bury backlogs, and drive product growth.",
           image: DevIntroImage,
         };
-
       case "design-creative":
         return {
           title: "Hire freelance design and creative experts to help you scale",
@@ -76,13 +90,19 @@ const Category = () => {
             "Thousands of pros ready to kick-start your creative overhaul from day one.",
           image: DesignCreativeIntroImage,
         };
-
       case "sales-and-marketing":
         return {
           title: "Scale when you need to with marketing and sales experts",
           description:
             "Build some buzz around your business with professionals from the world’s work marketplace.",
           image: SalesAndMarketingIntroImage,
+        };
+      case "admin-customer-support":
+        return {
+          title: "Exceptional customer service creates happy customers",
+          description:
+            "Work with Charlie Unicorn AI - Freelancer to manage your organization’s customer service needs big or small.",
+          image: AdminCustomerSupportIntroImage,
         };
       default:
         return null;
@@ -108,6 +128,7 @@ const Category = () => {
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
+
       case "design-creative":
         return {
           title: "Specialized design and creative experts you can count on",
@@ -125,6 +146,7 @@ const Category = () => {
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
+
       case "sales-and-marketing":
         return {
           title:
@@ -144,6 +166,27 @@ const Category = () => {
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
+
+      case "admin-customer-support":
+        return {
+          title:
+            "Specialized admin and customer support professionals you can count on",
+          categories: CAT_ADMIN_CUSTOMER_SUPPORT_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.87",
+            label:
+              "Average rating for work with admin and customer support talent.",
+          },
+          contracts: {
+            value: "60",
+            label:
+              "Involving admin and customer support work in the past year.",
+          },
+          skills: {
+            value: "332",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
       default:
         return null;
     }
@@ -156,15 +199,24 @@ const Category = () => {
           title: "Development and IT projects for your most pressing work",
           items: CAT_DEVELOPER_SERVICES,
         };
+
       case "design-creative":
         return {
           title: "Design and creative projects for your most pressing work",
           items: CAT_DESIGNE_SERVICES,
         };
+
       case "sales-and-marketing":
         return {
           title: "Sales and marketing projects for your most pressing work",
           items: CAT_SALES_AND_MARKETING_SERVICES,
+        };
+
+      case "admin-customer-support":
+        return {
+          title:
+            "Admin and customer support projects for your most pressing work",
+          items: CAT_ADMIN_CUSTOMER_SUPPORT_SERVICES,
         };
       default:
         return null;
@@ -210,6 +262,33 @@ const Category = () => {
           budget: 4637,
           skills: CAT_SALES_AND_MARKETING_PROJECT_OVERVIEW_SKILLS,
           image: SalesAndMarketingProjectOverviewImage,
+        };
+
+      case "admin-customer-support":
+        return {
+          title: "Project managers who make it look easy",
+          description:
+            "A project management pro aced a massive rebranding project",
+          message:
+            "Elham was exceptional in every way. Her project management is a 10 out of 10. Her communication is the same. She managed a highly complex project and made it look easy and it was not. She always had a positive attitude and kept her cool even during highly stressful periods in the project. Her team loved her. The project was on-time, on-budget and very profitable!",
+          rate: 5,
+          budget: 36000,
+          skills: CAT_ADMIN_CUSTOMER_SUPPORT_PROJECT_OVERVIEW_SKILLS,
+          image: AdminCustomerSupportProjectOverviewImage,
+        };
+
+      default:
+        return null;
+    }
+  };
+
+  const getProfessionals = (): TCatLayoutProfessionals | null => {
+    switch (category) {
+      case "admin-customer-support":
+        return {
+          title:
+            "Professionals on Charlie Unicorn AI - Freelancer help the world’s best companies with customer service needs.",
+          professionals: CAT_ADMIN_CUSTOMER_SUPPORT_PROFESSIONALS,
         };
       default:
         return null;
@@ -292,6 +371,31 @@ const Category = () => {
             children: <SalesMarketingHiringBenefitsFaq />,
           },
         ];
+
+      case "admin-customer-support":
+        return [
+          {
+            title:
+              "What is the first step to hiring admin and customer support talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with admin and customer support, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your admin and customer support needs, including:",
+            children: <HiringAdminCustomerSupportCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways I can connect with admin and customer support talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your admin and customer support projects.",
+            children: <AdminCustomerSupportConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for admin and customer support services?",
+            description:
+              "When it comes to admin and customer support, you may need a multidisciplinary team to handle the various components of your project. Examples of professionals you might need for admin and customer support projects include:",
+            children: <AdminCustomerSupportHiringBenefitsFaq />,
+          },
+        ];
       default:
         return null;
     }
@@ -304,17 +408,27 @@ const Category = () => {
           title: "Find freelancers with the dev and IT skills you need",
           categories: CAT_DEVELOPER_FREELANCER_CATEGORIES,
         };
+
       case "design-creative":
         return {
           title:
             "Find freelancers with the design and creative skills you need",
           categories: CAT_DESIGN_FREELANCER_CATEGORIES,
         };
+
       case "sales-and-marketing":
         return {
           title: "Find freelancers with the sales & marketing skills you need",
           categories: CAT_SALES_AND_MARKETING_FREELANCER_CATEGORIES,
         };
+
+      case "admin-customer-support":
+        return {
+          title:
+            "Find freelancers with the admin and customer support skills you need",
+          categories: CAT_ADMIN_CUSTOMER_SUPPORT_FREELANCER_CATEGORIES,
+        };
+
       default:
         return null;
     }
@@ -342,6 +456,28 @@ const Category = () => {
             "design freelancers, creative talent, graphic designers, UX UI designers, video editors, logo designers, branding experts, hire creatives, freelance design services, Charlie Unicorn AI, top designers for hire, digital artists, animation freelancers, web design freelancers",
           url: "/cat/design-creative",
         };
+
+      case "sales-and-marketing":
+        return {
+          title: `Top Sales People & Marketers for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Connect with top freelance sales and marketing experts on Charlie Unicorn AI - Freelancer. From digital marketing and SEO to lead generation and brand strategy, find professionals to grow your business. Explore services, learn how to hire, and get started with proven sales and marketing talent.`,
+          keywords:
+            "sales freelancers, marketing experts, SEO specialists, digital marketing, social media managers, lead generation, email marketing, content marketing, hire sales professionals, freelance marketers, brand strategy consultants, PPC experts, Charlie Unicorn AI, top marketing talent",
+          url: "/cat/sales-and-marketing",
+        };
+
+      case "admin-customer-support":
+        return {
+          title: `Top Admin & Customer Support Talent for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Hire top-rated admin support and customer service freelancers on Charlie Unicorn AI - Freelancer. From virtual assistants and data entry to email support and customer service management, find professionals who keep your business running smoothly. Explore services and start hiring today.`,
+          keywords:
+            "admin support freelancers, virtual assistants, data entry experts, customer service freelancers, email support, remote admin professionals, administrative tasks, customer support specialists, hire virtual assistant, freelance admin services, back-office support, Charlie Unicorn AI, top admin talent",
+          url: "/cat/admin-customer-support",
+        };
       default:
         return null;
     }
@@ -355,6 +491,7 @@ const Category = () => {
       services={getServices()}
       projectOverview={getProjectOverview()}
       freelancerCategory={getFreelancerCategory()}
+      professionals={getProfessionals()}
       faqs={getFaqs()}
       seo={getSEO()}
     />

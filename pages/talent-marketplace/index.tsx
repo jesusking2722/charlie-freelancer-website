@@ -43,7 +43,7 @@ const TalentMarketplace = () => {
     { label: "AI Services", path: "/" },
     { label: "Design & Creative", path: "/cat/design-creative" },
     { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
-    { label: "Admin & Customer Support", path: "/" },
+    { label: "Admin & Customer Support", path: "/cat/admin-customer-support" },
   ];
 
   const dropdowns: TLinkDropdownItem[] = [

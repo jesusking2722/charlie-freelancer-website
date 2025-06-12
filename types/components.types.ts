@@ -68,3 +68,19 @@ export type TSEO = {
   url: string;
   image?: string;
 };
+
+export type TBadgeType = "FREELANCER" | "JOB_SUCCESS_SCORE";
+
+export type TFreelancerBadgeType =
+  | "TOP_RATED_PLUS"
+  | "TOP_RATED"
+  | "RISING_TALENT";
+
+export type TFreelancerBadge = {
+  type: TFreelancerBadgeType;
+  title?: string;
+  value?: string;
+  iconUrl: string;
+  width?: number;
+  height?: number;
+};
