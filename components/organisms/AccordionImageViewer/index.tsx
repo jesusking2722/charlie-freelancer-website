@@ -53,7 +53,7 @@ const AccordionImageViewer: React.FC<AccordionImageViewerProps> = ({
               <motion.img
                 key={selectedItem.id}
                 src={selectedItem.imageUrl}
-                alt={selectedItem.imageAlt || selectedItem.title}
+                alt={selectedItem.title || selectedItem.title}
                 className="w-full h-full object-cover"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

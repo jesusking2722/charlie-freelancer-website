@@ -26,12 +26,12 @@ import BissellImage from "@/public/assets/svgs/talent-marketplace/bissell.svg";
 import ClouldflareImage from "@/public/assets/pngs/talent-marketplace/cloudflare.png";
 import { AccordionImageViewer } from "@/components/organisms";
 import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_experts_work_now.webp";
-import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
 import {
   DevConnectionMethodsFaq,
   DevHiringBenefitsFaq,
   HiringDevCostIntroFaq,
 } from "./Faqs/DeveloperFaqs";
+import { formatNumberWithCommas } from "@/utils/math";
 
 type TNavItem = {
   label: string;
@@ -44,27 +44,66 @@ export type TCatLayoutIntro = {
   image: StaticImageData;
 };
 
+export type TCatLayoutExpert = {
+  title: string;
+  categories?: TCatLayoutExpertCategory[];
+  rate: {
+    value: string;
+    label: string;
+  };
+  contracts: {
+    value: string;
+    label: string;
+  };
+  skills: {
+    value: string;
+    label: string;
+  };
+};
+
+export type TCatLayoutService = {
+  title: string;
+  items: TAccordionImageViewerItem[];
+};
+
+export type TCatLayoutProjectOverview = {
+  title: string;
+  description: string;
+  message: string;
+  rate: number;
+  budget: number;
+  skills: string[];
+  image: StaticImageData;
+};
+
+export type TCatLayoutFreelancerCategory = {
+  title: string;
+  categories: ICatFreelancerCategory[];
+};
+
 interface CatLayoutProps {
   params: string;
-  intro: TCatLayoutIntro;
-  expertCategories?: TCatLayoutExpertCategory[];
-  services: TAccordionImageViewerItem[];
-  skills?: string[];
-  freelancerCategories?: ICatFreelancerCategory[];
+  intro: TCatLayoutIntro | null;
+  expert: TCatLayoutExpert | null;
+  services: TCatLayoutService | null;
+  freelancerCategory: TCatLayoutFreelancerCategory | null;
+  projectOverview: TCatLayoutProjectOverview | null;
+  faqs: IExpandableText[] | null;
 }
 
 const CatLayout: React.FC<CatLayoutProps> = ({
   params,
   intro,
-  expertCategories,
+  expert,
   services,
-  skills,
-  freelancerCategories,
+  freelancerCategory,
+  projectOverview,
+  faqs,
 }) => {
   const navs: TNavItem[] = [
-    { label: "Development & IT", path: "/" },
-    { label: "AI Services", path: "/" },
-    { label: "Design & Creative", path: "/" },
+    { label: "Development & IT", path: "/cat/dev-it" },
+    { label: "AI Services", path: "" },
+    { label: "Design & Creative", path: "/cat/design-creative" },
     { label: "Sales & Marketing", path: "/" },
     { label: "Admin & Customer Support", path: "/" },
   ];
@@ -77,33 +116,6 @@ const CatLayout: React.FC<CatLayoutProps> = ({
     { label: "Engineering & Architecture", path: "/" },
     { label: "See all specializations", path: "/" },
   ];
-
-  const faqs: IExpandableText[] | null =
-    params === "dev-it"
-      ? [
-          {
-            title:
-              "What is the first step to hiring development and IT talent and determining the project cost?",
-            description:
-              "One of the first steps in hiring any talent is to determine which skills you need for your project. Upwork matches you with proven remote talent who can help you with all your development and IT needs, including:",
-            children: <HiringDevCostIntroFaq />,
-          },
-          {
-            title:
-              "What is the first step to hiring development and IT talent and determining the project cost?",
-            description:
-              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your development and IT projects.",
-            children: <DevConnectionMethodsFaq />,
-          },
-          {
-            title:
-              "What is the first step to hiring development and IT talent and determining the project cost?",
-            description:
-              "When it comes to development and IT, you may need a multidisciplinary team to handle the various components of your project. Examples of professionals you might need for development and IT projects include:",
-            children: <DevHiringBenefitsFaq />,
-          },
-        ]
-      : null;
 
   return (
     <IntroLayout>
@@ -129,141 +141,155 @@ const CatLayout: React.FC<CatLayoutProps> = ({
       {/* Main */}
       <div className="w-full flex flex-col gap-16 py-8 mt-[150px]">
         {/* Intro Part */}
-        <div className="w-[70%] mx-auto">
-          {/* Describe */}
-          <div className="w-full flex gap-20">
-            <div className="w-1/2 flex flex-col items-center justify-center">
-              {/* Title & Description */}
-              <div>
-                <h1 className="text-6xl font-semibold">{intro.title}</h1>
-                <p className="text-xl mt-8">{intro.description}</p>
-              </div>
+        {intro && (
+          <div className="w-[70%] mx-auto">
+            {/* Describe */}
+            <div className="w-full flex gap-20">
+              <div className="w-1/2 flex flex-col items-center justify-center">
+                {/* Title & Description */}
+                <div>
+                  <h1 className="text-6xl font-semibold">{intro.title}</h1>
+                  <p className="text-xl mt-8">{intro.description}</p>
+                </div>
 
-              {/* Get started Button */}
-              <div className="w-full mt-8">
-                <button className="bg-blue-600 hover:bg-blue-500 w-[60%] py-3 rounded-lg text-lg text-white font-semibold transition-all duration-150 ease-in-out cursor-pointer">
-                  Get started
-                </button>
+                {/* Get started Button */}
+                <div className="w-full mt-8">
+                  <button className="bg-blue-600 hover:bg-blue-500 w-[60%] py-3 rounded-lg text-lg text-white font-semibold transition-all duration-150 ease-in-out cursor-pointer">
+                    Get started
+                  </button>
+                </div>
+              </div>
+              <div className="w-1/2">
+                <Image
+                  src={intro.image}
+                  alt={intro.title}
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
-            <div className="w-1/2">
+
+            {/* Brands */}
+            <div className="w-full flex flex-row items-center justify-between mt-8">
+              <p className="text-gray-500 text-sm">TRUSTED BY</p>
+              <Image src={MicroSoftImage} alt="Microsoft" />
+              <Image src={AirbnbImage} alt="Airbnb" />
+              <Image src={AutomatticImage} alt="Automattic" />
+              <Image src={BissellImage} alt="Bissell" />
               <Image
-                src={intro.image}
-                alt={intro.title}
-                className="w-full h-auto object-cover"
+                src={ClouldflareImage}
+                alt="Cloudflare"
+                className="w-[150px] h-auto object-cover"
               />
             </div>
           </div>
-
-          {/* Brands */}
-          <div className="w-full flex flex-row items-center justify-between mt-8">
-            <p className="text-gray-500 text-sm">TRUSTED BY</p>
-            <Image src={MicroSoftImage} alt="Microsoft" />
-            <Image src={AirbnbImage} alt="Airbnb" />
-            <Image src={AutomatticImage} alt="Automattic" />
-            <Image src={BissellImage} alt="Bissell" />
-            <Image
-              src={ClouldflareImage}
-              alt="Cloudflare"
-              className="w-[150px] h-auto object-cover"
-            />
-          </div>
-        </div>
+        )}
 
         {/* Experts */}
-        <div className="w-full py-20 bg-[#f9f9f9]">
-          <div className="w-[70%] mx-auto">
-            <h1 className="text-5xl font-semibold">
-              Trusted remote development and IT experts
-            </h1>
+        {expert && (
+          <div className="w-full py-20 bg-[#f9f9f9]">
+            <div className="w-[70%] mx-auto">
+              <div className="w-4/5">
+                <h1 className="text-5xl font-semibold">{expert.title}</h1>
+              </div>
 
-            {/* Rate */}
-            <div className="w-full flex flex-row items-center justify-between mt-16">
-              <div>
-                <div className="flex items-center gap-2">
-                  <Icon
-                    icon="solar:star-bold"
-                    className="w-8 h-8 text-yellow-500"
-                  />
-                  <h2 className="text-4xl font-semibold">4.91</h2>
+              {/* Rate & Experience */}
+              <div className="w-full flex flex-row items-center justify-between mt-16 gap-10">
+                {/* Rate */}
+                <div>
+                  <div className="flex items-center gap-2">
+                    <Icon
+                      icon="solar:star-bold"
+                      className="w-8 h-8 text-yellow-500"
+                    />
+                    <h2 className="text-4xl font-semibold">
+                      {expert.rate.value}
+                    </h2>
+                  </div>
+                  <p className="mt-2">{expert.rate.label}</p>
                 </div>
-                <p className="mt-2">
-                  Average rating for work with tech talent.
-                </p>
+
+                {/* Experience */}
+                <div className="px-6 border-l-[1px] border-gray-300">
+                  <h2 className="text-4xl font-semibold">
+                    {expert.contracts.value}K+ contracts
+                  </h2>
+                  <p className="mt-2">{expert.contracts.label}</p>
+                </div>
+                <div className="px-6 border-l-[1px] border-gray-300">
+                  <h2 className="text-4xl font-semibold">
+                    {expert.skills.value} skills
+                  </h2>
+                  <p className="mt-2">{expert.skills.label}</p>
+                </div>
               </div>
-              <div className="px-4 border-l-[1px] border-gray-300">
-                <h2 className="text-4xl font-semibold">211K+ contracts</h2>
-                <p className="mt-2">
-                  Involving development and IT work in the past year.
-                </p>
-              </div>
-              <div className="px-4 border-l-[1px] border-gray-300">
-                <h2 className="text-4xl font-semibold">1,665 skills</h2>
-                <p className="mt-2">
-                  Represented by talent on Charlie Unicorn AI Freelancer.
-                </p>
-              </div>
+
+              {/* Experts category */}
+              {expert.categories && (
+                <>
+                  <div className="w-full grid grid-cols-4 gap-6 mt-14">
+                    {expert.categories.map((cat, index) => (
+                      <div
+                        key={index}
+                        className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
+                      >
+                        <Link href={cat.path}>
+                          {/* Title */}
+                          <h2 className="text-lg font-semibold">{cat.name}</h2>
+
+                          {/* Average rating */}
+                          <div className="w-full flex items-center gap-2 mt-6">
+                            <Icon
+                              icon="solar:star-bold"
+                              className="text-yellow-500 w-5 h-5"
+                            />
+                            <span>{cat.rate} average rating</span>
+                          </div>
+
+                          {/* Experts Avatars Group */}
+                          <div className="w-full flex items-center justify-between mt-4">
+                            <AvatarGroup avatars={cat.experts} />
+                            <Icon
+                              icon="solar:arrow-right-linear"
+                              className="text-blue-600 w-8 h-8"
+                            />
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-10">
+                    <Button
+                      type="outline"
+                      label="See more skills"
+                      size="large"
+                    />
+                  </div>
+                </>
+              )}
             </div>
-
-            {/* Experts category */}
-            {expertCategories && (
-              <>
-                <div className="w-full grid grid-cols-4 gap-6 mt-14">
-                  {expertCategories.map((cat, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
-                    >
-                      <Link href={cat.path}>
-                        {/* Title */}
-                        <h2 className="text-lg font-semibold">{cat.name}</h2>
-
-                        {/* Average rating */}
-                        <div className="w-full flex items-center gap-2 mt-6">
-                          <Icon
-                            icon="solar:star-bold"
-                            className="text-yellow-500 w-5 h-5"
-                          />
-                          <span>{cat.rate} average rating</span>
-                        </div>
-
-                        {/* Experts Avatars Group */}
-                        <div className="w-full flex items-center justify-between mt-4">
-                          <AvatarGroup avatars={cat.experts} />
-                          <Icon
-                            icon="solar:arrow-right-linear"
-                            className="text-blue-600 w-8 h-8"
-                          />
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-10">
-                  <Button type="outline" label="See more skills" size="large" />
-                </div>
-              </>
-            )}
           </div>
-        </div>
+        )}
 
         {/* Service Descriptions */}
-        <div className="w-[70%] mx-auto">
-          {/* Title */}
-          <h1 className="text-5xl font-semibold">
-            Development and IT projects for your most
-            <br />
-            pressing work
-          </h1>
+        {services && (
+          <div className="w-[70%] mx-auto">
+            {/* Title */}
+            <div className="w-4/5">
+              <h1 className="text-5xl font-semibold">{services.title}</h1>
+            </div>
 
-          {/* Accordian image viewer */}
-          <div className="mt-14">
-            <AccordionImageViewer items={services} defaultSelected="1" />
-            <div className="mt-10">
-              <Button type="outline" label="Browse projects" size="large" />
+            {/* Accordian image viewer */}
+            <div className="mt-14">
+              <AccordionImageViewer
+                items={services.items}
+                defaultSelected="1"
+              />
+              <div className="mt-10">
+                <Button type="outline" label="Browse projects" size="large" />
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* How works */}
         <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4">
@@ -273,7 +299,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               ENTERPRISE SUITE
             </h2>
             <h3 className="text-5xl font-semibold text-white mt-2">
-              This is how IT Experts
+              This is how {params === "dev-it" ? "IT Experts" : "Creatives"}
               <br />
               work now
             </h3>
@@ -303,52 +329,50 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         </div>
 
         {/* Expert's project overview */}
-        <div className="w-[70%] mx-auto flex gap-10 mt-14">
-          {/* Project overview */}
-          <div className="w-1/2 flex flex-col items-start justify-center">
-            <h1 className="text-5xl font-semibold">
-              Dev expertise at your
-              <br />
-              fingertips
-            </h1>
+        {projectOverview && (
+          <div className="w-[70%] mx-auto flex gap-10 mt-14">
+            {/* Project overview */}
+            <div className="w-1/2 flex flex-col items-start justify-center">
+              <div className="w-4/5">
+                <h1 className="text-5xl font-semibold">
+                  {projectOverview.title}
+                </h1>
+              </div>
 
-            {/* Overview title & description */}
-            <h2 className="text-xl font-semibold mt-6">
-              An iOS/Android developer saved his client money, time, and stress
-            </h2>
-            <p className="mt-8">
-              "Igor has great knowledge in mobile application development [and]
-              always suggests a<br />
-              better and cost-effective solution. Superfast turnaround. Thank
-              you Igor!"
-            </p>
+              {/* Overview title & description */}
+              <h2 className="text-xl font-semibold mt-6">
+                {projectOverview.description}
+              </h2>
+              <p className="mt-8">"{projectOverview.message}"</p>
 
-            {/* Rate & Budget */}
-            <div className="mt-6 flex flex-row items-center gap-6">
-              <Rater rate={5} />
-              <span className="text-lg text-[#001e00]">
-                <strong>Budget: $14,520</strong>
-              </span>
-            </div>
+              {/* Rate & Budget */}
+              <div className="mt-6 flex flex-row items-center gap-6">
+                <Rater rate={projectOverview.rate} />
+                <span className="text-lg text-[#001e00]">
+                  <strong>
+                    Budget: ${formatNumberWithCommas(projectOverview.budget)}
+                  </strong>
+                </span>
+              </div>
 
-            <div className="flex flex-row items-center gap-2 mt-4">
-              <h3 className="text-lg">Skills: </h3>
-              {skills &&
-                skills.map((skill, index) => (
-                  <SkillTag label={skill} value={skill} />
+              <div className="flex flex-row items-center gap-2 mt-4">
+                <h3 className="text-lg">Skills: </h3>
+                {projectOverview.skills.map((skill, index) => (
+                  <SkillTag key={index} label={skill} value={skill} />
                 ))}
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="w-1/2 rounded-2xl overflow-hidden">
+              <Image
+                src={projectOverview.image}
+                alt="Dev project overview"
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
-
-          {/* Image */}
-          <div className="w-1/2 rounded-2xl overflow-hidden">
-            <Image
-              src={DevProjectOverviewImage}
-              alt="Dev project overview"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
+        )}
 
         {/* FAQ */}
         {faqs && (
@@ -374,17 +398,17 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         )}
 
         {/* Freelancers Category */}
-        {freelancerCategories && (
+        {freelancerCategory && (
           <div className="w-[70%] mx-auto mt-14">
             {/* Title */}
             <div className="w-2/3">
               <h1 className="text-5xl font-semibold text-blue-950">
-                Find freelancers with the dev and IT skills you need
+                {freelancerCategory.title}
               </h1>
             </div>
 
             {/* Category */}
-            {freelancerCategories.map((cat, index) => (
+            {freelancerCategory.categories.map((cat, index) => (
               <div key={index} className="w-full mt-10">
                 <h1 className="text-3xl font-semibold text-blue-950">
                   {cat.title}
