@@ -42,7 +42,7 @@ const TalentMarketplace = () => {
     { label: "Development & IT", path: "/cat/dev-it" },
     { label: "AI Services", path: "/" },
     { label: "Design & Creative", path: "/cat/design-creative" },
-    { label: "Sales & Marketing", path: "/" },
+    { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
     { label: "Admin & Customer Support", path: "/" },
   ];
 
@@ -126,7 +126,7 @@ const TalentMarketplace = () => {
     {
       title: "Safe, easy payments",
       descriptions: [
-        "Get an extra level of security with Upwork Payment Protection",
+        "Get an extra level of security with Charlie Unicorn AI - Freelancer Payment Protection",
         "Pay as you go billing for milestone and hourly contracts",
         "3-5% marketplace fee depending on billing method",
       ],

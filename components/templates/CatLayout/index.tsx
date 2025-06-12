@@ -103,7 +103,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
     { label: "Development & IT", path: "/cat/dev-it" },
     { label: "AI Services", path: "" },
     { label: "Design & Creative", path: "/cat/design-creative" },
-    { label: "Sales & Marketing", path: "/" },
+    { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
     { label: "Admin & Customer Support", path: "/" },
   ];
 
@@ -189,7 +189,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
           <div className="w-full py-20 bg-[#f9f9f9]">
             <div className="w-[70%] mx-auto">
               <div className="w-4/5">
-                <h1 className="text-5xl font-semibold">{expert.title}</h1>
+                <h1 className="text-5xl font-semibold text-[#0e183d]">
+                  {expert.title}
+                </h1>
               </div>
 
               {/* Rate & Experience */}
@@ -201,25 +203,27 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                       icon="solar:star-bold"
                       className="w-8 h-8 text-yellow-500"
                     />
-                    <h2 className="text-4xl font-semibold">
+                    <h2 className="text-4xl font-semibold text-[#0e183d]">
                       {expert.rate.value}
                     </h2>
                   </div>
-                  <p className="mt-2">{expert.rate.label}</p>
+                  <p className="mt-2 text-[#0e183d]">{expert.rate.label}</p>
                 </div>
 
                 {/* Experience */}
                 <div className="px-6 border-l-[1px] border-gray-300">
-                  <h2 className="text-4xl font-semibold">
+                  <h2 className="text-4xl font-semibold text-[#0e183d]">
                     {expert.contracts.value}K+ contracts
                   </h2>
-                  <p className="mt-2">{expert.contracts.label}</p>
+                  <p className="mt-2 text-[#0e183d]">
+                    {expert.contracts.label}
+                  </p>
                 </div>
                 <div className="px-6 border-l-[1px] border-gray-300">
-                  <h2 className="text-4xl font-semibold">
+                  <h2 className="text-4xl font-semibold text-[#0e183d]">
                     {expert.skills.value} skills
                   </h2>
-                  <p className="mt-2">{expert.skills.label}</p>
+                  <p className="mt-2 text-[#0e183d]">{expert.skills.label}</p>
                 </div>
               </div>
 
@@ -234,7 +238,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                       >
                         <Link href={cat.path}>
                           {/* Title */}
-                          <h2 className="text-lg font-semibold">{cat.name}</h2>
+                          <h2 className="text-lg font-semibold text-[#0e183d]">
+                            {cat.name}
+                          </h2>
 
                           {/* Average rating */}
                           <div className="w-full flex items-center gap-2 mt-6">
@@ -242,7 +248,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                               icon="solar:star-bold"
                               className="text-yellow-500 w-5 h-5"
                             />
-                            <span>{cat.rate} average rating</span>
+                            <span className="text-[#0e183d]">
+                              {cat.rate} average rating
+                            </span>
                           </div>
 
                           {/* Experts Avatars Group */}
@@ -275,7 +283,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
           <div className="w-[70%] mx-auto">
             {/* Title */}
             <div className="w-4/5">
-              <h1 className="text-5xl font-semibold">{services.title}</h1>
+              <h1 className="text-5xl font-semibold text-[#0e183d]">
+                {services.title}
+              </h1>
             </div>
 
             {/* Accordian image viewer */}
@@ -292,15 +302,19 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         )}
 
         {/* How works */}
-        <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4">
+        <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10">
           {/* Title & Descriptions */}
           <div className="w-1/2 p-6 flex flex-col items-start gap-4">
             <h2 className="text-sm font-semibold text-white">
               ENTERPRISE SUITE
             </h2>
             <h3 className="text-5xl font-semibold text-white mt-2">
-              This is how {params === "dev-it" ? "IT Experts" : "Creatives"}
-              <br />
+              This is how{" "}
+              {params === "dev-it"
+                ? "IT Experts"
+                : params === "sales-and-marketing"
+                ? "Sales & Marketing"
+                : "Creatives"}{" "}
               work now
             </h3>
             <p className="text-white mt-4">
@@ -334,13 +348,13 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             {/* Project overview */}
             <div className="w-1/2 flex flex-col items-start justify-center">
               <div className="w-4/5">
-                <h1 className="text-5xl font-semibold">
+                <h1 className="text-5xl font-semibold text-[#0e183d]">
                   {projectOverview.title}
                 </h1>
               </div>
 
               {/* Overview title & description */}
-              <h2 className="text-xl font-semibold mt-6">
+              <h2 className="text-xl font-semibold mt-6 text-[#0e183d]">
                 {projectOverview.description}
               </h2>
               <p className="mt-8">"{projectOverview.message}"</p>
@@ -348,7 +362,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               {/* Rate & Budget */}
               <div className="mt-6 flex flex-row items-center gap-6">
                 <Rater rate={projectOverview.rate} />
-                <span className="text-lg text-[#001e00]">
+                <span className="text-lg text-[#0e183d]">
                   <strong>
                     Budget: ${formatNumberWithCommas(projectOverview.budget)}
                   </strong>
@@ -356,7 +370,9 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               </div>
 
               <div className="flex flex-row items-center gap-2 mt-4">
-                <h3 className="text-lg">Skills: </h3>
+                <h3 className="text-lg font-semibold text-[#0e183d]">
+                  Skills:{" "}
+                </h3>
                 {projectOverview.skills.map((skill, index) => (
                   <SkillTag key={index} label={skill} value={skill} />
                 ))}
@@ -379,7 +395,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
           <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
             {/* Title */}
             <div className="w-1/3">
-              <h1 className="text-5xl font-semibold">
+              <h1 className="text-5xl font-semibold text-[#0e183d]">
                 Frequently asked
                 <br />
                 questions
