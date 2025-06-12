@@ -311,7 +311,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             <div className="mt-6 mb-4">
               <Link
                 href="/enterprise"
-                className="bg-[#95df00] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
+                className="bg-[#51a8fa] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
               >
                 Find out how
               </Link>
@@ -402,7 +402,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
           <div className="w-[70%] mx-auto mt-14">
             {/* Title */}
             <div className="w-2/3">
-              <h1 className="text-5xl font-semibold text-blue-950">
+              <h1 className="text-5xl font-semibold">
                 {freelancerCategory.title}
               </h1>
             </div>
@@ -410,9 +410,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             {/* Category */}
             {freelancerCategory.categories.map((cat, index) => (
               <div key={index} className="w-full mt-10">
-                <h1 className="text-3xl font-semibold text-blue-950">
-                  {cat.title}
-                </h1>
+                <h1 className="text-3xl font-semibold">{cat.title}</h1>
                 <div className="w-full grid grid-cols-4 gap-4 mt-6">
                   {cat.items.map((item, index) => (
                     <Link

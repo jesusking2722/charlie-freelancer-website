@@ -41,7 +41,7 @@ const TalentMarketplace = () => {
   const navs: TNavItem[] = [
     { label: "Development & IT", path: "/cat/dev-it" },
     { label: "AI Services", path: "/" },
-    { label: "Design & Creative", path: "/" },
+    { label: "Design & Creative", path: "/cat/design-creative" },
     { label: "Sales & Marketing", path: "/" },
     { label: "Admin & Customer Support", path: "/" },
   ];
