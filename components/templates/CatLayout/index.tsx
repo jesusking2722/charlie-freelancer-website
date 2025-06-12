@@ -4,11 +4,14 @@ import NavLayout from "../NavLayout";
 import {
   AvatarGroup,
   Button,
+  ExpandableText,
   LinkDropdown,
   Rater,
   SkillTag,
 } from "@/components/atoms";
 import type {
+  ICatFreelancerCategory,
+  IExpandableText,
   TAccordionImageViewerItem,
   TCatLayoutExpertCategory,
   TLinkDropdownItem,
@@ -24,6 +27,11 @@ import ClouldflareImage from "@/public/assets/pngs/talent-marketplace/cloudflare
 import { AccordionImageViewer } from "@/components/organisms";
 import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_experts_work_now.webp";
 import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
+import {
+  DevConnectionMethodsFaq,
+  DevHiringBenefitsFaq,
+  HiringDevCostIntroFaq,
+} from "./Faqs/DeveloperFaqs";
 
 type TNavItem = {
   label: string;
@@ -39,17 +47,19 @@ export type TCatLayoutIntro = {
 interface CatLayoutProps {
   params: string;
   intro: TCatLayoutIntro;
-  expertCategory?: TCatLayoutExpertCategory[];
+  expertCategories?: TCatLayoutExpertCategory[];
   services: TAccordionImageViewerItem[];
   skills?: string[];
+  freelancerCategories?: ICatFreelancerCategory[];
 }
 
 const CatLayout: React.FC<CatLayoutProps> = ({
   params,
   intro,
-  expertCategory,
+  expertCategories,
   services,
   skills,
+  freelancerCategories,
 }) => {
   const navs: TNavItem[] = [
     { label: "Development & IT", path: "/" },
@@ -67,6 +77,33 @@ const CatLayout: React.FC<CatLayoutProps> = ({
     { label: "Engineering & Architecture", path: "/" },
     { label: "See all specializations", path: "/" },
   ];
+
+  const faqs: IExpandableText[] | null =
+    params === "dev-it"
+      ? [
+          {
+            title:
+              "What is the first step to hiring development and IT talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. Upwork matches you with proven remote talent who can help you with all your development and IT needs, including:",
+            children: <HiringDevCostIntroFaq />,
+          },
+          {
+            title:
+              "What is the first step to hiring development and IT talent and determining the project cost?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your development and IT projects.",
+            children: <DevConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "What is the first step to hiring development and IT talent and determining the project cost?",
+            description:
+              "When it comes to development and IT, you may need a multidisciplinary team to handle the various components of your project. Examples of professionals you might need for development and IT projects include:",
+            children: <DevHiringBenefitsFaq />,
+          },
+        ]
+      : null;
 
   return (
     <IntroLayout>
@@ -169,10 +206,10 @@ const CatLayout: React.FC<CatLayoutProps> = ({
             </div>
 
             {/* Experts category */}
-            {expertCategory && (
+            {expertCategories && (
               <>
                 <div className="w-full grid grid-cols-4 gap-6 mt-14">
-                  {expertCategory.map((cat, index) => (
+                  {expertCategories.map((cat, index) => (
                     <div
                       key={index}
                       className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
@@ -314,16 +351,59 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         </div>
 
         {/* FAQ */}
-        <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
-          <div className="w-1/3">
-            <h1 className="text-5xl font-semibold">
-              Frequently asked
-              <br />
-              questions
-            </h1>
+        {faqs && (
+          <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
+            {/* Title */}
+            <div className="w-1/3">
+              <h1 className="text-5xl font-semibold">
+                Frequently asked
+                <br />
+                questions
+              </h1>
+            </div>
+
+            {/* FAQs */}
+            <div className="w-2/3">
+              {faqs.map((faq, index) => (
+                <ExpandableText key={index} {...faq}>
+                  {faq.children}
+                </ExpandableText>
+              ))}
+            </div>
           </div>
-          <div className="w-2/3"></div>
-        </div>
+        )}
+
+        {/* Freelancers Category */}
+        {freelancerCategories && (
+          <div className="w-[70%] mx-auto mt-14">
+            {/* Title */}
+            <div className="w-2/3">
+              <h1 className="text-5xl font-semibold text-blue-950">
+                Find freelancers with the dev and IT skills you need
+              </h1>
+            </div>
+
+            {/* Category */}
+            {freelancerCategories.map((cat, index) => (
+              <div key={index} className="w-full mt-10">
+                <h1 className="text-3xl font-semibold text-blue-950">
+                  {cat.title}
+                </h1>
+                <div className="w-full grid grid-cols-4 gap-4 mt-6">
+                  {cat.items.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.path}
+                      className="hover:underline"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </IntroLayout>
   );

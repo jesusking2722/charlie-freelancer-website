@@ -1,4 +1,5 @@
 import type {
+  ICatFreelancerCategory,
   TAccordionImageViewerItem,
   TCatLayoutExpertCategory,
 } from "@/types/components.types";
@@ -87,4 +88,96 @@ export const CAT_DEVELOPER_PROJECT_OVERVIEW_SKILLS: string[] = [
   "Swift",
   "iOS Development",
   "Cocoa",
+];
+
+export const CAT_DEVELOPER_FREELANCER_CATEGORIES: ICatFreelancerCategory[] = [
+  {
+    title: "Development & IT Roles",
+    items: [
+      { label: "Developers", path: "/" },
+      { label: "Web Developers", path: "/" },
+      { label: "Mobile App Developers", path: "/" },
+      { label: "Software Developers", path: "/" },
+      { label: "Java Developers", path: "/" },
+      { label: "Full Stack Developers", path: "/" },
+
+      { label: "Python Developers", path: "/" },
+      { label: "JavaScript Developers", path: "/" },
+      { label: "HTML5 Developers", path: "/" },
+      { label: "MySQL Developers", path: "/" },
+      { label: "Vue JS Developers", path: "/" },
+      { label: "DevOps Engineers", path: "/" },
+
+      { label: "Golang Developers", path: "/" },
+      { label: "Magento 2 Developers", path: "/" },
+      { label: "iOS Developers", path: "/" },
+      { label: "PHP Developers", path: "/" },
+      { label: "Software Engineers", path: "/" },
+      { label: "HTML Developers", path: "/" },
+
+      { label: "Ruby on Rails Developers", path: "/" },
+      { label: "Software QA Testers", path: "/" },
+      { label: "CSS Developers", path: "/" },
+      { label: "WordPress Developers", path: "/" },
+      { label: "Shopify Developers", path: "/" },
+      { label: "Front End Developers", path: "/" },
+
+      { label: "Angular JS Developers", path: "/" },
+      { label: "C++ Developers", path: "/" },
+      { label: "React Native Developers", path: "/" },
+      { label: "Rust Developers", path: "/" },
+      { label: "Magento Developers", path: "/" },
+      { label: "Ruby Developers", path: "/" },
+
+      { label: "Scala Developers", path: "/" },
+      { label: "C# Developers", path: "/" },
+    ],
+  },
+
+  {
+    title: "Cross-functional Roles",
+    items: [
+      { label: "AI & Machine Learning", path: "/" },
+      { label: "Desktop Apps", path: "/" },
+      { label: "Generative AI", path: "/" },
+      { label: "Other Development & IT", path: "/" },
+      { label: "Blockchain, NFT & Cryptocurrency", path: "/" },
+      { label: "Development", path: "/" },
+
+      { label: "Machine Learning", path: "/" },
+      { label: "Web Programming", path: "/" },
+      { label: "Chatbots", path: "/" },
+      { label: "Ecommerce Development", path: "/" },
+      { label: "Mobile Apps", path: "/" },
+      { label: "Website Builders & CMS", path: "/" },
+
+      { label: "Databases", path: "/" },
+      { label: "Game Development", path: "/" },
+      { label: "Online Coding Lessons", path: "/" },
+      { label: "WordPress", path: "/" },
+    ],
+  },
+
+  {
+    title: "Development & IT Projects",
+    items: [
+      { label: "AI & Machine Learning", path: "/" },
+      { label: "Desktop Apps", path: "/" },
+      { label: "Other Development & IT", path: "/" },
+      { label: "Blockchain, NFT & Cryptocurrency", path: "/" },
+      { label: "Development", path: "/" },
+
+      { label: "Machine Learning", path: "/" },
+      { label: "Web Programming", path: "/" },
+      { label: "Chatbots", path: "/" },
+      { label: "Ecommerce Development", path: "/" },
+      { label: "Mobile Apps", path: "/" },
+      { label: "Website Builders & CMS", path: "/" },
+
+      { label: "Databases", path: "/" },
+      { label: "Game Development", path: "/" },
+      { label: "Online Coding Lessons", path: "/" },
+      { label: "WordPress", path: "/" },
+    ],
+  },
 ];

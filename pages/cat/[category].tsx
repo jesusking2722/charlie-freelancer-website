@@ -6,6 +6,7 @@ import {
   CAT_DEVELOPER_SERVICES,
   CAT_DEVELOPERS,
   CAT_DEVELOPER_PROJECT_OVERVIEW_SKILLS,
+  CAT_DEVELOPER_FREELANCER_CATEGORIES,
 } from "@/static/cat.dev.it.data";
 
 const Category = () => {
@@ -27,9 +28,10 @@ const Category = () => {
     <CatLayout
       intro={intro}
       params={category as string}
-      expertCategory={CAT_DEVELOPERS}
+      expertCategories={CAT_DEVELOPERS}
       services={CAT_DEVELOPER_SERVICES}
       skills={CAT_DEVELOPER_PROJECT_OVERVIEW_SKILLS}
+      freelancerCategories={CAT_DEVELOPER_FREELANCER_CATEGORIES}
     />
   );
 };

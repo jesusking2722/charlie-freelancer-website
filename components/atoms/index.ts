@@ -1,6 +1,7 @@
 export { default as Accordion } from "./Accordion";
 export { default as AvatarGroup } from "./AvatarGroup";
 export { default as Button } from "./Button";
+export { default as ExpandableText } from "./ExpandableText";
 export { default as LinkDropdown } from "./LinkDropdown";
 export { default as Menu } from "./Menu";
 export { default as Rater } from "./Rater";

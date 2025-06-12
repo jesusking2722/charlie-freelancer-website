@@ -45,3 +45,19 @@ export type TAccordionImageViewerItem = {
   imageUrl: string;
   imageAlt?: string;
 };
+
+export interface IExpandableText {
+  title: string;
+  description: string;
+  children?: React.ReactNode;
+}
+
+export type TLink = {
+  label: string;
+  path: string;
+};
+
+export interface ICatFreelancerCategory {
+  title: string;
+  items: TLink[];
+}
