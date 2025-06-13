@@ -1,0 +1,75 @@
+import React, { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+export type TTabItem = {
+  label: string;
+  value: string;
+};
+
+interface TabBarProps {
+  tabs: TTabItem[];
+  selectedTabIndex: number;
+  onTab: (idx: number) => void;
+}
+
+const TabBar: React.FC<TabBarProps> = ({ tabs, selectedTabIndex, onTab }) => {
+  const [tabWidths, setTabWidths] = useState<number[]>([]);
+  const [tabOffsets, setTabOffsets] = useState<number[]>([]);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    // Calculate tab widths and positions
+    const widths: number[] = [];
+    const offsets: number[] = [];
+    let cumulativeOffset = 0;
+
+    tabRefs.current.forEach((ref, index) => {
+      if (ref) {
+        const width = ref.offsetWidth;
+        widths[index] = width;
+        offsets[index] = cumulativeOffset;
+        cumulativeOffset += width + 32; // 32px is gap-8 (8 * 4px)
+      }
+    });
+
+    setTabWidths(widths);
+    setTabOffsets(offsets);
+  }, [tabs]);
+
+  return (
+    <div className="w-full relative">
+      <div className="flex flex-row items-center gap-8 border-b-[1px] border-b-gray-200">
+        {tabs.map((tab, index) => (
+          <button
+            key={index}
+            ref={(el: any) => (tabRefs.current[index] = el)}
+            className={`text-xl px-4 py-2 relative ${
+              selectedTabIndex === index ? "text-black" : "text-gray-600"
+            }`}
+            onClick={() => onTab(index)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Animated border indicator */}
+      <motion.div
+        className="absolute bottom-0 h-0.5 bg-black"
+        animate={{
+          x: tabOffsets[selectedTabIndex] + 8, // +8 for slightly wider positioning
+          width: tabWidths[selectedTabIndex]
+            ? tabWidths[selectedTabIndex] - 16
+            : 0, // -16 for slightly wider than button
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 30,
+        }}
+      />
+    </div>
+  );
+};
+
+export default TabBar;

@@ -84,3 +84,22 @@ export type TFreelancerBadge = {
   width?: number;
   height?: number;
 };
+
+export type TRateTimeUnit = "hr" | "min";
+
+export type TFreelancer = {
+  id: string;
+  name: string;
+  profession: string;
+  about: string;
+  pic?: string;
+  ranking: number;
+  badge: TFreelancerBadge;
+  rate: {
+    amount: number;
+    unit: TRateTimeUnit;
+    duration?: number;
+  };
+  skills: string[];
+  jobs: number;
+};

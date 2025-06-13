@@ -13,15 +13,15 @@ const Badge: React.FC<BadgeProps> = ({ type, badge }) => {
       case "FREELANCER":
         // badge is typed as TFreelancerBadge here
         return (
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-1">
             <Image
               src={
                 badge.iconUrl ||
                 "https://cdn.prod.website-files.com/603fea6471d9d8559d077603/662e89079cf27c1b6bfc0aeb_top-rated-plus%20(1).svg"
               }
               alt={badge.type}
-              width={badge.width || 24}
-              height={badge.height || 24}
+              width={badge.width || 32}
+              height={badge.height || 32}
               className="rounded-full"
             />
             {badge.title ? (

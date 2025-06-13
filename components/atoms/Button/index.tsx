@@ -11,6 +11,7 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   href?: string;
+  width?: "full";
   onClick?: () => void;
 }
 
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   loading,
   href,
+  width,
   onClick,
 }) => {
   const { theme } = useTheme();
@@ -40,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
         : size === "medium"
         ? "px-7 py-3 text-sm"
         : "px-12 py-3 text-lg"
-    }`,
+    } ${width === "full" && "w-full"}`,
     fontSize: `${
       size === "small" ? "text-xs" : size === "medium" ? "text-sm" : "text-sm"
     }`,

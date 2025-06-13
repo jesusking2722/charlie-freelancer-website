@@ -109,6 +109,23 @@ interface CatLayoutProps {
   seo: TSEO | null;
 }
 
+export const navs: TNavItem[] = [
+  { label: "Development & IT", path: "/cat/dev-it" },
+  { label: "AI Services", path: "/cat/ai" },
+  { label: "Design & Creative", path: "/cat/design-creative" },
+  { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
+  { label: "Admin & Customer Support", path: "/cat/admin-customer-support" },
+];
+
+export const dropdowns: TLinkDropdownItem[] = [
+  { label: "Writing & Translation", path: "/cat/writing-translation" },
+  { label: "Finance & Accounting", path: "/" },
+  { label: "HR & Training", path: "/" },
+  { label: "Legal", path: "/" },
+  { label: "Engineering & Architecture", path: "/" },
+  { label: "See all specializations", path: "/" },
+];
+
 const CatLayout: React.FC<CatLayoutProps> = ({
   params,
   intro,
@@ -120,23 +137,6 @@ const CatLayout: React.FC<CatLayoutProps> = ({
   faqs,
   seo,
 }) => {
-  const navs: TNavItem[] = [
-    { label: "Development & IT", path: "/cat/dev-it" },
-    { label: "AI Services", path: "" },
-    { label: "Design & Creative", path: "/cat/design-creative" },
-    { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
-    { label: "Admin & Customer Support", path: "/cat/admin-customer-support" },
-  ];
-
-  const dropdowns: TLinkDropdownItem[] = [
-    { label: "Writing & Translation", path: "/cat/writing-translation" },
-    { label: "Finance & Accounting", path: "/" },
-    { label: "HR & Training", path: "/" },
-    { label: "Legal", path: "/" },
-    { label: "Engineering & Architecture", path: "/" },
-    { label: "See all specializations", path: "/" },
-  ];
-
   return (
     <IntroLayout>
       {seo && <SEO {...seo} />}
