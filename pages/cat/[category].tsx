@@ -15,6 +15,7 @@ import DesignCreativeIntroImage from "@/public/assets/webps/cat/design-creative/
 import SalesAndMarketingIntroImage from "@/public/assets/webps/cat/sale-and-marketing/intro.webp";
 import AdminCustomerSupportIntroImage from "@/public/assets/webps/cat/admin-customer-support/intro.webp";
 import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
+import FinanceAccountingIntroImage from "@/public/assets/webps/cat/finance-accounting/intro.webp";
 
 import {
   CAT_DEVELOPER_SERVICES,
@@ -35,6 +36,7 @@ import DesignProjectOverviewImage from "@/public/assets/pngs/cat/design-creative
 import SalesAndMarketingProjectOverviewImage from "@/public/assets/jpgs/cat/sales-and-marketing/project_overview.jpg";
 import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/admin-customer-support/project_overview.jpg";
 import WritingTranslationProjectOverviewImage from "@/public/assets/pngs/cat/writing-translation/project_overview.png";
+import FinanceAccountingProjectOverviewImage from "@/public/assets/pngs/cat/finance-accounting/project_overview.png";
 
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
@@ -82,6 +84,12 @@ import {
   WritingTranslationConnectionMethodsFaq,
   WritingTranslationHiringBenefitsFaq,
 } from "@/components/templates/CatLayout/Faqs/WritingTranslationFaqs";
+import {
+  CAT_FINANCE_ACCOUNTING_EXPERTS_CATEGORIES,
+  CAT_FINANCE_ACCOUNTING_FREELANCER_CATEGORIES,
+  CAT_FINANCE_ACCOUNTING_PROJECT_OVERVIEW_SKILLS,
+  CAT_FINANCE_ACCOUNTING_SERVICES,
+} from "@/static/data/cat/finance-accounting";
 
 const Category = () => {
   const router = useRouter();
@@ -133,6 +141,14 @@ const Category = () => {
           description:
             "Thousands of pros are ready to finesse your language and help you go global.",
           image: WritingTranslationIntroImage,
+        };
+
+      case "finance-accounting":
+        return {
+          title: "Adapt fast with freelance finance and accounting experts",
+          description:
+            "Thousands of pros are ready to help with invoicing, tax returns, bookkeeping, and more.",
+          image: FinanceAccountingIntroImage,
         };
       default:
         return null;
@@ -236,6 +252,24 @@ const Category = () => {
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
+
+      case "finance-accounting":
+        return {
+          title: "Specialized accounting and finance experts you can count on",
+          categories: CAT_FINANCE_ACCOUNTING_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.87",
+            label: "Average rating for work with finance and accounting talent",
+          },
+          contracts: {
+            value: "9.7",
+            label: "Involving finance and accounting work in the past year",
+          },
+          skills: {
+            value: "102",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
       default:
         return null;
     }
@@ -272,6 +306,12 @@ const Category = () => {
         return {
           title: "Writing and translation projects for your most pressing work",
           items: CAT_WRITING_TRANSLATION_SERVICES,
+        };
+
+      case "finance-accounting":
+        return {
+          title: "Finance and accounting projects for your most pressing work",
+          items: CAT_FINANCE_ACCOUNTING_SERVICES,
         };
       default:
         return null;
@@ -343,6 +383,19 @@ const Category = () => {
           budget: 6426,
           skills: CAT_WRITING_TRANSLATION_PROJECT_OVERVIEW_SKILLS,
           image: WritingTranslationProjectOverviewImage,
+        };
+
+      case "finance-accounting":
+        return {
+          title: "Financial analysis that shapes strategy",
+          description:
+            "A financial analyst tackles the details in SaaS financial modeling",
+          message:
+            "I really enjoyed working with Henry on two projects. He is very committed to the deadlines, excellent communicator, and detail oriented.",
+          rate: 5,
+          budget: 3850,
+          skills: CAT_FINANCE_ACCOUNTING_PROJECT_OVERVIEW_SKILLS,
+          image: FinanceAccountingProjectOverviewImage,
         };
 
       default:
@@ -489,6 +542,32 @@ const Category = () => {
             children: <WritingTranslationHiringBenefitsFaq />,
           },
         ];
+
+      case "finance-accounting":
+        return [
+          {
+            title:
+              "What is the first step to hiring finance and accounting talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with finance and accounting, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your finance and accounting needs, including:",
+            children: <HiringWritingTranslationCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways I can connect with finance and accounting talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your finance and accounting projects.",
+            children: <WritingTranslationConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for finance and accounting services?",
+            description:
+              "When it comes to finance and accounting, you may need a multidisciplinary team of talent to handle the various components of your project. Examples of professionals you might need for finance and accounting projects include:",
+            children: <WritingTranslationHiringBenefitsFaq />,
+          },
+        ];
+
       default:
         return null;
     }
@@ -527,6 +606,13 @@ const Category = () => {
           title:
             "Find freelancers with the writing and translation skills you need",
           categories: CAT_WRITING_TRANSLATION_FREELANCER_CATEGORIES,
+        };
+
+      case "finance-accounting":
+        return {
+          title:
+            "Find freelancers with the finance and accounting skills you need",
+          categories: CAT_FINANCE_ACCOUNTING_FREELANCER_CATEGORIES,
         };
 
       default:
@@ -589,6 +675,17 @@ const Category = () => {
           keywords:
             "freelance writers, content writers, SEO writers, article writers, blog writers, technical writers, copywriters, creative writers, resume writers, translators, localization experts, proofreaders, ghostwriters, eBook writers, speech writers, Charlie Unicorn AI, hire writers and translators",
           url: "/cat/writing-translation",
+        };
+
+      case "finance-accounting":
+        return {
+          title: `Top Finance & Accounting Talent for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Hire top finance and accounting experts on Charlie Unicorn AI - Freelancer. From certified accountants and bookkeepers to tax consultants, financial analysts, and QuickBooks specialists, find the right professionals to manage your business finances. Start your project with trusted freelancers today.`,
+          keywords:
+            "freelance accountants, bookkeepers, CPAs, financial analysts, QuickBooks specialists, tax preparers, payroll experts, financial consultants, financial forecasting, business analysts, spreadsheet experts, financial modeling, legal advisors, finance freelancers, hire accounting talent, Charlie Unicorn AI",
+          url: "/cat/finance-accounting",
         };
 
       default:

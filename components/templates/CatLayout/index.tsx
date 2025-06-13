@@ -119,7 +119,7 @@ export const navs: TNavItem[] = [
 
 export const dropdowns: TLinkDropdownItem[] = [
   { label: "Writing & Translation", path: "/cat/writing-translation" },
-  { label: "Finance & Accounting", path: "/" },
+  { label: "Finance & Accounting", path: "/cat/finance-accounting" },
   { label: "HR & Training", path: "/" },
   { label: "Legal", path: "/" },
   { label: "Engineering & Architecture", path: "/" },
@@ -140,42 +140,50 @@ const CatLayout: React.FC<CatLayoutProps> = ({
   return (
     <IntroLayout>
       {seo && <SEO {...seo} />}
-      {/* Nav Menu */}
+
+      {/* Navigation Menu */}
       <NavLayout>
-        <ul className="flex flex-row items-center gap-6">
-          {navs.map((nav, index) => (
-            <li key={index}>
-              <Link
-                href={nav.path}
-                className="text-sm hover:text-blue-600 hover:underline"
-              >
-                {nav.label}
-              </Link>
+        <nav role="navigation" aria-label="Main categories">
+          <ul className="flex flex-row items-center gap-6">
+            {navs.map((nav, index) => (
+              <li key={index}>
+                <Link
+                  href={nav.path}
+                  className="text-sm hover:text-blue-600 hover:underline"
+                >
+                  {nav.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <LinkDropdown placeholder="More" items={dropdowns} />
             </li>
-          ))}
-          <li>
-            <LinkDropdown placeholder="More" items={dropdowns} />
-          </li>
-        </ul>
+          </ul>
+        </nav>
       </NavLayout>
 
-      {/* Main */}
-      <div className="w-full flex flex-col gap-16 py-8 mt-[150px]">
-        {/* Intro Part */}
+      {/* Main Content */}
+      <main className="w-full flex flex-col gap-16 py-8 mt-[150px]">
+        {/* Hero Section */}
         {intro && (
-          <div className="w-[70%] mx-auto">
-            {/* Describe */}
+          <section className="w-[70%] mx-auto" aria-labelledby="hero-title">
+            {/* Hero Content */}
             <div className="w-full flex gap-20">
               <div className="w-1/2 flex flex-col items-center justify-center">
                 {/* Title & Description */}
-                <div>
-                  <h1 className="text-6xl font-semibold">{intro.title}</h1>
+                <header>
+                  <h1 id="hero-title" className="text-6xl font-semibold">
+                    {intro.title}
+                  </h1>
                   <p className="text-xl mt-8">{intro.description}</p>
-                </div>
+                </header>
 
                 {/* Get started Button */}
                 <div className="w-full mt-8">
-                  <button className="bg-blue-600 hover:bg-blue-500 w-[60%] py-3 rounded-lg text-lg text-white font-semibold transition-all duration-150 ease-in-out cursor-pointer">
+                  <button
+                    className="bg-blue-600 hover:bg-blue-500 w-[60%] py-3 rounded-lg text-lg text-white font-semibold transition-all duration-150 ease-in-out cursor-pointer"
+                    aria-label="Get started with Charlie Unicorn AI freelancers"
+                  >
                     Get started
                   </button>
                 </div>
@@ -183,107 +191,126 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               <div className="w-1/2">
                 <Image
                   src={intro.image}
-                  alt={intro.title}
+                  alt={`${intro.title} - Charlie Unicorn AI freelance services`}
                   className="w-full h-auto object-cover"
+                  priority
                 />
               </div>
             </div>
 
-            {/* Brands */}
-            <div className="w-full flex flex-row items-center justify-between mt-8">
+            {/* Trusted Brands */}
+            <aside
+              className="w-full flex flex-row items-center justify-between mt-8"
+              aria-label="Trusted by leading companies"
+            >
               <p className="text-gray-500 text-sm">TRUSTED BY</p>
-              <Image src={MicroSoftImage} alt="Microsoft" />
-              <Image src={AirbnbImage} alt="Airbnb" />
-              <Image src={AutomatticImage} alt="Automattic" />
-              <Image src={BissellImage} alt="Bissell" />
+              <Image src={MicroSoftImage} alt="Microsoft - trusted partner" />
+              <Image src={AirbnbImage} alt="Airbnb - trusted partner" />
+              <Image src={AutomatticImage} alt="Automattic - trusted partner" />
+              <Image src={BissellImage} alt="Bissell - trusted partner" />
               <Image
                 src={ClouldflareImage}
-                alt="Cloudflare"
+                alt="Cloudflare - trusted partner"
                 className="w-[150px] h-auto object-cover"
               />
-            </div>
-          </div>
+            </aside>
+          </section>
         )}
 
-        {/* Experts */}
+        {/* Expert Statistics Section */}
         {expert && (
-          <div className="w-full py-20 bg-[#f9f9f9]">
+          <section
+            className="w-full py-20 bg-[#f9f9f9]"
+            aria-labelledby="expert-stats"
+          >
             <div className="w-[70%] mx-auto">
-              <div className="w-4/5">
-                <h1 className="text-5xl font-semibold text-[#0e183d]">
+              <header className="w-4/5">
+                <h2
+                  id="expert-stats"
+                  className="text-5xl font-semibold text-[#0e183d]"
+                >
                   {expert.title}
-                </h1>
-              </div>
+                </h2>
+              </header>
 
-              {/* Rate & Experience */}
-              <div className="w-full flex flex-row items-center justify-between mt-16 gap-10">
-                {/* Rate */}
+              {/* Statistics */}
+              <div
+                className="w-full flex flex-row items-center justify-between mt-16 gap-10"
+                role="region"
+                aria-label="Expert statistics"
+              >
+                {/* Rating */}
                 <div>
                   <div className="flex items-center gap-2">
                     <Icon
                       icon="solar:star-bold"
                       className="w-8 h-8 text-yellow-500"
+                      aria-hidden="true"
                     />
-                    <h2 className="text-4xl font-semibold text-[#0e183d]">
+                    <span className="text-4xl font-semibold text-[#0e183d]">
                       {expert.rate.value}
-                    </h2>
+                    </span>
                   </div>
                   <p className="mt-2 text-[#0e183d]">{expert.rate.label}</p>
                 </div>
 
-                {/* Experience */}
+                {/* Contracts */}
                 <div className="px-6 border-l-[1px] border-gray-300">
-                  <h2 className="text-4xl font-semibold text-[#0e183d]">
+                  <span className="text-4xl font-semibold text-[#0e183d]">
                     {expert.contracts.value}K+ contracts
-                  </h2>
+                  </span>
                   <p className="mt-2 text-[#0e183d]">
                     {expert.contracts.label}
                   </p>
                 </div>
+
+                {/* Skills */}
                 <div className="px-6 border-l-[1px] border-gray-300">
-                  <h2 className="text-4xl font-semibold text-[#0e183d]">
+                  <span className="text-4xl font-semibold text-[#0e183d]">
                     {expert.skills.value} skills
-                  </h2>
+                  </span>
                   <p className="mt-2 text-[#0e183d]">{expert.skills.label}</p>
                 </div>
               </div>
 
-              {/* Experts category */}
+              {/* Expert Categories */}
               {expert.categories && (
-                <>
-                  <div className="w-full grid grid-cols-4 gap-6 mt-14">
+                <div className="mt-14">
+                  <div className="w-full grid grid-cols-4 gap-6">
                     {expert.categories.map((cat, index) => (
-                      <div
+                      <article
                         key={index}
                         className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
                       >
                         <Link href={cat.path}>
-                          {/* Title */}
-                          <h2 className="text-lg font-semibold text-[#0e183d]">
+                          {/* Category Title */}
+                          <h3 className="text-lg font-semibold text-[#0e183d]">
                             {cat.name}
-                          </h2>
+                          </h3>
 
-                          {/* Average rating */}
+                          {/* Average Rating */}
                           <div className="w-full flex items-center gap-2 mt-6">
                             <Icon
                               icon="solar:star-bold"
                               className="text-yellow-500 w-5 h-5"
+                              aria-hidden="true"
                             />
                             <span className="text-[#0e183d]">
                               {cat.rate} average rating
                             </span>
                           </div>
 
-                          {/* Experts Avatars Group */}
+                          {/* Expert Avatars */}
                           <div className="w-full flex items-center justify-between mt-4">
                             <AvatarGroup avatars={cat.experts} />
                             <Icon
                               icon="solar:arrow-right-linear"
                               className="text-blue-600 w-8 h-8"
+                              aria-label="View category"
                             />
                           </div>
                         </Link>
-                      </div>
+                      </article>
                     ))}
                   </div>
                   <div className="mt-10">
@@ -293,23 +320,26 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                       size="large"
                     />
                   </div>
-                </>
+                </div>
               )}
             </div>
-          </div>
+          </section>
         )}
 
-        {/* Service Descriptions */}
+        {/* Services Section */}
         {services && (
-          <div className="w-[70%] mx-auto">
-            {/* Title */}
-            <div className="w-4/5">
-              <h1 className="text-5xl font-semibold text-[#0e183d]">
+          <section className="w-[70%] mx-auto" aria-labelledby="services-title">
+            {/* Services Title */}
+            <header className="w-4/5">
+              <h2
+                id="services-title"
+                className="text-5xl font-semibold text-[#0e183d]"
+              >
                 {services.title}
-              </h1>
-            </div>
+              </h2>
+            </header>
 
-            {/* Accordian image viewer */}
+            {/* Services Content */}
             <div className="mt-14">
               <AccordionImageViewer
                 items={services.items}
@@ -319,18 +349,27 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 <Button type="outline" label="Browse projects" size="large" />
               </div>
             </div>
-          </div>
+          </section>
         )}
 
-        {/* How works */}
-        {params !== "writing-translation" && (
-          <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10">
-            {/* Title & Descriptions */}
+        {/* Enterprise Suite Section */}
+        {!dropdowns.some((d) => d.path.includes(params)) && (
+          <section
+            className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10"
+            aria-labelledby="enterprise-title"
+          >
+            {/* Content */}
             <div className="w-1/2 p-6 flex flex-col items-start gap-4">
-              <h2 className="text-sm font-semibold text-white">
+              <span
+                className="text-sm font-semibold text-white"
+                aria-label="Enterprise Suite"
+              >
                 ENTERPRISE SUITE
-              </h2>
-              <h3 className="text-5xl font-semibold text-white mt-2">
+              </span>
+              <h2
+                id="enterprise-title"
+                className="text-5xl font-semibold text-white mt-2"
+              >
                 This is how{" "}
                 {params === "dev-it"
                   ? "IT Experts"
@@ -340,7 +379,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                   ? "Administrators"
                   : "Creatives"}{" "}
                 work now
-              </h3>
+              </h2>
               <p className="text-white mt-4">
                 Build an agile workforce that moves faster than the pace of
                 <br />
@@ -350,41 +389,50 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 <Link
                   href="/enterprise"
                   className="bg-[#51a8fa] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
+                  aria-label="Learn about Enterprise Suite"
                 >
                   Find out how
                 </Link>
               </div>
             </div>
 
-            {/* Image */}
+            {/* Enterprise Image */}
             <div className="w-1/2 rounded-2xl overflow-auto">
               <Image
                 src={HowITExpertsWorkNowImage}
-                alt="How IT experts work now"
+                alt="Enterprise Suite - How IT experts work with modern tools"
                 className="w-full h-auto object-cover"
               />
             </div>
-          </div>
+          </section>
         )}
 
-        {/* Expert's project overview */}
+        {/* Project Overview Section */}
         {projectOverview && (
-          <div className="w-[70%] mx-auto flex gap-10 mt-14">
-            {/* Project overview */}
-            <div className="w-1/2 flex flex-col items-start justify-center">
-              <div className="w-4/5">
-                <h1 className="text-5xl font-semibold text-[#0e183d]">
+          <section
+            className="w-[70%] mx-auto flex gap-10 mt-14"
+            aria-labelledby="project-overview-title"
+          >
+            {/* Project Details */}
+            <article className="w-1/2 flex flex-col items-start justify-center">
+              <header className="w-4/5">
+                <h2
+                  id="project-overview-title"
+                  className="text-5xl font-semibold text-[#0e183d]"
+                >
                   {projectOverview.title}
-                </h1>
-              </div>
+                </h2>
+              </header>
 
-              {/* Overview title & description */}
-              <h2 className="text-xl font-semibold mt-6 text-[#0e183d]">
+              {/* Project Description */}
+              <h3 className="text-xl font-semibold mt-6 text-[#0e183d]">
                 {projectOverview.description}
-              </h2>
-              <p className="mt-8">"{projectOverview.message}"</p>
+              </h3>
+              <blockquote className="mt-8">
+                "{projectOverview.message}"
+              </blockquote>
 
-              {/* Rate & Budget */}
+              {/* Project Metrics */}
               <div className="mt-6 flex flex-row items-center gap-6">
                 <Rater rate={projectOverview.rate} />
                 <span className="text-lg text-[#0e183d]">
@@ -394,148 +442,186 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 </span>
               </div>
 
+              {/* Skills */}
               <div className="flex flex-row items-start gap-2 mt-4">
-                <h3 className="text-lg font-semibold text-[#0e183d]">
+                <h4 className="text-lg font-semibold text-[#0e183d]">
                   Skills:{" "}
-                </h3>
-                <div className="flex flex-wrap gap-2">
+                </h4>
+                <div
+                  className="flex flex-wrap gap-2"
+                  role="list"
+                  aria-label="Required skills"
+                >
                   {projectOverview.skills.map((skill, index) => (
                     <SkillTag key={index} label={skill} value={skill} />
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
 
-            {/* Image */}
+            {/* Project Image */}
             <div className="w-1/2 rounded-2xl overflow-hidden">
               <Image
                 src={projectOverview.image}
-                alt="Dev project overview"
+                alt={`${projectOverview.title} project example`}
                 className="w-full h-auto object-cover"
               />
             </div>
-          </div>
+          </section>
         )}
 
-        {/* Professionals Intro */}
+        {/* Professionals Section */}
         {professionals && (
-          <div className="w-full py-20 bg-[#f9f9f9]">
+          <section
+            className="w-full py-20 bg-[#f9f9f9]"
+            aria-labelledby="professionals-title"
+          >
             <div className="w-[70%] mx-auto">
-              {/* Title */}
-              <div className="w-4/5">
-                <h1 className="text-5xl font-semibold text-[#0e183d]">
+              {/* Section Title */}
+              <header className="w-4/5">
+                <h2
+                  id="professionals-title"
+                  className="text-5xl font-semibold text-[#0e183d]"
+                >
                   {professionals.title}
-                </h1>
-              </div>
+                </h2>
+              </header>
 
-              {/* Professionals Cards */}
+              {/* Professional Testimonials */}
               <div className="w-full grid grid-cols-2 gap-8 mt-14">
                 {professionals.professionals.map((pro, index) => (
-                  <div
+                  <article
                     key={index}
                     className="rounded-2xl bg-white p-8 flex flex-col items-start justify-between gap-16"
                   >
-                    {/* Message */}
-                    <h2 className="text-3xl">“{pro.message}”</h2>
+                    {/* Testimonial */}
+                    <blockquote className="text-3xl">
+                      "{pro.message}"
+                    </blockquote>
 
-                    {/* User */}
-                    <div className="">
+                    {/* Professional Info */}
+                    <footer className="">
                       {/* Avatar & Badge */}
                       <Avatar {...pro.user} />
-
-                      {/* Profession Title */}
-                      <h4 className="mt-4">{pro.user.profession}</h4>
-                    </div>
-                  </div>
+                      {/* Profession */}
+                      <cite className="mt-4 not-italic">
+                        {pro.user.profession}
+                      </cite>
+                    </footer>
+                  </article>
                 ))}
               </div>
             </div>
-          </div>
+          </section>
         )}
 
-        {/* Read article */}
+        {/* Customer Service Article Section */}
         {params === "admin-customer-support" && (
-          <div className="w-[70%] mx-auto rounded-2xl bg-[#053b8d] px-12 flex flex-row items-center justify-between gap-14">
-            {/* Title & Button */}
+          <section
+            className="w-[70%] mx-auto rounded-2xl bg-[#053b8d] px-12 flex flex-row items-center justify-between gap-14"
+            aria-labelledby="customer-service-article"
+          >
+            {/* Article Content */}
             <div className="w-3/4 flex flex-col items-start justify-between gap-8">
-              <h2 className="text-4xl font-semibold text-white">
+              <h2
+                id="customer-service-article"
+                className="text-4xl font-semibold text-white"
+              >
                 Discover how you can build a virtual Customer Service team to
                 help unlock new levels of productivity within your organization.
               </h2>
               <Link
                 href="/"
                 className="bg-white text-[#0e183d] py-3 px-10 rounded-xl text-lg"
+                aria-label="Read article about building virtual customer service teams"
               >
                 Read article
               </Link>
             </div>
 
-            {/* Image */}
+            {/* Article Image */}
             <div className="w-1/4">
               <Image
                 src={ReadArticleImage}
-                alt="Discover how you can build a virtual Customer Service team to
-                help unlock new levels of productivity within your organization."
+                alt="Virtual Customer Service team productivity guide"
                 className="w-full h-auto object-cover"
               />
             </div>
-          </div>
+          </section>
         )}
 
-        {/* FAQ */}
+        {/* FAQ Section */}
         {faqs && (
-          <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
-            {/* Title */}
-            <div className="w-1/3">
-              <h1 className="text-5xl font-semibold text-[#0e183d]">
+          <section
+            className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10"
+            aria-labelledby="faq-title"
+          >
+            {/* FAQ Title */}
+            <header className="w-1/3">
+              <h2
+                id="faq-title"
+                className="text-5xl font-semibold text-[#0e183d]"
+              >
                 Frequently asked
                 <br />
                 questions
-              </h1>
-            </div>
+              </h2>
+            </header>
 
-            {/* FAQs */}
-            <div className="w-2/3">
+            {/* FAQ Content */}
+            <div className="w-2/3" role="region" aria-labelledby="faq-title">
               {faqs.map((faq, index) => (
                 <ExpandableText key={index} {...faq}>
                   {faq.children}
                 </ExpandableText>
               ))}
             </div>
-          </div>
+          </section>
         )}
-        {/* Freelancers Category */}
-        {freelancerCategory && (
-          <div className="w-[70%] mx-auto mt-14">
-            {/* Title */}
-            <div className="w-2/3">
-              <h1 className="text-5xl font-semibold text-[#0e183d]">
-                {freelancerCategory.title}
-              </h1>
-            </div>
 
-            {/* Category */}
-            {freelancerCategory.categories.map((cat, index) => (
-              <div key={index} className="w-full mt-10">
-                <h1 className="text-3xl font-semibold text-[#0e183d]">
-                  {cat.title}
-                </h1>
-                <div className="w-full grid grid-cols-4 gap-4 mt-6">
-                  {cat.items.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.path}
-                      className="hover:underline"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Freelancer Categories Section */}
+        {freelancerCategory && (
+          <section
+            className="w-[70%] mx-auto mt-14"
+            aria-labelledby="freelancer-categories-title"
+          >
+            {/* Categories Title */}
+            <header className="w-2/3">
+              <h2
+                id="freelancer-categories-title"
+                className="text-5xl font-semibold text-[#0e183d]"
+              >
+                {freelancerCategory.title}
+              </h2>
+            </header>
+
+            {/* Categories List */}
+            <div role="region" aria-labelledby="freelancer-categories-title">
+              {freelancerCategory.categories.map((cat, index) => (
+                <article key={index} className="w-full mt-10">
+                  <h3 className="text-3xl font-semibold text-[#0e183d]">
+                    {cat.title}
+                  </h3>
+                  <nav
+                    className="w-full grid grid-cols-4 gap-4 mt-6"
+                    aria-label={`${cat.title} services`}
+                  >
+                    {cat.items.map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.path}
+                        className="hover:underline"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </nav>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
-      </div>
+      </main>
     </IntroLayout>
   );
 };
