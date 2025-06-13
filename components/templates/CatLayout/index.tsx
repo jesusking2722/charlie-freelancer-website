@@ -323,47 +323,49 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         )}
 
         {/* How works */}
-        <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10">
-          {/* Title & Descriptions */}
-          <div className="w-1/2 p-6 flex flex-col items-start gap-4">
-            <h2 className="text-sm font-semibold text-white">
-              ENTERPRISE SUITE
-            </h2>
-            <h3 className="text-5xl font-semibold text-white mt-2">
-              This is how{" "}
-              {params === "dev-it"
-                ? "IT Experts"
-                : params === "sales-and-marketing"
-                ? "Sales & Marketing"
-                : params === "admin-customer-support"
-                ? "Administrators"
-                : "Creatives"}{" "}
-              work now
-            </h3>
-            <p className="text-white mt-4">
-              Build an agile workforce that moves faster than the pace of
-              <br />
-              business with Enterprise Suite.
-            </p>
-            <div className="mt-6 mb-4">
-              <Link
-                href="/enterprise"
-                className="bg-[#51a8fa] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
-              >
-                Find out how
-              </Link>
+        {params !== "writing-translation" && (
+          <div className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10">
+            {/* Title & Descriptions */}
+            <div className="w-1/2 p-6 flex flex-col items-start gap-4">
+              <h2 className="text-sm font-semibold text-white">
+                ENTERPRISE SUITE
+              </h2>
+              <h3 className="text-5xl font-semibold text-white mt-2">
+                This is how{" "}
+                {params === "dev-it"
+                  ? "IT Experts"
+                  : params === "sales-and-marketing"
+                  ? "Sales & Marketing"
+                  : params === "admin-customer-support"
+                  ? "Administrators"
+                  : "Creatives"}{" "}
+                work now
+              </h3>
+              <p className="text-white mt-4">
+                Build an agile workforce that moves faster than the pace of
+                <br />
+                business with Enterprise Suite.
+              </p>
+              <div className="mt-6 mb-4">
+                <Link
+                  href="/enterprise"
+                  className="bg-[#51a8fa] rounded-xl py-3 px-10 text-xl hover:bg-white transition-all duration-300 ease-in-out"
+                >
+                  Find out how
+                </Link>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="w-1/2 rounded-2xl overflow-auto">
+              <Image
+                src={HowITExpertsWorkNowImage}
+                alt="How IT experts work now"
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
-
-          {/* Image */}
-          <div className="w-1/2 rounded-2xl overflow-auto">
-            <Image
-              src={HowITExpertsWorkNowImage}
-              alt="How IT experts work now"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
+        )}
 
         {/* Expert's project overview */}
         {projectOverview && (
@@ -396,7 +398,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 <h3 className="text-lg font-semibold text-[#0e183d]">
                   Skills:{" "}
                 </h3>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {projectOverview.skills.map((skill, index) => (
                     <SkillTag key={index} label={skill} value={skill} />
                   ))}

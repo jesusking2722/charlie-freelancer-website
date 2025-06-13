@@ -8,10 +8,14 @@ import type {
   TCatLayoutProjectOverview,
   TCatLayoutService,
 } from "@/components/templates/CatLayout";
+
+// Intro Images
 import DevIntroImage from "@/public/assets/webps/cat/dev-it/intro.webp";
 import DesignCreativeIntroImage from "@/public/assets/webps/cat/design-creative/intro.webp";
 import SalesAndMarketingIntroImage from "@/public/assets/webps/cat/sale-and-marketing/intro.webp";
 import AdminCustomerSupportIntroImage from "@/public/assets/webps/cat/admin-customer-support/intro.webp";
+import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
+
 import {
   CAT_DEVELOPER_SERVICES,
   CAT_DEVELOPERS,
@@ -24,11 +28,14 @@ import {
   CAT_DESIGNE_SERVICES,
   CAT_DESIGNERS,
 } from "@/static/data/cat/design-creative";
+
+// Project Overview Images
 import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project_overview.jpg";
 import DesignProjectOverviewImage from "@/public/assets/pngs/cat/design-creative/project_overview.png";
 import SalesAndMarketingProjectOverviewImage from "@/public/assets/jpgs/cat/sales-and-marketing/project_overview.jpg";
 import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/admin-customer-support/project_overview.jpg";
-import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
+import WritingTranslationProjectOverviewImage from "@/public/assets/pngs/cat/writing-translation/project_overview.png";
+
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
   DevConnectionMethodsFaq,
@@ -64,6 +71,17 @@ import {
   AdminCustomerSupportHiringBenefitsFaq,
   HiringAdminCustomerSupportCostIntroFaq,
 } from "@/components/templates/CatLayout/Faqs/AdminCustomerSupportFaqs";
+import {
+  CAT_WRITING_TRANSLATION_EXPERTS_CATEGORIES,
+  CAT_WRITING_TRANSLATION_FREELANCER_CATEGORIES,
+  CAT_WRITING_TRANSLATION_PROJECT_OVERVIEW_SKILLS,
+  CAT_WRITING_TRANSLATION_SERVICES,
+} from "@/static/data/cat/writing-translation";
+import {
+  HiringWritingTranslationCostIntroFaq,
+  WritingTranslationConnectionMethodsFaq,
+  WritingTranslationHiringBenefitsFaq,
+} from "@/components/templates/CatLayout/Faqs/WritingTranslationFaqs";
 
 const Category = () => {
   const router = useRouter();
@@ -129,11 +147,11 @@ const Category = () => {
           categories: CAT_DEVELOPERS,
           rate: {
             value: "4.91",
-            label: "Average rating for work with tech talent.",
+            label: "Average rating for work with tech talent",
           },
           contracts: {
             value: "211",
-            label: "Involving development and IT work in the past year.",
+            label: "Involving development and IT work in the past year",
           },
           skills: {
             value: "1,665",
@@ -147,11 +165,11 @@ const Category = () => {
           categories: CAT_DESIGNERS,
           rate: {
             value: "4.92",
-            label: "Average rating for work with design and creative talent.",
+            label: "Average rating for work with design and creative talent",
           },
           contracts: {
             value: "184",
-            label: "Involving design and creative work in the past year.",
+            label: "Involving design and creative work in the past year",
           },
           skills: {
             value: "468",
@@ -167,11 +185,11 @@ const Category = () => {
           rate: {
             value: "4.78",
             label:
-              "Average client rating for work with sales and marketing talent.",
+              "Average client rating for work with sales and marketing talent",
           },
           contracts: {
             value: "65",
-            label: "Involving sales and marketing work in the past year.",
+            label: "Involving sales and marketing work in the past year",
           },
           skills: {
             value: "358",
@@ -187,15 +205,34 @@ const Category = () => {
           rate: {
             value: "4.87",
             label:
-              "Average rating for work with admin and customer support talent.",
+              "Average rating for work with admin and customer support talent",
           },
           contracts: {
             value: "60",
-            label:
-              "Involving admin and customer support work in the past year.",
+            label: "Involving admin and customer support work in the past year",
           },
           skills: {
             value: "332",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
+
+      case "writing-translation":
+        return {
+          title:
+            "Specialized writing experts and translation professionals you can count on",
+          categories: CAT_WRITING_TRANSLATION_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.86",
+            label:
+              "Average rating for work with writing and translation talent",
+          },
+          contracts: {
+            value: "146",
+            label: "Involving writing and translation work in the past year",
+          },
+          skills: {
+            value: "331",
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
@@ -229,6 +266,12 @@ const Category = () => {
           title:
             "Admin and customer support projects for your most pressing work",
           items: CAT_ADMIN_CUSTOMER_SUPPORT_SERVICES,
+        };
+
+      case "writing-translation":
+        return {
+          title: "Writing and translation projects for your most pressing work",
+          items: CAT_WRITING_TRANSLATION_SERVICES,
         };
       default:
         return null;
@@ -287,6 +330,19 @@ const Category = () => {
           budget: 36000,
           skills: CAT_ADMIN_CUSTOMER_SUPPORT_PROJECT_OVERVIEW_SKILLS,
           image: AdminCustomerSupportProjectOverviewImage,
+        };
+
+      case "writing-translation":
+        return {
+          title: "Translation that connects cultures",
+          description:
+            "A translator works her way up to community support lead",
+          message:
+            "Angelica is a very professional translator and is committed to successfully delivering quality work. After working for us as a Latin Spanish translator for over a year, she is now leading our community support in Latin America. It's always a pleasure to work with her and I can strongly recommend Angelica.",
+          rate: 5,
+          budget: 6426,
+          skills: CAT_WRITING_TRANSLATION_PROJECT_OVERVIEW_SKILLS,
+          image: WritingTranslationProjectOverviewImage,
         };
 
       default:
@@ -408,6 +464,31 @@ const Category = () => {
             children: <AdminCustomerSupportHiringBenefitsFaq />,
           },
         ];
+
+      case "writing-translation":
+        return [
+          {
+            title:
+              "What is the first step to hiring writing and translation talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with writing and translation, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your writing and translation needs, including:",
+            children: <HiringWritingTranslationCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways you can connect with writing and translation talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your writing and translation projects.",
+            children: <WritingTranslationConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for writing and translation services?",
+            description:
+              "When it comes to writing and translation, you may need a multidisciplinary team of talent to handle the various components of your project. Examples of professionals you might need for writing and translation projects include:",
+            children: <WritingTranslationHiringBenefitsFaq />,
+          },
+        ];
       default:
         return null;
     }
@@ -439,6 +520,13 @@ const Category = () => {
           title:
             "Find freelancers with the admin and customer support skills you need",
           categories: CAT_ADMIN_CUSTOMER_SUPPORT_FREELANCER_CATEGORIES,
+        };
+
+      case "writing-translation":
+        return {
+          title:
+            "Find freelancers with the writing and translation skills you need",
+          categories: CAT_WRITING_TRANSLATION_FREELANCER_CATEGORIES,
         };
 
       default:
@@ -491,6 +579,18 @@ const Category = () => {
             "admin support freelancers, virtual assistants, data entry experts, customer service freelancers, email support, remote admin professionals, administrative tasks, customer support specialists, hire virtual assistant, freelance admin services, back-office support, Charlie Unicorn AI, top admin talent",
           url: "/cat/admin-customer-support",
         };
+
+      case "writing-translation":
+        return {
+          title: `Top Writers & Translators for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Hire expert writers, editors, and translators on Charlie Unicorn AI - Freelancer. From blog and article writing to technical documents, resumes, and localization, find top freelance talent to meet all your content and translation needs. Start your writing or translation project today.`,
+          keywords:
+            "freelance writers, content writers, SEO writers, article writers, blog writers, technical writers, copywriters, creative writers, resume writers, translators, localization experts, proofreaders, ghostwriters, eBook writers, speech writers, Charlie Unicorn AI, hire writers and translators",
+          url: "/cat/writing-translation",
+        };
+
       default:
         return null;
     }
