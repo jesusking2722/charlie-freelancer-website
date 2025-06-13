@@ -47,7 +47,7 @@ const TalentMarketplace = () => {
   ];
 
   const dropdowns: TLinkDropdownItem[] = [
-    { label: "Writing & Translation", path: "/" },
+    { label: "Writing & Translation", path: "/cat/writing-translation" },
     { label: "Finance & Accounting", path: "/" },
     { label: "HR & Training", path: "/" },
     { label: "Legal", path: "/" },

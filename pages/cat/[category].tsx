@@ -28,6 +28,7 @@ import DevProjectOverviewImage from "@/public/assets/jpgs/cat/dev-it/dev_project
 import DesignProjectOverviewImage from "@/public/assets/pngs/cat/design-creative/project_overview.png";
 import SalesAndMarketingProjectOverviewImage from "@/public/assets/jpgs/cat/sales-and-marketing/project_overview.jpg";
 import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/admin-customer-support/project_overview.jpg";
+import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
   DevConnectionMethodsFaq,
@@ -83,6 +84,7 @@ const Category = () => {
             "Hire independent professionals to shorten development cycles, bury backlogs, and drive product growth.",
           image: DevIntroImage,
         };
+
       case "design-creative":
         return {
           title: "Hire freelance design and creative experts to help you scale",
@@ -90,6 +92,7 @@ const Category = () => {
             "Thousands of pros ready to kick-start your creative overhaul from day one.",
           image: DesignCreativeIntroImage,
         };
+
       case "sales-and-marketing":
         return {
           title: "Scale when you need to with marketing and sales experts",
@@ -97,12 +100,21 @@ const Category = () => {
             "Build some buzz around your business with professionals from the world’s work marketplace.",
           image: SalesAndMarketingIntroImage,
         };
+
       case "admin-customer-support":
         return {
           title: "Exceptional customer service creates happy customers",
           description:
             "Work with Charlie Unicorn AI - Freelancer to manage your organization’s customer service needs big or small.",
           image: AdminCustomerSupportIntroImage,
+        };
+
+      case "writing-translation":
+        return {
+          title: "Hire freelance writing and translation experts in moments",
+          description:
+            "Thousands of pros are ready to finesse your language and help you go global.",
+          image: WritingTranslationIntroImage,
         };
       default:
         return null;
@@ -446,6 +458,7 @@ const Category = () => {
             "development freelancers, IT experts for hire, web developers, mobile app developers, DevOps freelancers, hire developers, freelance IT services, software engineers, Charlie Unicorn AI, top development talent, remote developers, full-stack developers, freelance development services",
           url: "/cat/dev-it",
         };
+
       case "design-creative":
         return {
           title: `Top Designers & Creatives for Hire in ${getMonthName(

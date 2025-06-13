@@ -129,7 +129,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
   ];
 
   const dropdowns: TLinkDropdownItem[] = [
-    { label: "Writing & Translation", path: "/" },
+    { label: "Writing & Translation", path: "/cat/writing-translation" },
     { label: "Finance & Accounting", path: "/" },
     { label: "HR & Training", path: "/" },
     { label: "Legal", path: "/" },
@@ -460,9 +460,12 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 Discover how you can build a virtual Customer Service team to
                 help unlock new levels of productivity within your organization.
               </h2>
-              <button className="bg-white text-[#0e183d] py-3 px-10 rounded-xl text-lg">
+              <Link
+                href="/"
+                className="bg-white text-[#0e183d] py-3 px-10 rounded-xl text-lg"
+              >
                 Read article
-              </button>
+              </Link>
             </div>
 
             {/* Image */}
