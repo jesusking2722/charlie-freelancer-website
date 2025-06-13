@@ -86,7 +86,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
       <motion.button
         whileTap={{ scale: 0.95 }}
-        className={`border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-xl transition-all duration-300 ease-in-out ${
+        className={`border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-xl transition-all duration-300 ease-in-out ${
           loading || disabled
             ? "opacity-50 cursor-not-allowed"
             : "cursor-pointer"

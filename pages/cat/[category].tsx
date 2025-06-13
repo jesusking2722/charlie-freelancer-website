@@ -17,6 +17,7 @@ import AdminCustomerSupportIntroImage from "@/public/assets/webps/cat/admin-cust
 import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
 import FinanceAccountingIntroImage from "@/public/assets/webps/cat/finance-accounting/intro.webp";
 import HrTrainingIntroImage from "@/public/assets/webps/cat/hr-training/intro.webp";
+import LegalIntroImage from "@/public/assets/webps/cat/legal/intro.webp";
 
 import {
   CAT_DEVELOPER_SERVICES,
@@ -39,6 +40,7 @@ import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/a
 import WritingTranslationProjectOverviewImage from "@/public/assets/pngs/cat/writing-translation/project_overview.png";
 import FinanceAccountingProjectOverviewImage from "@/public/assets/pngs/cat/finance-accounting/project_overview.png";
 import HrTrainingProjectOverviewImage from "@/public/assets/jpgs/cat/hr-training/project_overview.jpg";
+import LegalProjectOverviewImage from "@/public/assets/jpgs/cat/legal/project_overview.jpg";
 
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
@@ -103,6 +105,17 @@ import {
   HrTrainingConnectionMethodsFaq,
   HrTrainingHiringBenefitsFaq,
 } from "@/components/templates/CatLayout/Faqs/HrTrainingFaqs";
+import {
+  CAT_LEGAL_EXPERTS_CATEGORIES,
+  CAT_LEGAL_FREELANCER_CATEGORIES,
+  CAT_LEGAL_PROJECT_OVERVIEW_SKILLS,
+  CAT_LEGAL_SERVICES,
+} from "@/static/data/cat/legal";
+import {
+  HiringLegalCostIntroFaq,
+  LegalConnectionMethodsFaq,
+  LegalHiringBenefitsFaq,
+} from "@/components/templates/CatLayout/Faqs/LegalFaqs";
 
 const Category = () => {
   const router = useRouter();
@@ -170,6 +183,14 @@ const Category = () => {
           description:
             "Hundreds of independent professionals who’ll give your people the experience they deserve, and keep your organization running smoothly.",
           image: HrTrainingIntroImage,
+        };
+
+      case "legal":
+        return {
+          title: "Find legal experts to give you the guidance you need",
+          description:
+            "Hundreds of independent professionals to help you create, navigate, and translate legal documents; register a trademark; or get general advice.",
+          image: LegalIntroImage,
         };
 
       default:
@@ -311,6 +332,24 @@ const Category = () => {
           },
         };
 
+      case "legal":
+        return {
+          title: "Specialized legal experts you can count on",
+          categories: CAT_LEGAL_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.94",
+            label: "Average rating for work with legal professionals",
+          },
+          contracts: {
+            value: "7,700",
+            label: "Involving legal work in the last year",
+          },
+          skills: {
+            value: "136",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
+
       default:
         return null;
     }
@@ -360,6 +399,13 @@ const Category = () => {
           title: "Get the job done fast with HR and training projects",
           items: CAT_HR_TRAINING_SERVICES,
         };
+
+      case "legal":
+        return {
+          title: "Legal projects to help you get what you need, fast",
+          items: CAT_LEGAL_SERVICES,
+        };
+
       default:
         return null;
     }
@@ -456,6 +502,19 @@ const Category = () => {
           budget: 1700,
           skills: CAT_HR_TRAINING_PROJECT_OVERVIEW_SKILLS,
           image: HrTrainingProjectOverviewImage,
+        };
+
+      case "legal":
+        return {
+          title: "Lawyers with deep expertise",
+          description:
+            "A small business lawyer enabled a quick valuation and exit of an LLC partner",
+          message:
+            "Ben was prompt and clear in communication. He helped to draft a few business legal documents with haste and modifications were quickly executed as well. Highly recommended to all.",
+          rate: 5,
+          budget: 2062,
+          skills: CAT_LEGAL_PROJECT_OVERVIEW_SKILLS,
+          image: LegalProjectOverviewImage,
         };
 
       default:
@@ -653,6 +712,31 @@ const Category = () => {
           },
         ];
 
+      case "legal":
+        return [
+          {
+            title:
+              "What is the first step to hiring legal talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with legal, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your needs, including:",
+            children: <HiringLegalCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways I can connect with legal talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your projects.",
+            children: <LegalConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for legal services?",
+            description:
+              "When it comes to legal, you may need a multidisciplinary team to handle the various components of your project. Examples of legal professionals you might need for projects include:",
+            children: <LegalHiringBenefitsFaq />,
+          },
+        ];
+
       default:
         return null;
     }
@@ -704,6 +788,12 @@ const Category = () => {
         return {
           title: "Find freelancers with the HR & Training skills you need",
           categories: CAT_HR_TRAINING_FREELANCER_CATEGORIES,
+        };
+
+      case "legal":
+        return {
+          title: "Find freelancers with the Legal skills you need",
+          categories: CAT_LEGAL_FREELANCER_CATEGORIES,
         };
 
       default:
@@ -788,6 +878,17 @@ const Category = () => {
           keywords:
             "freelance HR experts, curriculum developers, employee engagement specialists, onboarding consultants, technical recruiters, executive coaches, resume writers, HR policy experts, SCORM specialists, LMS experts, leadership development, SAP SuccessFactors, compensation consultants, performance management, Charlie Unicorn AI, hire HR freelancers",
           url: "/cat/hr-training",
+        };
+
+      case "legal":
+        return {
+          title: `Top Legal Professionals for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Hire top legal professionals on Charlie Unicorn AI - Freelancer. From contract drafters and intellectual property consultants to employment law experts, legal researchers, and GDPR specialists—find trusted legal freelancers for your business or personal needs.`,
+          keywords:
+            "freelance legal experts, contract drafters, legal consultants, employment law, intellectual property, family law, criminal law, immigration law, corporate law, real estate law, arbitration law, patent law, legal assistants, GDPR specialists, legal transcription, legal writing, data protection, Charlie Unicorn AI, hire legal freelancers",
+          url: "/cat/legal",
         };
 
       default:

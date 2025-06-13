@@ -121,9 +121,12 @@ export const dropdowns: TLinkDropdownItem[] = [
   { label: "Writing & Translation", path: "/cat/writing-translation" },
   { label: "Finance & Accounting", path: "/cat/finance-accounting" },
   { label: "HR & Training", path: "/cat/hr-training" },
-  { label: "Legal", path: "/" },
-  { label: "Engineering & Architecture", path: "/" },
-  { label: "See all specializations", path: "/" },
+  { label: "Legal", path: "/cat/legal" },
+  {
+    label: "Engineering & Architecture",
+    path: "/cat/engineering-architecture",
+  },
+  { label: "See all specializations", path: "/hire" },
 ];
 
 const CatLayout: React.FC<CatLayoutProps> = ({
