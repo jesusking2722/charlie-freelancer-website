@@ -7,6 +7,7 @@ import {
   ExpandableText,
   FreelancerCard,
   LinkDropdown,
+  SEO,
 } from "@/components/atoms";
 import { IntroLayout, NavLayout } from "@/components/templates";
 import { dropdowns, navs } from "@/components/templates/CatLayout";
@@ -16,7 +17,7 @@ import {
   AI_EXPERTS_SERVICES,
   CAT_AI_EXPERT_FREELANCER_CATEGORIES,
 } from "@/static/data/cat/ai";
-import { IExpandableText, TFreelancer } from "@/types/components.types";
+import { IExpandableText, TFreelancer, TSEO } from "@/types/components.types";
 import { useState } from "react";
 import TabBar, { TTabItem } from "@/components/atoms/TabBar";
 import {
@@ -24,6 +25,7 @@ import {
   AIExpertHiringBenefitsFaq,
   HiringAIExpertCostIntroFaq,
 } from "@/components/templates/CatLayout/Faqs/AIExpertFaqs";
+import { getMonthName } from "@/utils/date";
 
 export type TAIExpertCardItem = {
   title: string;
@@ -46,6 +48,8 @@ const AIServices = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
   const zIndexClasses = ["z-40", "z-30", "z-20", "z-10", "z-5"];
+
+  const now = new Date();
 
   const tabs: TTabItem[] = [
     { label: "All talent", value: "all_talent" },
@@ -80,8 +84,23 @@ const AIServices = () => {
     },
   ];
 
+  const seo: TSEO = {
+    title: `Top AI Services & Experts for Hire in ${getMonthName(
+      now.getMonth()
+    )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+    description:
+      "Hire top-rated AI experts, developers, and creators on Charlie Unicorn AI. From machine learning and chatbot development to generative AI, prompt engineering, and data science—discover professionals who bring artificial intelligence solutions to life. Start your AI project today.",
+    keywords:
+      "AI freelancers, AI developers, machine learning engineers, ChatGPT specialists, GPT-4 developers, DALL·E artists, Stable Diffusion experts, prompt engineers, OpenAI Codex, generative AI, AI chatbot developers, AI content creators, data scientists, AI engineers, AI services, hire AI experts, Charlie Unicorn AI",
+    url: "/cat/ai",
+  };
+
   return (
     <IntroLayout>
+      {/* SEO */}
+      <SEO {...seo} />
+
+      {/* Navigation Layout */}
       <NavLayout>
         <ul className="flex flex-row items-center gap-6">
           {navs.map((nav, index) => (
