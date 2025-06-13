@@ -18,6 +18,7 @@ import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-tran
 import FinanceAccountingIntroImage from "@/public/assets/webps/cat/finance-accounting/intro.webp";
 import HrTrainingIntroImage from "@/public/assets/webps/cat/hr-training/intro.webp";
 import LegalIntroImage from "@/public/assets/webps/cat/legal/intro.webp";
+import EngineeringArchitectureIntroImage from "@/public/assets/webps/cat/engineering-architecture/intro.webp";
 
 import {
   CAT_DEVELOPER_SERVICES,
@@ -41,6 +42,7 @@ import WritingTranslationProjectOverviewImage from "@/public/assets/pngs/cat/wri
 import FinanceAccountingProjectOverviewImage from "@/public/assets/pngs/cat/finance-accounting/project_overview.png";
 import HrTrainingProjectOverviewImage from "@/public/assets/jpgs/cat/hr-training/project_overview.jpg";
 import LegalProjectOverviewImage from "@/public/assets/jpgs/cat/legal/project_overview.jpg";
+import EngineeringArchitectureProjectOverviewImage from "@/public/assets/jpgs/cat/engineering-architecture/project_overview.jpeg";
 
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
@@ -116,6 +118,17 @@ import {
   LegalConnectionMethodsFaq,
   LegalHiringBenefitsFaq,
 } from "@/components/templates/CatLayout/Faqs/LegalFaqs";
+import {
+  CAT_ENGINEERING_ARCHITECTURE_EXPERTS_CATEGORIES,
+  CAT_ENGINEERING_ARCHITECTURE_FREELANCER_CATEGORIES,
+  CAT_ENGINEERING_ARCHITECTURE_PROJECT_OVERVIEW_SKILLS,
+  CAT_ENGINEERING_ARCHITECTURE_SERVICES,
+} from "@/static/data/cat/engineering-architecture";
+import {
+  EngineeringArchitectureConnectionMethodsFaq,
+  EngineeringArchitectureHiringBenefitsFaq,
+  HiringEngineeringArchitectureCostIntroFaq,
+} from "@/components/templates/CatLayout/Faqs/EngineeringArchitectureFaqs";
 
 const Category = () => {
   const router = useRouter();
@@ -191,6 +204,14 @@ const Category = () => {
           description:
             "Hundreds of independent professionals to help you create, navigate, and translate legal documents; register a trademark; or get general advice.",
           image: LegalIntroImage,
+        };
+
+      case "engineering-architecture":
+        return {
+          title: "Scale up fast with engineering and architecture experts",
+          description:
+            "Hundreds of independent professionals who’ll design everything from floor plans to landscapes to interiors.",
+          image: EngineeringArchitectureIntroImage,
         };
 
       default:
@@ -350,6 +371,27 @@ const Category = () => {
           },
         };
 
+      case "engineering-architecture":
+        return {
+          title:
+            "Specialized engineering and architecture experts you can count on",
+          categories: CAT_ENGINEERING_ARCHITECTURE_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.9",
+            label:
+              "Average rating for work with engineering and architecture talent.",
+          },
+          contracts: {
+            value: "34,500",
+            label:
+              "Involving engineering and architecture work in the last year",
+          },
+          skills: {
+            value: "670",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
+
       default:
         return null;
     }
@@ -404,6 +446,12 @@ const Category = () => {
         return {
           title: "Legal projects to help you get what you need, fast",
           items: CAT_LEGAL_SERVICES,
+        };
+
+      case "engineering-architecture":
+        return {
+          title: "Get your engineering and architecture projects done",
+          items: CAT_ENGINEERING_ARCHITECTURE_SERVICES,
         };
 
       default:
@@ -515,6 +563,19 @@ const Category = () => {
           budget: 2062,
           skills: CAT_LEGAL_PROJECT_OVERVIEW_SKILLS,
           image: LegalProjectOverviewImage,
+        };
+
+      case "engineering-architecture":
+        return {
+          title: "3D Modeling that brings your vision to life",
+          description:
+            "An architect leveraged Autodesk 3ds Max to model a client’s house",
+          message:
+            "Alaa is simply the best when it comes to 3D projects, most of all he is very reliable and has great communication.",
+          rate: 5,
+          budget: 3699,
+          skills: CAT_ENGINEERING_ARCHITECTURE_PROJECT_OVERVIEW_SKILLS,
+          image: EngineeringArchitectureProjectOverviewImage,
         };
 
       default:
@@ -737,6 +798,31 @@ const Category = () => {
           },
         ];
 
+      case "engineering-architecture":
+        return [
+          {
+            title:
+              "What is the first step to hiring engineering and architecture talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with engineering and architecture, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your needs, including:",
+            children: <HiringEngineeringArchitectureCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways I can connect with engineering and architecture talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your projects.",
+            children: <EngineeringArchitectureConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for engineering and architecture services?",
+            description:
+              "When it comes to engineering and architecture, you may need a multidisciplinary team to handle the various components of your project. Examples of professionals you might need for engineering and architecture projects include:",
+            children: <EngineeringArchitectureHiringBenefitsFaq />,
+          },
+        ];
+
       default:
         return null;
     }
@@ -794,6 +880,13 @@ const Category = () => {
         return {
           title: "Find freelancers with the Legal skills you need",
           categories: CAT_LEGAL_FREELANCER_CATEGORIES,
+        };
+
+      case "engineering-architecture":
+        return {
+          title:
+            "Find freelancers with the Engineering & Architecture skills you need",
+          categories: CAT_ENGINEERING_ARCHITECTURE_FREELANCER_CATEGORIES,
         };
 
       default:
@@ -889,6 +982,17 @@ const Category = () => {
           keywords:
             "freelance legal experts, contract drafters, legal consultants, employment law, intellectual property, family law, criminal law, immigration law, corporate law, real estate law, arbitration law, patent law, legal assistants, GDPR specialists, legal transcription, legal writing, data protection, Charlie Unicorn AI, hire legal freelancers",
           url: "/cat/legal",
+        };
+
+      case "engineering-architecture":
+        return {
+          title: `Top Engineering & Architecture Experts for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Find top engineering and architecture freelancers on Charlie Unicorn AI - Freelancer. From AutoCAD experts and mechanical engineers to landscape architects, BIM specialists, and design consultants—build, design, and innovate with trusted talent across every engineering discipline.`,
+          keywords:
+            "AutoCAD experts, mechanical engineers, structural engineers, electrical engineers, lighting engineers, architectural rendering, 2D drafter, BIM modeling, home designers, interior architects, landscape architects, aerospace engineers, hydraulic engineers, CI/CD engineers, fire protection engineers, infrastructure engineers, naval architects, engineering consultants, Charlie Unicorn AI, hire engineers and architects",
+          url: "/cat/engineering-architecture",
         };
 
       default:
