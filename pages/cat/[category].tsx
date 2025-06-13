@@ -16,6 +16,7 @@ import SalesAndMarketingIntroImage from "@/public/assets/webps/cat/sale-and-mark
 import AdminCustomerSupportIntroImage from "@/public/assets/webps/cat/admin-customer-support/intro.webp";
 import WritingTranslationIntroImage from "@/public/assets/webps/cat/writing-translation/intro.webp";
 import FinanceAccountingIntroImage from "@/public/assets/webps/cat/finance-accounting/intro.webp";
+import HrTrainingIntroImage from "@/public/assets/webps/cat/hr-training/intro.webp";
 
 import {
   CAT_DEVELOPER_SERVICES,
@@ -37,6 +38,7 @@ import SalesAndMarketingProjectOverviewImage from "@/public/assets/jpgs/cat/sale
 import AdminCustomerSupportProjectOverviewImage from "@/public/assets/jpgs/cat/admin-customer-support/project_overview.jpg";
 import WritingTranslationProjectOverviewImage from "@/public/assets/pngs/cat/writing-translation/project_overview.png";
 import FinanceAccountingProjectOverviewImage from "@/public/assets/pngs/cat/finance-accounting/project_overview.png";
+import HrTrainingProjectOverviewImage from "@/public/assets/jpgs/cat/hr-training/project_overview.jpg";
 
 import { IExpandableText, TSEO } from "@/types/components.types";
 import {
@@ -90,6 +92,17 @@ import {
   CAT_FINANCE_ACCOUNTING_PROJECT_OVERVIEW_SKILLS,
   CAT_FINANCE_ACCOUNTING_SERVICES,
 } from "@/static/data/cat/finance-accounting";
+import {
+  CAT_HR_TRAINING_EXPERTS_CATEGORIES,
+  CAT_HR_TRAINING_FREELANCER_CATEGORIES,
+  CAT_HR_TRAINING_PROJECT_OVERVIEW_SKILLS,
+  CAT_HR_TRAINING_SERVICES,
+} from "@/static/data/cat/hr-training";
+import {
+  HiringHrTrainingCostIntroFaq,
+  HrTrainingConnectionMethodsFaq,
+  HrTrainingHiringBenefitsFaq,
+} from "@/components/templates/CatLayout/Faqs/HrTrainingFaqs";
 
 const Category = () => {
   const router = useRouter();
@@ -150,6 +163,15 @@ const Category = () => {
             "Thousands of pros are ready to help with invoicing, tax returns, bookkeeping, and more.",
           image: FinanceAccountingIntroImage,
         };
+
+      case "hr-training":
+        return {
+          title: "Help your team thrive with HR and training experts",
+          description:
+            "Hundreds of independent professionals who’ll give your people the experience they deserve, and keep your organization running smoothly.",
+          image: HrTrainingIntroImage,
+        };
+
       default:
         return null;
     }
@@ -270,6 +292,25 @@ const Category = () => {
             label: "Represented by talent on Charlie Unicorn AI - Freelancer",
           },
         };
+
+      case "hr-training":
+        return {
+          title: "Specialized HR and training experts you can count on",
+          categories: CAT_HR_TRAINING_EXPERTS_CATEGORIES,
+          rate: {
+            value: "4.9",
+            label: "Average rating for work with HR professionals",
+          },
+          contracts: {
+            value: "1,900",
+            label: "Involving HR & training work in the last year",
+          },
+          skills: {
+            value: "105",
+            label: "Represented by talent on Charlie Unicorn AI - Freelancer",
+          },
+        };
+
       default:
         return null;
     }
@@ -312,6 +353,12 @@ const Category = () => {
         return {
           title: "Finance and accounting projects for your most pressing work",
           items: CAT_FINANCE_ACCOUNTING_SERVICES,
+        };
+
+      case "hr-training":
+        return {
+          title: "Get the job done fast with HR and training projects",
+          items: CAT_HR_TRAINING_SERVICES,
         };
       default:
         return null;
@@ -396,6 +443,19 @@ const Category = () => {
           budget: 3850,
           skills: CAT_FINANCE_ACCOUNTING_PROJECT_OVERVIEW_SKILLS,
           image: FinanceAccountingProjectOverviewImage,
+        };
+
+      case "hr-training":
+        return {
+          title: "HR pros that help your organization thrive",
+          description:
+            "A human resources expert helped a small business get their process up and running",
+          message:
+            "Lindsey was a pleasure to work with! He was super helpful and very thorough in her work. Her guidance allowed us to be more confident in our new processes and tools.",
+          rate: 5,
+          budget: 1700,
+          skills: CAT_HR_TRAINING_PROJECT_OVERVIEW_SKILLS,
+          image: HrTrainingProjectOverviewImage,
         };
 
       default:
@@ -568,6 +628,31 @@ const Category = () => {
           },
         ];
 
+      case "hr-training":
+        return [
+          {
+            title:
+              "What is the first step to hiring HR talent and determining the project cost?",
+            description:
+              "One of the first steps in hiring any talent is to determine which skills you need for your project. You know you need help with human resources, but what specific things are you trying to do? Charlie Unicorn AI - Freelancer matches you with proven remote talent who can help you with all your needs, including:",
+            children: <HiringHrTrainingCostIntroFaq />,
+          },
+          {
+            title:
+              "What are the various ways I can connect with HR talent through Charlie Unicorn AI - Freelancer?",
+            description:
+              "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your projects.",
+            children: <HrTrainingConnectionMethodsFaq />,
+          },
+          {
+            title:
+              "Why should I use Charlie Unicorn AI - Freelancer to find talent for HR services?",
+            description:
+              "When it comes to human resources, you may need a multidisciplinary team to handle the various components of your project. Examples of HR experts you might need for projects include:",
+            children: <HrTrainingHiringBenefitsFaq />,
+          },
+        ];
+
       default:
         return null;
     }
@@ -613,6 +698,12 @@ const Category = () => {
           title:
             "Find freelancers with the finance and accounting skills you need",
           categories: CAT_FINANCE_ACCOUNTING_FREELANCER_CATEGORIES,
+        };
+
+      case "hr-training":
+        return {
+          title: "Find freelancers with the HR & Training skills you need",
+          categories: CAT_HR_TRAINING_FREELANCER_CATEGORIES,
         };
 
       default:
@@ -686,6 +777,17 @@ const Category = () => {
           keywords:
             "freelance accountants, bookkeepers, CPAs, financial analysts, QuickBooks specialists, tax preparers, payroll experts, financial consultants, financial forecasting, business analysts, spreadsheet experts, financial modeling, legal advisors, finance freelancers, hire accounting talent, Charlie Unicorn AI",
           url: "/cat/finance-accounting",
+        };
+
+      case "hr-training":
+        return {
+          title: `Top HR & Training Experts for Hire in ${getMonthName(
+            now.getMonth()
+          )} ${now.getFullYear()} | Charlie Unicorn AI - Freelancer`,
+          description: `Find skilled HR and training professionals on Charlie Unicorn AI - Freelancer. From technical recruiters and curriculum developers to employee engagement experts, onboarding specialists, and executive coaches—build a stronger workforce with top freelance talent today.`,
+          keywords:
+            "freelance HR experts, curriculum developers, employee engagement specialists, onboarding consultants, technical recruiters, executive coaches, resume writers, HR policy experts, SCORM specialists, LMS experts, leadership development, SAP SuccessFactors, compensation consultants, performance management, Charlie Unicorn AI, hire HR freelancers",
+          url: "/cat/hr-training",
         };
 
       default:

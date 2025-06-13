@@ -238,44 +238,105 @@ const Intro = () => {
 
   return (
     <IntroLayout>
-      {/* SEO */}
+      {/* Enhanced SEO */}
       <Head>
-        <title>Charlie Unicorn AI Freelancer — Find Freelancers & Jobs</title>
+        <title>
+          Charlie Unicorn AI Freelancer — Find Top Freelancers & Remote Jobs |
+          Powered by AI
+        </title>
         <meta
           name="description"
-          content="Join Charlie Unicorn AI Freelancer to find skilled freelancers or discover new job opportunities powered by AI."
+          content="Join Charlie Unicorn AI Freelancer to connect with skilled AI-powered freelancers or discover high-quality remote job opportunities. From web development to AI services, design, marketing, and more. Start your project today."
+        />
+        <meta
+          name="keywords"
+          content="freelancers, freelance jobs, remote work, AI freelancers, web developers, designers, digital marketing, Charlie Unicorn AI, hire freelancers, freelance marketplace, independent contractors, project-based work"
         />
         <meta name="robots" content="index, follow" />
+        <meta name="author" content="Charlie Unicorn AI" />
         <link rel="canonical" href="https://charlieunicornai-freelancer.com/" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Charlie Unicorn AI Freelancer" />
         <meta
           property="og:title"
-          content="Charlie Unicorn AI Freelancer — Find Freelancers & Jobs"
+          content="Charlie Unicorn AI Freelancer — Find Top Freelancers & Remote Jobs"
         />
         <meta
           property="og:description"
-          content="Join Charlie Unicorn AI Freelancer to find skilled freelancers or discover new job opportunities powered by AI."
+          content="Connect with skilled AI-powered freelancers or discover quality remote job opportunities. From development to design, marketing to AI services."
         />
         <meta
           property="og:url"
           content="https://charlieunicornai-freelancer.com/"
         />
-        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://charlieunicornai-freelancer.com/og-image.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Charlie Unicorn AI Freelancer — Find Top Freelancers & Remote Jobs"
+        />
+        <meta
+          name="twitter:description"
+          content="Connect with skilled AI-powered freelancers or discover quality remote job opportunities."
+        />
+        <meta
+          name="twitter:image"
+          content="https://charlieunicornai-freelancer.com/og-image.jpg"
+        />
+
+        {/* Additional SEO */}
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="United States" />
+        <meta name="language" content="en-US" />
+        <meta name="rating" content="general" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Charlie Unicorn AI Freelancer",
+            description:
+              "AI-powered freelance marketplace connecting businesses with top freelancers",
+            url: "https://charlieunicornai-freelancer.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://charlieunicornai-freelancer.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
       </Head>
 
-      {/* Main */}
-      <div
+      {/* Main Content */}
+      <main
         ref={pageRef}
         className="w-[70%] flex flex-col gap-24 mx-auto py-8 mt-[90px]"
       >
-        {/* Search */}
-        <div className="relative w-full h-[700px]">
+        {/* Hero Search Section */}
+        <section
+          className="relative w-full h-[700px]"
+          aria-labelledby="hero-title"
+        >
           <Image
             src={SearchSectionBgImage}
-            alt="Search Section Background"
+            alt="Charlie Unicorn AI Freelancer - Connect clients with top freelancers"
             className="absolute w-full h-full object-cover rounded-lg"
+            priority
           />
           <div className="absolute top-5 w-1/2 h-full flex flex-col items-center justify-center pl-8 gap-20">
             <h1
+              id="hero-title"
               className={`text-6xl text-white font-semibold transition-all duration-300 ${
                 activeSearch
                   ? "opacity-0 transform -translate-y-8"
@@ -285,7 +346,7 @@ const Intro = () => {
               Connecting clients in need to freelancers who deliver
             </h1>
 
-            {/* Search Part */}
+            {/* Search Interface */}
             <div
               ref={searchContainerRef}
               className={`w-full rounded-4xl p-8 transition-all duration-300 ease-in-out ${
@@ -298,8 +359,10 @@ const Intro = () => {
                 backdropFilter: "blur(8px)",
                 height: activeSearch ? "400px" : "auto",
               }}
+              role="search"
+              aria-label="Find freelancers or browse jobs"
             >
-              {/* Switch */}
+              {/* Search Type Switch */}
               <Switch
                 type="ghost"
                 labels={["Find talent", "Browse jobs"]}
@@ -309,54 +372,68 @@ const Intro = () => {
 
               {activeSwitchIndex === 0 ? (
                 <>
-                  {/* Search Input */}
+                  {/* Talent Search Input */}
                   <div className="w-full flex bg-white items-center rounded-full mt-4 overflow-hidden">
                     <input
                       type="search"
                       placeholder="Search by role, skills or keywords"
                       className="bg-transparent py-3 px-5 w-full rounded-full border-none outline-none"
                       onClick={() => setActiveSearch(true)}
+                      aria-label="Search for freelancers by skills or keywords"
                     />
-                    <button className="flex items-center justify-center bg-black text-white font-semibold rounded-full py-2 px-5 mr-[2px] text-lg">
+                    <button
+                      className="flex items-center justify-center bg-black text-white font-semibold rounded-full py-2 px-5 mr-[2px] text-lg"
+                      aria-label="Search for freelancers"
+                    >
                       <Icon
                         icon="mingcute:search-line"
                         className="w-6 h-6 mr-2 text-[#d2ff00]"
+                        aria-hidden="true"
                       />
                       Search
                     </button>
                   </div>
 
-                  {/* Popular Searches - Show when search is active */}
+                  {/* Popular Searches */}
                   {activeSearch && (
-                    <div className="w-full mt-6">
+                    <div
+                      className="w-full mt-6"
+                      role="region"
+                      aria-label="Popular searches"
+                    >
                       <p className="text-white text-sm font-semibold mb-4">
                         POPULAR SEARCHES
                       </p>
-                      <div className="flex flex-col gap-3">
+                      <nav className="flex flex-col gap-3">
                         {popularSearches.map((search, index) => (
-                          <div
+                          <button
                             key={index}
-                            className="flex items-center gap-3 cursor-pointer hover:bg-white/10 rounded-lg p-2 transition-colors"
+                            className="flex items-center gap-3 cursor-pointer hover:bg-white/10 rounded-lg p-2 transition-colors text-left"
+                            aria-label={`Search for ${search}`}
                           >
                             <Icon
                               icon="mingcute:search-line"
                               className="w-4 h-4 text-gray-300"
+                              aria-hidden="true"
                             />
                             <span className="text-white text-sm">{search}</span>
-                          </div>
+                          </button>
                         ))}
-                      </div>
+                      </nav>
                     </div>
                   )}
 
-                  {/* Brands - Show when search is not active */}
+                  {/* Trusted Brands */}
                   {!activeSearch && (
-                    <div className="flex flex-row items-center justify-center gap-8 mt-6 w-[80%] mx-auto">
+                    <aside
+                      className="flex flex-row items-center justify-center gap-8 mt-6 w-[80%] mx-auto"
+                      aria-label="Trusted by leading companies"
+                    >
                       <Image
                         src={
                           "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-microsoft-grey.svg"
                         }
-                        alt="Microsoft"
+                        alt="Microsoft - trusted client"
                         width={100}
                         height={50}
                       />
@@ -364,7 +441,7 @@ const Intro = () => {
                         src={
                           "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-airbnb-grey.svg"
                         }
-                        alt="Airbnb"
+                        alt="Airbnb - trusted client"
                         width={70}
                         height={30}
                       />
@@ -372,7 +449,7 @@ const Intro = () => {
                         src={
                           "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-bissell-grey.svg"
                         }
-                        alt="Bissell"
+                        alt="Bissell - trusted client"
                         width={40}
                         height={30}
                       />
@@ -380,11 +457,11 @@ const Intro = () => {
                         src={
                           "https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/q_auto/brontes/hero/logo-glassdoor.svg"
                         }
-                        alt="Glassdoor"
+                        alt="Glassdoor - trusted client"
                         width={80}
                         height={30}
                       />
-                    </div>
+                    </aside>
                   )}
                 </>
               ) : (
@@ -402,27 +479,39 @@ const Intro = () => {
               )}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Intro1 */}
-        <div className="w-full flex gap-8 py-4">
-          <div className="w-2/5 rounded-md bg-blue-200"></div>
+        {/* Getting Started Section */}
+        <section
+          className="w-full flex gap-8 py-4"
+          aria-labelledby="getting-started-title"
+        >
+          <div
+            className="w-2/5 rounded-md bg-blue-200"
+            aria-hidden="true"
+          ></div>
           <div className="w-3/5">
-            <h2 className="text-5xl font-semibold">
-              Up your work game, it's easy
-            </h2>
+            <header>
+              <h2 id="getting-started-title" className="text-5xl font-semibold">
+                Up your work game, it's easy
+              </h2>
+            </header>
             <div className="w-full flex flex-col items-start gap-4 mt-8">
               {firstIntroSectionItems.map((item, index) => (
-                <div
+                <article
                   key={index}
                   className="flex flex-row items-start gap-4 w-full overflow-hidden"
                 >
-                  <Icon icon={item.icon} className="w-6 h-6 mt-1" />
+                  <Icon
+                    icon={item.icon}
+                    className="w-6 h-6 mt-1"
+                    aria-hidden="true"
+                  />
                   <div className="w-full">
-                    <h2 className="font-semibold text-lg ">{item.title}</h2>
+                    <h3 className="font-semibold text-lg">{item.title}</h3>
                     <p className="text-base">{item.description}</p>
                   </div>
-                </div>
+                </article>
               ))}
               <div className="flex items-center gap-4 mb-4 mt-4">
                 <Button type="primary" label="Sign up for free" size="medium" />
@@ -434,63 +523,85 @@ const Intro = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Browse talent */}
-        <div className="w-full py-4">
-          <h1 className="text-5xl font-semibold">Browse talent by category</h1>
-          <p className="text-xl mt-4 text-gray-600">
-            Looking for work?{" "}
-            <Link href="/" className="text-blue-500 underline">
-              Browse jobs
-            </Link>
-          </p>
-
-          {/* Talent Categories Cards */}
-          <div className="w-full grid grid-cols-4 gap-8 mt-8">
-            {talentCategories.map((category, index) => (
-              <Link
-                href={category.path}
-                key={index}
-                className="px-4 py-6 rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 ease-in-out"
-              >
-                <h2 className="font-semibold text-xl">{category.label}</h2>
-                <div className="flex items-center gap-8 mt-4">
-                  <div className="flex items-center gap-1">
-                    <Icon
-                      icon="solar:star-bold"
-                      className="text-blue-500 w-5 h-5"
-                    />
-                    <span>{category.rate} / 5</span>
-                  </div>
-                  <span>{category.skills} skills</span>
-                </div>
+        {/* Talent Categories Section */}
+        <section
+          className="w-full py-4"
+          aria-labelledby="talent-categories-title"
+        >
+          <header>
+            <h2 id="talent-categories-title" className="text-5xl font-semibold">
+              Browse talent by category
+            </h2>
+            <p className="text-xl mt-4 text-gray-600">
+              Looking for work?{" "}
+              <Link href="/" className="text-blue-500 underline">
+                Browse jobs
               </Link>
+            </p>
+          </header>
+
+          {/* Talent Categories Grid */}
+          <div
+            className="w-full grid grid-cols-4 gap-8 mt-8"
+            role="region"
+            aria-label="Freelancer categories"
+          >
+            {talentCategories.map((category, index) => (
+              <article key={index}>
+                <Link
+                  href={category.path}
+                  className="px-4 py-6 rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 ease-in-out block"
+                  aria-label={`Browse ${category.label} freelancers - ${category.rate} out of 5 stars with ${category.skills} skills available`}
+                >
+                  <h3 className="font-semibold text-xl">{category.label}</h3>
+                  <div className="flex items-center gap-8 mt-4">
+                    <div className="flex items-center gap-1">
+                      <Icon
+                        icon="solar:star-bold"
+                        className="text-blue-500 w-5 h-5"
+                        aria-hidden="true"
+                      />
+                      <span>{category.rate} / 5</span>
+                    </div>
+                    <span>{category.skills} skills</span>
+                  </div>
+                </Link>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Enterprise suite */}
-        <div className="w-full bg-[#1034a6] flex rounded-lg">
-          {/* Intro section */}
+        {/* Enterprise Suite Section */}
+        <section
+          className="w-full bg-[#1034a6] flex rounded-lg"
+          aria-labelledby="enterprise-title"
+        >
+          {/* Enterprise Content */}
           <div className="w-[55%] p-8">
-            {/* Titles */}
-            <h1 className="text-white font-semibold text-2xl">
-              Enterprise Suite
-            </h1>
-            <div>
-              <h2 className="text-white font-semibold text-5xl mt-4">
-                This is how
+            {/* Enterprise Header */}
+            <header>
+              <h2 className="text-white font-semibold text-2xl">
+                Enterprise Suite
               </h2>
-              <h2 className="text-blue-300 font-semibold text-5xl mt-2">
-                good companies
-              </h2>
-              <h2 className="text-blue-300 font-semibold text-5xl mt-1">
-                find good company.
-              </h2>
-            </div>
+              <div>
+                <h3
+                  id="enterprise-title"
+                  className="text-white font-semibold text-5xl mt-4"
+                >
+                  This is how
+                </h3>
+                <h3 className="text-blue-300 font-semibold text-5xl mt-2">
+                  good companies
+                </h3>
+                <h3 className="text-blue-300 font-semibold text-5xl mt-1">
+                  find good company.
+                </h3>
+              </div>
+            </header>
 
-            {/* Description */}
+            {/* Enterprise Description */}
             <p className="text-white font-semibold text-lg mt-6">
               Access the top 1% of talent on Charlie Unicorn AI, and a full
               suite of hybrid
@@ -498,30 +609,37 @@ const Intro = () => {
               workforce management tools. This is how innovation works now.
             </p>
 
-            {/* Descriptions Group */}
-            <div className="w-full flex flex-col items-start gap-2 mt-4">
-              <div className="w-full flex items-center gap-2">
+            {/* Enterprise Features */}
+            <div
+              className="w-full flex flex-col items-start gap-2 mt-4"
+              role="list"
+              aria-label="Enterprise features"
+            >
+              <div className="w-full flex items-center gap-2" role="listitem">
                 <Icon
                   icon="material-symbols-light:handyman-outline"
                   className="w-5 h-5 text-blue-300"
+                  aria-hidden="true"
                 />
                 <p className="text-white">
                   Access expert talent to fill your skill gaps
                 </p>
               </div>
-              <div className="w-full flex items-center gap-2">
+              <div className="w-full flex items-center gap-2" role="listitem">
                 <Icon
                   icon="material-symbols-light:work"
                   className="w-5 h-5 text-blue-300"
+                  aria-hidden="true"
                 />
                 <p className="text-white">
                   Control your workflow: hire, classify and pay your talent
                 </p>
               </div>
-              <div className="w-full flex items-center gap-2">
+              <div className="w-full flex items-center gap-2" role="listitem">
                 <Icon
                   icon="material-symbols-light:headset-mic-rounded"
                   className="w-5 h-5 text-blue-300"
+                  aria-hidden="true"
                 />
                 <p className="text-white">
                   Partner with Charlie Unicorn AI for end-to-end support
@@ -529,116 +647,146 @@ const Intro = () => {
               </div>
             </div>
 
-            {/* Learn more button */}
-            <button className="rounded-lg text-[#1034a6] bg-white text-base py-2 px-7 mt-4 cursor-pointer">
+            {/* Enterprise CTA */}
+            <button
+              className="rounded-lg text-[#1034a6] bg-white text-base py-2 px-7 mt-4 cursor-pointer"
+              aria-label="Learn more about Enterprise Suite"
+            >
               Learn more
             </button>
           </div>
 
-          {/* Image Section */}
+          {/* Enterprise Image */}
           <div className="w-[45%]">
             <Image
               src={EnterpriseSuiteImage}
-              alt="Enterprise Suite"
+              alt="Enterprise Suite - Advanced workforce management tools"
               className="w-full h-full object-cover rounded-r-lg"
             />
           </div>
-        </div>
+        </section>
 
-        {/* For Clients */}
-        <div className="w-full rounded-lg relative h-[600px]">
+        {/* For Clients Section */}
+        <section
+          className="w-full rounded-lg relative h-[600px]"
+          aria-labelledby="clients-title"
+        >
           <Image
             src={ForClientsImage}
-            alt="For Clients"
+            alt="For Clients - Find talent your way on Charlie Unicorn AI"
             className="absolute top-0 left-0 w-full h-full object-cover object-top rounded-lg"
           />
 
           <div className="absolute top-0 p-8 w-full">
-            {/* Title */}
-            <h1 className="text-white text-2xl font-semibold">For clients</h1>
+            {/* Clients Header */}
+            <header>
+              <h2 className="text-white text-2xl font-semibold">For clients</h2>
+              <div className="mt-10">
+                <h3
+                  id="clients-title"
+                  className="text-white text-6xl font-semibold"
+                >
+                  Find talent <br /> your way
+                </h3>
+                <p className="mt-14 font-semibold text-xl text-white">
+                  Work with the largest network of independent <br />{" "}
+                  professionals and get things done—from <br /> quick
+                  turnarounds to big transformations.
+                </p>
+              </div>
+            </header>
 
-            {/* Descriptions */}
-            <div className="mt-10">
-              <h2 className="text-white text-6xl font-semibold">
-                Find talent <br /> your way
-              </h2>
-              <p className="mt-14 font-semibold text-xl text-white">
-                Work with the largest network of independent <br />{" "}
-                professionals and get things done—from <br /> quick turnarounds
-                to big transformations.
-              </p>
-            </div>
-
-            {/* Cards Group */}
-            <div className="w-full grid grid-cols-3 gap-8 mt-8">
-              <Link
-                href="/"
-                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
-              >
-                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
-                  Post a job <br />
-                  and hire a pro
-                </h2>
-                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
-                  Talent Marketplace
-                  <Icon
-                    icon="solar:arrow-right-outline"
-                    className="group-hover:text-blue-600 text-white"
-                  />
-                </button>
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
-              >
-                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
-                  Browse and
-                  <br />
-                  buy projects
-                </h2>
-                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
-                  Project Catalog
-                  <Icon
-                    icon="solar:arrow-right-outline"
-                    className="group-hover:text-blue-600 text-white"
-                  />
-                </button>
-              </Link>
-              <Link
-                href="/"
-                className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group"
-              >
-                <h2 className="text-white text-4xl font-semibold group-hover:text-blue-600">
-                  Get advice from an
-                  <br />
-                  industry expert
-                </h2>
-                <button className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
-                  Consultations
-                  <Icon
-                    icon="solar:arrow-right-outline"
-                    className="group-hover:text-blue-600 text-white"
-                  />
-                </button>
-              </Link>
+            {/* Client Options */}
+            <div
+              className="w-full grid grid-cols-3 gap-8 mt-8"
+              role="region"
+              aria-label="Ways to hire talent"
+            >
+              <article>
+                <Link
+                  href="/"
+                  className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group block"
+                  aria-label="Post a job and hire professional freelancers through Talent Marketplace"
+                >
+                  <h4 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                    Post a job <br />
+                    and hire a pro
+                  </h4>
+                  <span className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                    Talent Marketplace
+                    <Icon
+                      icon="solar:arrow-right-outline"
+                      className="group-hover:text-blue-600 text-white"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              </article>
+              <article>
+                <Link
+                  href="/"
+                  className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group block"
+                  aria-label="Browse and buy ready-made projects from Project Catalog"
+                >
+                  <h4 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                    Browse and
+                    <br />
+                    buy projects
+                  </h4>
+                  <span className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                    Project Catalog
+                    <Icon
+                      icon="solar:arrow-right-outline"
+                      className="group-hover:text-blue-600 text-white"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              </article>
+              <article>
+                <Link
+                  href="/"
+                  className="px-4 py-6 rounded-lg bg-blue-800 transition-all duration-300 ease-in-out cursor-pointer hover:bg-white group block"
+                  aria-label="Get expert advice through one-on-one consultations"
+                >
+                  <h4 className="text-white text-4xl font-semibold group-hover:text-blue-600">
+                    Get advice from an
+                    <br />
+                    industry expert
+                  </h4>
+                  <span className="flex items-center gap-2 text-white mt-4 group-hover:text-blue-600">
+                    Consultations
+                    <Icon
+                      icon="solar:arrow-right-outline"
+                      className="group-hover:text-blue-600 text-white"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              </article>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Why businesses turn to us */}
-        <div className="w-full relative flex gap-4">
+        {/* Why Choose Us Section */}
+        <section
+          className="w-full relative flex gap-4"
+          aria-labelledby="why-choose-title"
+        >
           <div className="w-[70%] bg-gray-100 rounded-lg px-8 py-16">
-            {/* Title */}
-            <h1 className="text-6xl font-semibold">
-              Why businesses
-              <br />
-              turn to Charlie Unicorn AI
-            </h1>
+            {/* Why Choose Header */}
+            <header>
+              <h2 id="why-choose-title" className="text-6xl font-semibold">
+                Why businesses
+                <br />
+                turn to Charlie Unicorn AI
+              </h2>
+            </header>
 
-            {/* Reasons */}
+            {/* Business Benefits */}
             <div className="w-[70%] flex flex-col items-start gap-8 mt-8">
               {reasonsTurningToUs.map((reason, index) => (
-                <div
+                <article
                   key={index}
                   className="w-full flex flex-row items-start gap-4 overflow-hidden"
                 >
@@ -646,32 +794,41 @@ const Intro = () => {
                     icon={reason.icon}
                     color="black"
                     className="w-6 h-6 mt-2"
+                    aria-hidden="true"
                   />
                   <div className="w-full">
-                    <h2 className="text-3xl font-semibold">{reason.title}</h2>
+                    <h3 className="text-3xl font-semibold">{reason.title}</h3>
                     <p className="text-base text-gray-500">
                       {reason.description}
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
-          <div className="w-[30%] bg-blue-600 rounded-lg relative">
+          <aside
+            className="w-[30%] bg-blue-600 rounded-lg relative"
+            aria-labelledby="marketplace-stats"
+          >
             <div className="absolute bottom-0 left-0 px-10 py-16">
-              {/* Title */}
-              <h1 className="text-3xl font-semibold text-white">
-                We're
-                <br />
-                the world's work
-                <br />
-                marketplace
-              </h1>
+              {/* Marketplace Stats Header */}
+              <header>
+                <h3
+                  id="marketplace-stats"
+                  className="text-3xl font-semibold text-white"
+                >
+                  We're
+                  <br />
+                  the world's work
+                  <br />
+                  marketplace
+                </h3>
+              </header>
 
-              {/* Ads */}
+              {/* Platform Achievements */}
               <div className="w-full flex flex-col items-start gap-4 mt-8">
                 {adus.map((ad, index) => (
-                  <div
+                  <article
                     key={index}
                     className="w-full flex flex-row items-start gap-4 overflow-hidden"
                   >
@@ -679,48 +836,62 @@ const Intro = () => {
                       icon={ad.icon}
                       color="white"
                       className="w-6 h-6 mt-2"
+                      aria-hidden="true"
                     />
                     <div className="w-full">
-                      <h2 className="text-3xl font-semibold text-white">
+                      <h4 className="text-3xl font-semibold text-white">
                         {ad.title}
-                      </h2>
+                      </h4>
                       <p className="text-base text-white">{ad.description}</p>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
+          </aside>
+        </section>
 
-        {/* Find greate work */}
-        <div className="w-full flex bg-green-600 rounded-lg overflow-hidden">
+        {/* For Talent Section */}
+        <section
+          className="w-full flex bg-green-600 rounded-lg overflow-hidden"
+          aria-labelledby="talent-opportunities-title"
+        >
           <Image
             src={FindWorkImage}
-            alt="Find great work"
+            alt="For Talent - Find great work opportunities on Charlie Unicorn AI"
             className="w-1/2 h-auto object-cover"
           />
           <div className="w-1/2 p-8">
-            {/* Title */}
-            <h1 className="text-white text-2xl font-semibold">For talent</h1>
+            {/* Talent Header */}
+            <header>
+              <h2 className="text-white text-2xl font-semibold">For talent</h2>
+              <div className="mt-8">
+                <h3
+                  id="talent-opportunities-title"
+                  className="text-white text-6xl font-semibold"
+                >
+                  Find great
+                  <br />
+                  work
+                </h3>
+                <p className="text-white text-xl mt-8">
+                  Meet clients you're excited to work with and take
+                  <br />
+                  your career or business to new heights.
+                </p>
+              </div>
+            </header>
 
-            {/* Description */}
-            <div className="mt-8">
-              <h2 className="text-white text-6xl font-semibold">
-                Find great
-                <br />
-                work
-              </h2>
-              <p className="text-white text-xl mt-8">
-                Meet clients you're excited to work with and take
-                <br />
-                your career or business to new heights.
-              </p>
-            </div>
-
-            {/* Divider */}
-            <div className="w-full h-[1px] bg-white mt-32"></div>
-            <div className="w-full grid grid-cols-3 gap-8 mt-4">
+            {/* Talent Benefits */}
+            <div
+              className="w-full h-[1px] bg-white mt-32"
+              aria-hidden="true"
+            ></div>
+            <div
+              className="w-full grid grid-cols-3 gap-8 mt-4"
+              role="region"
+              aria-label="Freelancer benefits"
+            >
               <p className="text-white">
                 Find opportunities for
                 <br />
@@ -736,17 +907,24 @@ const Intro = () => {
                 <br /> to earn
               </p>
             </div>
-            <button className="mt-10 bg-white py-3 px-7 text-green-600 rounded-lg cursor-pointer hover:bg-gray-300 transition-all duration-300 ease-in-out">
+            <button
+              className="mt-10 bg-white py-3 px-7 text-green-600 rounded-lg cursor-pointer hover:bg-gray-300 transition-all duration-300 ease-in-out"
+              aria-label="Find freelance opportunities"
+            >
               Find opportunities
             </button>
           </div>
-        </div>
+        </section>
 
-        {/* Trusted by leading brands and startups */}
-
-        {/* Skills categories */}
-        <div className="w-full flex gap-8">
-          <div className="w-1/3 flex flex-col items-start gap-4">
+        {/* Skills Directory Section */}
+        <section
+          className="w-full flex gap-8"
+          aria-labelledby="skills-directory-title"
+        >
+          <header className="w-1/3 flex flex-col items-start gap-4">
+            <h2 id="skills-directory-title" className="sr-only">
+              Skills and Services Directory
+            </h2>
             {skillCategories.map((skillCategory, index) => (
               <button
                 key={index}
@@ -756,12 +934,17 @@ const Intro = () => {
                     : "text-gray-300"
                 } cursor-pointer text-left`}
                 onClick={() => setActiveSkillCategoryIndex(index)}
+                aria-label={`View ${skillCategory}`}
+                aria-pressed={activeSkillCategoryIndex === index}
               >
                 {skillCategory}
               </button>
             ))}
-          </div>
-          <div className="w-1/3 flex flex-col items-start gap-4">
+          </header>
+          <nav
+            className="w-1/3 flex flex-col items-start gap-4"
+            aria-label={`${skillCategories[activeSkillCategoryIndex]} - first column`}
+          >
             {skills[activeSkillCategoryIndex]
               .slice(0, 16)
               .map((skill, index) => (
@@ -773,8 +956,11 @@ const Intro = () => {
                   {skill.label}
                 </Link>
               ))}
-          </div>
-          <div className="w-1/3 flex flex-col items-start gap-4">
+          </nav>
+          <nav
+            className="w-1/3 flex flex-col items-start gap-4"
+            aria-label={`${skillCategories[activeSkillCategoryIndex]} - second column`}
+          >
             {skills[activeSkillCategoryIndex]
               .slice(16, skills[activeSkillCategoryIndex].length)
               .map((skill, index) => (
@@ -786,9 +972,9 @@ const Intro = () => {
                   {skill.label}
                 </Link>
               ))}
-          </div>
-        </div>
-      </div>
+          </nav>
+        </section>
+      </main>
     </IntroLayout>
   );
 };

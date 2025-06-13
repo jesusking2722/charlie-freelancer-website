@@ -120,7 +120,7 @@ export const navs: TNavItem[] = [
 export const dropdowns: TLinkDropdownItem[] = [
   { label: "Writing & Translation", path: "/cat/writing-translation" },
   { label: "Finance & Accounting", path: "/cat/finance-accounting" },
-  { label: "HR & Training", path: "/" },
+  { label: "HR & Training", path: "/cat/hr-training" },
   { label: "Legal", path: "/" },
   { label: "Engineering & Architecture", path: "/" },
   { label: "See all specializations", path: "/" },
@@ -575,6 +575,15 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                   {faq.children}
                 </ExpandableText>
               ))}
+              <div className="mt-2 flex flex-row items-center gap-2">
+                <p>Still have questions?</p>
+                <Link
+                  href="/"
+                  className="text-blue-600 underline font-semibold"
+                >
+                  Visit our Help Center
+                </Link>
+              </div>
             </div>
           </section>
         )}

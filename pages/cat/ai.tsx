@@ -65,14 +65,14 @@ const AIServices = () => {
       title:
         "What is the first step to hiring AI talent and determining the project cost?",
       description:
-        "One of the first steps in hiring any talent is to determine what skills you need for your project. For example, if you’re integrating AI into your applications, you may need engineers or data scientists. Or, if you’re interested in using generative AI technologies to create content, you’ll want to explore working with an AI content editor to check AI outputs. Examples of talent you’ll find on Charlie Unicorn AI - Freelancer include:",
+        "One of the first steps in hiring any talent is to determine what skills you need for your project. For example, if you're integrating AI into your applications, you may need engineers or data scientists. Or, if you're interested in using generative AI technologies to create content, you'll want to explore working with an AI content editor to check AI outputs. Examples of talent you'll find on Charlie Unicorn AI - Freelancer include:",
       children: <HiringAIExpertCostIntroFaq />,
     },
     {
       title:
         "How can I connect with AI talent on Charlie Unicorn AI - Freelancer?",
       description:
-        "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your AI projects. Here’s how you can find an expert with the skills you need:",
+        "Charlie Unicorn AI - Freelancer gives you the flexibility you need to find the right talent for your AI projects. Here's how you can find an expert with the skills you need:",
       children: <AIExpertConnectionMethodsFaq />,
     },
     {
@@ -102,31 +102,33 @@ const AIServices = () => {
 
       {/* Navigation Layout */}
       <NavLayout>
-        <ul className="flex flex-row items-center gap-6">
-          {navs.map((nav, index) => (
-            <li key={index}>
-              <Link
-                href={nav.path}
-                className="text-sm hover:text-blue-600 hover:underline"
-              >
-                {nav.label}
-              </Link>
+        <nav role="navigation" aria-label="AI services categories">
+          <ul className="flex flex-row items-center gap-6">
+            {navs.map((nav, index) => (
+              <li key={index}>
+                <Link
+                  href={nav.path}
+                  className="text-sm hover:text-blue-600 hover:underline"
+                >
+                  {nav.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <LinkDropdown placeholder="More" items={dropdowns} />
             </li>
-          ))}
-          <li>
-            <LinkDropdown placeholder="More" items={dropdowns} />
-          </li>
-        </ul>
+          </ul>
+        </nav>
       </NavLayout>
 
-      {/* Main */}
-      <div className="w-full mt-[150px] flex flex-col gap-16 py-8">
-        {/* Intro Part 1 */}
-        <div className="w-full bg-[#181818]">
+      {/* Main Content */}
+      <main className="w-full mt-[150px] flex flex-col gap-16 py-8">
+        {/* Hero Section */}
+        <section className="w-full bg-[#181818]" aria-labelledby="hero-title">
           <div className="w-[70%] mx-auto py-10 flex flex-col items-center justify-center gap-8">
-            {/* Title & Description & Button */}
-            <div className="flex flex-col items-center justify-center gap-4">
-              <h1 className="text-5xl font-semibold text-white">
+            {/* Hero Content */}
+            <header className="flex flex-col items-center justify-center gap-4">
+              <h1 id="hero-title" className="text-5xl font-semibold text-white">
                 WORK, SMARTER.
               </h1>
               <p className="text-base text-white">
@@ -141,86 +143,115 @@ const AIServices = () => {
                   width="full"
                 />
               </div>
-            </div>
+            </header>
 
-            {/* Cards Group */}
-            <div className="w-full grid grid-cols-3 gap-6">
+            {/* AI Expert Categories */}
+            <div
+              className="w-full grid grid-cols-3 gap-6"
+              role="region"
+              aria-label="AI expert categories"
+            >
               {AI_EXPERTS_CARDS.map((card, index) => {
                 const [isHovered, setIsHovered] = useState(false);
 
                 return (
-                  <motion.button
-                    key={index}
-                    className="relative rounded-xl p-6 bg-white cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h2 className="text-left">{card.title}</h2>
-                    <p className="text-sm mt-4 text-left">{card.description}</p>
+                  <article key={index}>
+                    <motion.button
+                      className="relative rounded-xl p-6 bg-white cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out w-full text-left"
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      transition={{ duration: 0.3 }}
+                      aria-label={`Explore ${card.title} services`}
+                    >
+                      <h2 className="text-left">{card.title}</h2>
+                      <p className="text-sm mt-4 text-left">
+                        {card.description}
+                      </p>
 
-                    <div className="flex flex-row items-center gap-4 mt-8">
-                      {/* Experts avatars */}
-                      <div className="flex">
-                        {card.experts.map((ex, expertIndex) => (
-                          <motion.div
-                            key={expertIndex}
-                            className={`relative ${zIndexClasses[expertIndex]} w-12 h-12`}
-                            animate={{
-                              x: isHovered ? expertIndex * 2 : expertIndex * -8,
-                            }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeOut",
-                              delay: expertIndex * 0.05,
-                            }}
-                          >
-                            <Image
-                              src={ex.pic || ""}
-                              alt={ex.name}
-                              className="border rounded-full ring-2 ring-white ring-opacity-50 object-cover"
-                              fill
-                            />
-                          </motion.div>
-                        ))}
+                      <div className="flex flex-row items-center gap-4 mt-8">
+                        {/* Expert Avatars */}
+                        <div
+                          className="flex"
+                          role="group"
+                          aria-label={`${card.title} experts`}
+                        >
+                          {card.experts.map((ex, expertIndex) => (
+                            <motion.div
+                              key={expertIndex}
+                              className={`relative ${zIndexClasses[expertIndex]} w-12 h-12`}
+                              animate={{
+                                x: isHovered
+                                  ? expertIndex * 2
+                                  : expertIndex * -8,
+                              }}
+                              transition={{
+                                duration: 0.3,
+                                ease: "easeOut",
+                                delay: expertIndex * 0.05,
+                              }}
+                            >
+                              <Image
+                                src={ex.pic || ""}
+                                alt={`${ex.name} - AI expert`}
+                                className="border rounded-full ring-2 ring-white ring-opacity-50 object-cover"
+                                fill
+                              />
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        <motion.div
+                          animate={{ y: isHovered ? 4 : 0 }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                          <Icon
+                            icon="solar:arrow-down-linear"
+                            className="text-blue-600 w-6 h-6"
+                            aria-hidden="true"
+                          />
+                        </motion.div>
                       </div>
-
-                      <motion.div
-                        animate={{ y: isHovered ? 4 : 0 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      >
-                        <Icon
-                          icon="solar:arrow-down-linear"
-                          className="text-blue-600 w-6 h-6"
-                        />
-                      </motion.div>
-                    </div>
-                  </motion.button>
+                    </motion.button>
+                  </article>
                 );
               })}
             </div>
 
-            {/* Navigation Button */}
-            <div className="flex items-center gap-1 w-full text-left">
+            {/* Talent Navigation */}
+            <aside
+              className="flex items-center gap-1 w-full text-left"
+              aria-label="For talent"
+            >
               <p className="text-white">FOR TALENT :</p>
-              <Link href="/" className="text-blue-500 underline">
+              <Link
+                href="/"
+                className="text-blue-500 underline"
+                aria-label="Find AI jobs and develop your skills"
+              >
                 Find AI jobs and hone your skills
               </Link>
               <Icon
                 icon="solar:arrow-right-linear"
                 className="w-5 h-5 text-blue-500"
+                aria-hidden="true"
               />
-            </div>
+            </aside>
           </div>
-        </div>
+        </section>
 
-        {/* Explore how AI can transform your business */}
-        <div className="w-[70%] mx-auto">
-          {/* Title & Description */}
-          <div className="w-3/5">
-            <h1 className="text-4xl font-semibold text-[#0e183d]">
+        {/* AI Business Transformation Section */}
+        <section
+          className="w-[70%] mx-auto"
+          aria-labelledby="transformation-title"
+        >
+          {/* Section Header */}
+          <header className="w-3/5">
+            <h2
+              id="transformation-title"
+              className="text-4xl font-semibold text-[#0e183d]"
+            >
               Explore how AI can transform your business
-            </h1>
+            </h2>
             <p className="mt-4">
               Book a paid 1-on-1 consultation with an expert. They can help you
               create a plan for how AI fits into your innovation strategy.{" "}
@@ -228,10 +259,14 @@ const AIServices = () => {
                 See all consultants
               </Link>
             </p>
-          </div>
+          </header>
 
-          {/* Freelancer Cards Group */}
-          <div className="w-full grid grid-cols-4 gap-6 mt-6">
+          {/* AI Consultants */}
+          <div
+            className="w-full grid grid-cols-4 gap-6 mt-6"
+            role="region"
+            aria-label="Featured AI consultants"
+          >
             {AI_EXPERTS.slice(0, 4).map((expert, index) => (
               <FreelancerCard
                 key={index}
@@ -244,33 +279,43 @@ const AIServices = () => {
           <div className="w-full flex items-center justify-center mt-6">
             <Button type="primary" label="Hire an AI expert" size="medium" />
           </div>
-        </div>
+        </section>
 
-        {/* Hire the right talent */}
-        <div className="w-[70%] mx-auto">
-          {/* Title & Description */}
-          <div className="w-3/5">
-            <h1 className="text-4xl font-semibold text-[#0e183d]">
+        {/* Talent Hiring Section */}
+        <section
+          className="w-[70%] mx-auto"
+          aria-labelledby="talent-hiring-title"
+        >
+          {/* Section Header */}
+          <header className="w-3/5">
+            <h2
+              id="talent-hiring-title"
+              className="text-4xl font-semibold text-[#0e183d]"
+            >
               Hire the right talent for your project
-            </h1>
+            </h2>
             <p className="mt-4">
               Find a pro with the skills and experience you need. Sign up to
               invite them to a job, then start a contract on Charlie Unicorn AI
-              - Freelancer when you’ve figured out the details.{" "}
+              - Freelancer when you've figured out the details.{" "}
               <Link href="/" className="text-blue-600 underline">
                 See all talent
               </Link>
             </p>
-          </div>
+          </header>
 
-          {/* Talent TabBar & Freelancer Cards Group */}
+          {/* Talent Categories and Listings */}
           <div className="w-full mt-6">
             <TabBar
               tabs={tabs}
               selectedTabIndex={selectedTabIndex}
               onTab={setSelectedTabIndex}
             />
-            <div className="w-full grid grid-cols-4 gap-6 mt-8">
+            <div
+              className="w-full grid grid-cols-4 gap-6 mt-8"
+              role="region"
+              aria-label="Available AI talent"
+            >
               {AI_EXPERTS.slice(0, 4).map((expert, index) => (
                 <FreelancerCard
                   key={index}
@@ -280,109 +325,155 @@ const AIServices = () => {
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Intro Part 2 */}
-        <div className="w-[70%] mx-auto">
-          {/* Rate & Experience */}
-          <div className="w-full flex flex-row items-center justify-between mt-16 gap-10">
-            {/* Rate */}
+        {/* Statistics Section */}
+        <section className="w-[70%] mx-auto" aria-labelledby="stats-title">
+          <h2 id="stats-title" className="sr-only">
+            AI Talent Statistics
+          </h2>
+          {/* Statistics Display */}
+          <div
+            className="w-full flex flex-row items-center justify-between mt-16 gap-10"
+            role="region"
+            aria-label="Platform statistics"
+          >
+            {/* Average Rating */}
             <div>
               <div className="flex items-center gap-2">
                 <Icon
                   icon="solar:star-bold"
                   className="w-8 h-8 text-yellow-500"
+                  aria-hidden="true"
                 />
-                <h2 className="text-4xl font-semibold text-[#0e183d]">4.8</h2>
+                <span className="text-4xl font-semibold text-[#0e183d]">
+                  4.8
+                </span>
               </div>
               <p className="mt-2 text-[#0e183d]">
                 Average rating for work with AI talent
               </p>
             </div>
 
-            {/* Experience */}
+            {/* Contracts */}
             <div className="px-6 border-l-[1px] border-gray-300">
-              <h2 className="text-4xl font-semibold text-[#0e183d]">
+              <span className="text-4xl font-semibold text-[#0e183d]">
                 20K+ contracts
-              </h2>
+              </span>
               <p className="mt-2 text-[#0e183d]">
                 Involving AI work in the last year
               </p>
             </div>
+
+            {/* Skills */}
             <div className="px-6 border-l-[1px] border-gray-300">
-              <h2 className="text-4xl font-semibold text-[#0e183d]">
+              <span className="text-4xl font-semibold text-[#0e183d]">
                 250+ skills
-              </h2>
+              </span>
               <p className="mt-2 text-[#0e183d]">
                 Represented by talent on Charlie Unicorn AI - Freelancer
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* All the AI talent you could ever want */}
-        <div className="w-[70%] mx-auto">
-          {/* Title */}
-          <div className="w-3/5">
-            <h1 className="text-4xl font-semibold text-[#0e183d]">
+        {/* AI Services Directory */}
+        <section
+          className="w-[70%] mx-auto"
+          aria-labelledby="services-directory-title"
+        >
+          {/* Section Header */}
+          <header className="w-3/5">
+            <h2
+              id="services-directory-title"
+              className="text-4xl font-semibold text-[#0e183d]"
+            >
               All the AI talent you could ever want
-            </h1>
-          </div>
+            </h2>
+          </header>
 
-          {/* Services Cards Group */}
-          <div className="w-full grid grid-cols-3 gap-8 mt-6">
+          {/* Services Grid */}
+          <div
+            className="w-full grid grid-cols-3 gap-8 mt-6"
+            role="region"
+            aria-label="AI service categories"
+          >
             {AI_EXPERTS_SERVICES.map((service, index) => (
-              <div
+              <article
                 key={index}
                 className="bg-[#181818] w-full px-6 py-8 rounded-xl"
               >
-                {/* Icon */}
-                <span className="p-2 bg-gradient-to-tr from-[#ce89ca] via-[#5885bf] to-[#75eea3] inline-block rounded-lg">
+                {/* Service Icon */}
+                <span
+                  className="p-2 bg-gradient-to-tr from-[#ce89ca] via-[#5885bf] to-[#75eea3] inline-block rounded-lg"
+                  aria-hidden="true"
+                >
                   <Icon icon={service.icon} className="w-8 h-8" />
                 </span>
 
-                {/* Title */}
-                <h1 className="text-2xl text-white mt-4">{service.title}</h1>
+                {/* Service Title */}
+                <h3 className="text-2xl text-white mt-4">{service.title}</h3>
 
-                {/* Services list */}
-                <ul className="w-full flex flex-col items-start gap-1 mt-6">
-                  {service.items.map((item, index) => (
-                    <li>
-                      <Link
-                        key={index}
-                        href={item.path}
-                        className="text-base text-white underline"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* Service Links */}
+                <nav
+                  className="w-full flex flex-col items-start gap-1 mt-6"
+                  aria-label={`${service.title} services`}
+                >
+                  <ul className="w-full flex flex-col items-start gap-1">
+                    {service.items.map((item, index) => (
+                      <li key={index}>
+                        <Link
+                          href={item.path}
+                          className="text-base text-white underline"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* How to hire an AI professional on Charlie Unicorn AI - Freelancer */}
-        <div className="w-[70%] mx-auto">
-          {/* Title */}
-          <div className="w-2/3">
-            <h1 className="text-4xl font-semibold text-[#0e183d]">
+        {/* Hiring Process Guide */}
+        <section
+          className="w-[70%] mx-auto"
+          aria-labelledby="hiring-guide-title"
+        >
+          {/* Section Header */}
+          <header className="w-2/3">
+            <h2
+              id="hiring-guide-title"
+              className="text-4xl font-semibold text-[#0e183d]"
+            >
               How to hire an AI professional on
               <br />
               Charlie Unicorn AI - Freelancer
-            </h1>
-          </div>
+            </h2>
+          </header>
 
-          {/* Steps & Image */}
+          {/* Process Steps */}
           <div className="w-full flex items-center mt-8">
-            {/* Steps */}
-            <div className="w-1/2 flex flex-col items-start gap-8">
-              {/* Explore */}
-              <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:search-01" className="w-7 h-7 mt-1" />
+            {/* Steps List */}
+            <div
+              className="w-1/2 flex flex-col items-start gap-8"
+              role="list"
+              aria-label="Hiring process steps"
+            >
+              {/* Step 1: Explore */}
+              <div
+                className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                role="listitem"
+              >
+                <Icon
+                  icon="hugeicons:search-01"
+                  className="w-7 h-7 mt-1"
+                  aria-hidden="true"
+                />
                 <div className="w-full">
-                  <h2 className="text-2xl">Explore</h2>
+                  <h3 className="text-2xl">Explore</h3>
                   <p className="text-base mt-1">
                     See what services are offered by professionals to help
                     achieve your goal.
@@ -390,102 +481,134 @@ const AIServices = () => {
                 </div>
               </div>
 
-              {/* Find */}
-              <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
+              {/* Step 2: Find */}
+              <div
+                className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                role="listitem"
+              >
                 <Icon
                   icon="hugeicons:computer-video-call"
                   className="w-7 h-7 mt-1"
+                  aria-hidden="true"
                 />
                 <div className="w-full">
-                  <h2 className="text-2xl">Find</h2>
+                  <h3 className="text-2xl">Find</h3>
                   <p className="text-base mt-1">
                     Book a consultation or send an invite with your project
-                    details. If you haven’t found a pro yet, post a job to
+                    details. If you haven't found a pro yet, post a job to
                     expand your search.
                   </p>
                 </div>
               </div>
 
-              {/* Connect */}
-              <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
+              {/* Step 3: Connect */}
+              <div
+                className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                role="listitem"
+              >
                 <Icon
                   icon="hugeicons:message-multiple-01"
                   className="w-7 h-7 mt-1"
+                  aria-hidden="true"
                 />
                 <div className="w-full">
-                  <h2 className="text-2xl">Connect</h2>
+                  <h3 className="text-2xl">Connect</h3>
                   <p className="text-base mt-1">
                     Talk about your project goals, deliverables, and budget.
                   </p>
                 </div>
               </div>
 
-              {/* Hire */}
-              <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:task-edit-01" className="w-7 h-7 mt-1" />
+              {/* Step 4: Hire */}
+              <div
+                className="w-full flex flex-row items-start gap-4 overflow-hidden"
+                role="listitem"
+              >
+                <Icon
+                  icon="hugeicons:task-edit-01"
+                  className="w-7 h-7 mt-1"
+                  aria-hidden="true"
+                />
                 <div className="w-full">
-                  <h2 className="text-2xl">Hire</h2>
+                  <h3 className="text-2xl">Hire</h3>
                   <p className="text-base mt-1">
                     Start a new contract with the details you discussed.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="w-1/2"></div>
+            <div className="w-1/2" aria-hidden="true"></div>
           </div>
-        </div>
+        </section>
 
-        {/* FAQs */}
-        <div className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10">
-          {/* Title */}
-          <div className="w-1/3">
-            <h1 className="text-5xl font-semibold text-[#0e183d]">
+        {/* FAQ Section */}
+        <section
+          className="w-[70%] mx-auto flex gap-10 mt-14 bg-[#f9f9f9] rounded-2xl p-10"
+          aria-labelledby="faq-title"
+        >
+          {/* FAQ Header */}
+          <header className="w-1/3">
+            <h2
+              id="faq-title"
+              className="text-5xl font-semibold text-[#0e183d]"
+            >
               Frequently asked
               <br />
               questions
-            </h1>
-          </div>
+            </h2>
+          </header>
 
-          {/* FAQs */}
-          <div className="w-2/3">
+          {/* FAQ Content */}
+          <div className="w-2/3" role="region" aria-labelledby="faq-title">
             {faqs.map((faq, index) => (
               <ExpandableText key={index} {...faq}>
                 {faq.children}
               </ExpandableText>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Freelancers Categories */}
-        <div className="w-[70%] mx-auto mt-14">
-          {/* Title */}
-          <div className="w-2/3">
-            <h1 className="text-4xl font-semibold text-[#0e183d]">
+        {/* AI Skills Directory */}
+        <section
+          className="w-[70%] mx-auto mt-14"
+          aria-labelledby="skills-directory-title"
+        >
+          {/* Section Header */}
+          <header className="w-2/3">
+            <h2
+              id="skills-directory-title"
+              className="text-4xl font-semibold text-[#0e183d]"
+            >
               Find trusted talent with the AI skills you need
-            </h1>
-          </div>
+            </h2>
+          </header>
 
-          {/* Category */}
-          {CAT_AI_EXPERT_FREELANCER_CATEGORIES.map((cat, index) => (
-            <div key={index} className="w-full mt-10">
-              <h1 className="text-3xl font-semibold text-[#0e183d]">
-                {cat.title}
-              </h1>
-              <div className="w-full grid grid-cols-4 gap-4 mt-6">
-                {cat.items.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.path}
-                    className="hover:underline"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+          {/* Skills Categories */}
+          <div role="region" aria-labelledby="skills-directory-title">
+            {CAT_AI_EXPERT_FREELANCER_CATEGORIES.map((cat, index) => (
+              <article key={index} className="w-full mt-10">
+                <h3 className="text-3xl font-semibold text-[#0e183d]">
+                  {cat.title}
+                </h3>
+                <nav
+                  className="w-full grid grid-cols-4 gap-4 mt-6"
+                  aria-label={`${cat.title} skills`}
+                >
+                  {cat.items.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.path}
+                      className="hover:underline"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
     </IntroLayout>
   );
 };
