@@ -17,8 +17,7 @@ const TabBar: React.FC<TabBarProps> = ({ tabs, selectedTabIndex, onTab }) => {
   const [tabOffsets, setTabOffsets] = useState<number[]>([]);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  useEffect(() => {
-    // Calculate tab widths and positions
+  const calculateTabPositions = () => {
     const widths: number[] = [];
     const offsets: number[] = [];
     let cumulativeOffset = 0;
@@ -34,7 +33,26 @@ const TabBar: React.FC<TabBarProps> = ({ tabs, selectedTabIndex, onTab }) => {
 
     setTabWidths(widths);
     setTabOffsets(offsets);
+  };
+
+  useEffect(() => {
+    // Small delay to ensure DOM is rendered
+    const timer = setTimeout(() => {
+      calculateTabPositions();
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [tabs]);
+
+  // Recalculate on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      calculateTabPositions();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="w-full relative">
@@ -54,20 +72,21 @@ const TabBar: React.FC<TabBarProps> = ({ tabs, selectedTabIndex, onTab }) => {
       </div>
 
       {/* Animated border indicator */}
-      <motion.div
-        className="absolute bottom-0 h-0.5 bg-black"
-        animate={{
-          x: tabOffsets[selectedTabIndex] + 8, // +8 for slightly wider positioning
-          width: tabWidths[selectedTabIndex]
-            ? tabWidths[selectedTabIndex] - 16
-            : 0, // -16 for slightly wider than button
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30,
-        }}
-      />
+      {tabWidths.length > 0 && tabOffsets.length > 0 && (
+        <motion.div
+          className="absolute bottom-0 h-0.5 bg-black"
+          initial={false}
+          animate={{
+            x: (tabOffsets[selectedTabIndex] || 0) + 8,
+            width: (tabWidths[selectedTabIndex] || 0) - 16,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+          }}
+        />
+      )}
     </div>
   );
 };

@@ -380,7 +380,7 @@ const AIServices = () => {
             <div className="w-1/2 flex flex-col items-start gap-8">
               {/* Explore */}
               <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:search-01" className="w-6 h-6 mt-1" />
+                <Icon icon="hugeicons:search-01" className="w-7 h-7 mt-1" />
                 <div className="w-full">
                   <h2 className="text-2xl">Explore</h2>
                   <p className="text-base mt-1">
@@ -392,7 +392,10 @@ const AIServices = () => {
 
               {/* Find */}
               <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:search-01" className="w-6 h-6 mt-1" />
+                <Icon
+                  icon="hugeicons:computer-video-call"
+                  className="w-7 h-7 mt-1"
+                />
                 <div className="w-full">
                   <h2 className="text-2xl">Find</h2>
                   <p className="text-base mt-1">
@@ -405,7 +408,10 @@ const AIServices = () => {
 
               {/* Connect */}
               <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:search-01" className="w-6 h-6 mt-1" />
+                <Icon
+                  icon="hugeicons:message-multiple-01"
+                  className="w-7 h-7 mt-1"
+                />
                 <div className="w-full">
                   <h2 className="text-2xl">Connect</h2>
                   <p className="text-base mt-1">
@@ -416,7 +422,7 @@ const AIServices = () => {
 
               {/* Hire */}
               <div className="w-full flex flex-row items-start gap-4 overflow-hidden">
-                <Icon icon="hugeicons:search-01" className="w-6 h-6 mt-1" />
+                <Icon icon="hugeicons:task-edit-01" className="w-7 h-7 mt-1" />
                 <div className="w-full">
                   <h2 className="text-2xl">Hire</h2>
                   <p className="text-base mt-1">
