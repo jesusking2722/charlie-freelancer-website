@@ -282,32 +282,38 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                         key={index}
                         className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-4 transition-all duration-300 ease-in-out"
                       >
-                        <Link href={cat.path}>
+                        <Link
+                          href={cat.path}
+                          className="flex flex-col items-start justify-between h-full w-full"
+                        >
                           {/* Category Title */}
                           <h3 className="text-lg font-semibold text-[#0e183d]">
                             {cat.name}
                           </h3>
 
-                          {/* Average Rating */}
-                          <div className="w-full flex items-center gap-2 mt-6">
-                            <Icon
-                              icon="solar:star-bold"
-                              className="text-yellow-500 w-5 h-5"
-                              aria-hidden="true"
-                            />
-                            <span className="text-[#0e183d]">
-                              {cat.rate} average rating
-                            </span>
-                          </div>
+                          {/* Average Rating & Expert Avatars */}
+                          <div className="w-full">
+                            {/* Average Rating */}
+                            <div className="w-full flex items-center gap-2 mt-6">
+                              <Icon
+                                icon="solar:star-bold"
+                                className="text-yellow-500 w-5 h-5"
+                                aria-hidden="true"
+                              />
+                              <span className="text-[#0e183d]">
+                                {cat.rate} average rating
+                              </span>
+                            </div>
 
-                          {/* Expert Avatars */}
-                          <div className="w-full flex items-center justify-between mt-4">
-                            <AvatarGroup avatars={cat.experts} />
-                            <Icon
-                              icon="solar:arrow-right-linear"
-                              className="text-blue-600 w-8 h-8"
-                              aria-label="View category"
-                            />
+                            {/* Expert Avatars */}
+                            <div className="w-full flex items-center justify-between mt-4">
+                              <AvatarGroup avatars={cat.experts} />
+                              <Icon
+                                icon="solar:arrow-right-linear"
+                                className="text-blue-600 w-8 h-8"
+                                aria-label="View category"
+                              />
+                            </div>
                           </div>
                         </Link>
                       </article>
