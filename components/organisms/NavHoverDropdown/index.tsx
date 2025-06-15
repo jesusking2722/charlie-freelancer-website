@@ -1,51 +1,117 @@
 import { TNavItem } from "@/components/templates/NavLayout";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
-export type TNavHoverDropdownItem = {
-  title: TNavItem;
-  dropdowns: TNavItem[];
+export type TNavHoverItem = {
+  label: string;
+  path: string;
+  categories: {
+    title: string;
+    items: TNavItem[];
+  }[];
 };
 
 interface NavHoverDropdownProps {
-  headTitle: TNavItem;
-  navs: TNavHoverDropdownItem[];
+  title: TNavItem;
+  navItems: TNavHoverItem[];
 }
 
 const NavHoverDropdown: React.FC<NavHoverDropdownProps> = ({
-  headTitle,
-  navs,
+  title,
+  navItems,
 }) => {
+  const [hoveredNav, setHoveredNav] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredNav(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredNav(null);
+  };
+
   return (
-    <div className="fixed top-[80px] w-full p-6 z-[49] border-t-[1px] border-gray-300 bg-white">
-      <nav className="w-[70%] mx-auto flex flex-row items-center gap-4 fixed">
-        {/* Title */}
-        {headTitle && (
-          <Link
-            href={headTitle.path}
-            className="text-lg font-semibold px-4 border-r border-r-gray-500"
-          >
-            {headTitle.label}
-          </Link>
-        )}
-
-        {/* Nav Items */}
-        <ul className="flex flex-row items-center gap-4 px-4">
-          {navs.map((nav, index) => (
-            <li key={index}>
-              <Link href={nav.title.path} className="text-sm">
-                {nav.title.label}
+    <div className="relative">
+      {/* Navigation Bar */}
+      <div className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-8">
+            {/* Project Catalog Title */}
+            <div className="flex items-center space-x-2">
+              <Link href={title.path} className="text-gray-900 font-medium">
+                {title.label}
               </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+              <div className="w-px h-6 bg-gray-300"></div>
+            </div>
 
-      {/* Dropdown options showing at hovering nav */}
-      <div className="w-[70%] mx-auto z-50 grid grid-cols-6 gap-10">
-        {navs.map((nav, index) => (
-          <div className="w-full flex flex-col items-start gap-"></div>
-        ))}
+            {/* Navigation Items */}
+            <ul className="flex items-center space-x-6">
+              {navItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link
+                    href={item.path}
+                    className={`text-sm font-medium transition-colors duration-200 ${
+                      hoveredNav === index
+                        ? "text-green-600"
+                        : "text-gray-700 hover:text-gray-900"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
+
+      {/* Mega Menu Dropdown */}
+      <AnimatePresence>
+        {hoveredNav !== null &&
+          navItems[hoveredNav]?.categories?.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-50"
+              onMouseEnter={() => setHoveredNav(hoveredNav)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="max-w-7xl mx-auto px-6 py-8">
+                <div className="grid grid-cols-5 gap-8">
+                  {navItems[hoveredNav].categories.map(
+                    (category, categoryIndex) => (
+                      <div key={categoryIndex} className="space-y-3">
+                        <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                          {category.title}
+                        </h3>
+                        <ul className="space-y-2">
+                          {category.items.map((item, itemIndex) => (
+                            <li key={itemIndex}>
+                              <Link
+                                href={item.path}
+                                className="text-sm text-gray-600 hover:text-gray-900 hover:underline transition-colors duration-150 block"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+      </AnimatePresence>
     </div>
   );
 };
