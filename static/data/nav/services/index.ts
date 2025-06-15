@@ -103,7 +103,7 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
   },
   {
     label: "Video & Audio",
-    path: "/video-audio",
+    path: "/services/video-audio",
     categories: [
       {
         title: { label: "Animation & Motion Graphics", path: "#" },

@@ -2,13 +2,12 @@ import { TServiceCatLayoutProject } from "@/components/templates/ServicesCatLayo
 import { TServiceCard } from "@/types/components.types";
 
 export const SERVICES_DESIGN_SEO = {
-  title:
-    "Project Catalog - Freelance Services for Your Business | Charlie Unicorn AI - Freelancer",
+  title: "Online Design Services | Charlie Unicorn AI - Freelancer",
   description:
-    "Explore high-quality freelance services including logo design, web development, content writing, and more. Find the right professional for your business needs.",
+    "Discover a wide range of online design services including logo design, brand identity, illustration, packaging, digital and print design, photography, building & home design, infographics, and product & game design by Charlie Unicorn AI.",
   keywords:
-    "freelance services, project catalog, logo design, web development, SEO, Charlie Unicorn AI",
-  url: "/services",
+    "logo design, brand identity design, business cards design, stationery design, brand style guides, branding services, brand voice, illustration, vector tracing, portraits, cartoons, fashion design, packaging design, merchandise design, t-shirt design, book design, album cover design, car wraps, social media design, web design, banner ads, AR filters, photoshop editing, local photography, product photography, architecture, interior design, landscape design, presentation design, infographic design, resume design, flyer design, brochure design, poster design, catalog design, invitation design, industrial design, product design, character modeling, game design",
+  url: "/services/design",
 };
 
 export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [

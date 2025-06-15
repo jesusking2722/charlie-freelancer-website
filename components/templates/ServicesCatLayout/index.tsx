@@ -35,7 +35,7 @@ const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
           <h1 className="text-4xl font-semibold">Shop {title} Projects</h1>
           <div className="flex items-center gap-2">
             <p>Captivate your audience. (No creative prowess needed.)</p>
-            <button className="flex items-center gap-1 text-blue-600 font-medium">
+            <button className="flex items-center gap-1 text-blue-600 font-medium cursor-pointer">
               How it works
               <Icon icon="solar:play-circle-linear" className="w-5 h-5" />
             </button>
