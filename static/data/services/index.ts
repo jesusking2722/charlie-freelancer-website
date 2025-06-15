@@ -150,6 +150,7 @@ export const SERVICES_PROJECTS: TProjectCard[] = [
         iconUrl: "",
       },
     },
+    isLoading: false,
   },
   {
     images: [

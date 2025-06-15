@@ -8,6 +8,59 @@ import { TNavItem } from "@/components/templates/NavLayout";
 import Image from "next/image";
 import { formatNumber } from "@/utils/math";
 
+// Skeleton Loading Component
+const ProjectCardSkeleton: React.FC = () => {
+  return (
+    <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden">
+      {/* Image Skeleton */}
+      <div className="relative w-full h-56 bg-gray-200 animate-pulse" />
+
+      {/* Content Skeleton */}
+      <div className="p-4">
+        {/* Title Skeleton */}
+        <div className="mb-3">
+          <div className="h-4 bg-gray-200 rounded animate-pulse mb-2" />
+          <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
+        </div>
+
+        {/* Delivery Time and Price Skeleton */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center">
+            <div className="w-5 h-5 bg-gray-200 rounded animate-pulse mr-1" />
+            <div className="h-3 bg-gray-200 rounded animate-pulse w-16" />
+          </div>
+          <div className="text-right">
+            <div className="h-3 bg-gray-200 rounded animate-pulse w-20" />
+          </div>
+        </div>
+
+        {/* Seller Info Skeleton */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center w-full">
+            {/* Avatar Skeleton */}
+            <div className="w-10 h-10 bg-gray-200 rounded-full animate-pulse mr-2 flex-shrink-0" />
+
+            {/* Name & Rating Skeleton */}
+            <div className="w-full flex flex-col">
+              <div className="w-full flex items-center justify-between mb-2">
+                <div className="h-3 bg-gray-200 rounded animate-pulse w-20" />
+                <div className="flex items-center">
+                  <div className="w-5 h-5 bg-gray-200 rounded animate-pulse mr-1" />
+                  <div className="h-3 bg-gray-200 rounded animate-pulse w-8 mr-1" />
+                  <div className="h-3 bg-gray-200 rounded animate-pulse w-10" />
+                </div>
+              </div>
+
+              {/* Badge Skeleton */}
+              <div className="h-5 bg-gray-200 rounded animate-pulse w-16" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ProjectCard Component
 interface ProjectCardProps {
   images: string[];
@@ -25,6 +78,7 @@ interface ProjectCardProps {
   isFavorite?: boolean;
   onFavoriteToggle?: () => void;
   onClick?: () => void;
+  isLoading?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -36,7 +90,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isFavorite = false,
   onFavoriteToggle,
   onClick,
+  isLoading = false,
 }) => {
+  // Return skeleton if loading
+  if (isLoading) {
+    return <ProjectCardSkeleton />;
+  }
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isImageHovered, setIsImageHovered] = useState(false);
@@ -82,6 +141,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       x: direction < 0 ? 300 : -300,
       opacity: 0,
     }),
+  };
+
+  // Pulse animation variants
+  const pulseVariants = {
+    pulse: {
+      scale: [1, 1.05, 1],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -323,3 +394,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export default ProjectCard;
+export { ProjectCardSkeleton };

@@ -125,4 +125,5 @@ export type TProjectCard = {
     badge: TFreelancerBadge;
     isOnline?: boolean;
   };
+  isLoading?: boolean;
 };

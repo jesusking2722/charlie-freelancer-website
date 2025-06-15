@@ -61,7 +61,7 @@ const TabBar: React.FC<TabBarProps> = ({ tabs, selectedTabIndex, onTab }) => {
           <button
             key={index}
             ref={(el: any) => (tabRefs.current[index] = el)}
-            className={`text-xl px-4 py-2 relative ${
+            className={`text-xl px-4 py-2 relative cursor-pointer hover:text-black ${
               selectedTabIndex === index ? "text-black" : "text-gray-600"
             }`}
             onClick={() => onTab(index)}

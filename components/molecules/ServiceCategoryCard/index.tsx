@@ -17,7 +17,7 @@ const ServiceCategoryCard: React.FC<ServiceCategoryCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className="w-full border border-gray-300 rounded-2xl shadow-lg hover:shadow-xl hover:bg-gray-100 group transition-all duration-150 overflow-hidden bg-white cursor-pointer"
+      className="w-full border border-gray-300 rounded-2xl shadow-lg hover:shadow-xl hover:bg-gray-100 group transition-all duration-300 overflow-hidden bg-white cursor-pointer"
     >
       {/* Image container - full width, static height */}
       <div className="relative w-full h-48 overflow-hidden rounded-t-2xl">
