@@ -1003,7 +1003,7 @@ const Category = () => {
   return (
     <CatLayout
       intro={getIntro()}
-      params={category as string}
+      param={category as string}
       expert={getExpert()}
       services={getServices()}
       projectOverview={getProjectOverview()}

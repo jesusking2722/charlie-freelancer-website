@@ -93,7 +93,7 @@ export type TCatLayoutProfessionals = {
 };
 
 interface CatLayoutProps {
-  params: string;
+  param: string;
   intro: TCatLayoutIntro | null;
   expert: TCatLayoutExpert | null;
   services: TCatLayoutService | null;
@@ -125,7 +125,7 @@ export const dropdowns: TLinkDropdownItem[] = [
 ];
 
 const CatLayout: React.FC<CatLayoutProps> = ({
-  params,
+  param,
   intro,
   expert,
   services,
@@ -357,7 +357,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         )}
 
         {/* Enterprise Suite Section */}
-        {!dropdowns.some((d) => d.path.includes(params)) && (
+        {!dropdowns.some((d) => d.path.includes(param)) && (
           <section
             className="w-[70%] mx-auto rounded-2xl bg-zinc-900 flex p-4 mt-10"
             aria-labelledby="enterprise-title"
@@ -375,11 +375,11 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 className="text-5xl font-semibold text-white mt-2"
               >
                 This is how{" "}
-                {params === "dev-it"
+                {param === "dev-it"
                   ? "IT Experts"
-                  : params === "sales-and-marketing"
+                  : param === "sales-and-marketing"
                   ? "Sales & Marketing"
-                  : params === "admin-customer-support"
+                  : param === "admin-customer-support"
                   ? "Administrators"
                   : "Creatives"}{" "}
                 work now
@@ -520,7 +520,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
         )}
 
         {/* Customer Service Article Section */}
-        {params === "admin-customer-support" && (
+        {param === "admin-customer-support" && (
           <section
             className="w-[70%] mx-auto rounded-2xl bg-[#053b8d] px-12 flex flex-row items-center justify-between gap-14"
             aria-labelledby="customer-service-article"
@@ -535,7 +535,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
                 help unlock new levels of productivity within your organization.
               </h2>
               <Link
-                href="/"
+                href="#"
                 className="bg-white text-[#0e183d] py-3 px-10 rounded-xl text-lg"
                 aria-label="Read article about building virtual customer service teams"
               >
@@ -582,7 +582,7 @@ const CatLayout: React.FC<CatLayoutProps> = ({
               <div className="mt-2 flex flex-row items-center gap-2">
                 <p>Still have questions?</p>
                 <Link
-                  href="/"
+                  href="#"
                   className="text-blue-600 underline font-semibold"
                 >
                   Visit our Help Center

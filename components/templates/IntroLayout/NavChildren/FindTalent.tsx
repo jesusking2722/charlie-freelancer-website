@@ -31,15 +31,15 @@ type TProjectCatalog = {
 const TalentMarketplace = () => {
   const catalogs: TTalentMarketplaceCatalog[] = [
     { label: "Development & IT", path: "/cat/dev-it" },
-    { label: "Design & Creative", path: "/" },
-    { label: "Sales & Marketing", path: "/" },
-    { label: "Writing & Translation", path: "/" },
-    { label: "Admin & Customer Support", path: "/" },
-    { label: "Finance & Accounting", path: "/" },
-    { label: "HR & Training", path: "/" },
-    { label: "Legal", path: "/" },
-    { label: "Engineering & Architecture", path: "/" },
-    { label: "Hire Freelancers", path: "/" },
+    { label: "Design & Creative", path: "#" },
+    { label: "Sales & Marketing", path: "#" },
+    { label: "Writing & Translation", path: "#" },
+    { label: "Admin & Customer Support", path: "#" },
+    { label: "Finance & Accounting", path: "#" },
+    { label: "HR & Training", path: "#" },
+    { label: "Legal", path: "#" },
+    { label: "Engineering & Architecture", path: "#" },
+    { label: "Hire Freelancers", path: "#" },
   ];
 
   return (
@@ -82,20 +82,20 @@ const TalentMarketplace = () => {
 
 const ProjectCatalog = () => {
   const catalogs: TProjectCatalog[] = [
-    { label: "Logo Design", path: "/", image: LogoDesignImage },
-    { label: "Articles & Blog Posts", path: "/", image: WritingArticlesImage },
+    { label: "Logo Design", path: "#", image: LogoDesignImage },
+    { label: "Articles & Blog Posts", path: "#", image: WritingArticlesImage },
     {
       label: "WordPress",
-      path: "/",
+      path: "#",
       image: WordPressImage,
     },
     {
       label: "Social Media Management",
-      path: "/",
+      path: "#",
       image: SocialMediaManagementImage,
     },
-    { label: "Video Editing", path: "/", image: VideoEditingImage },
-    { label: "SEO", path: "/", image: SEOImage },
+    { label: "Video Editing", path: "#", image: VideoEditingImage },
+    { label: "SEO", path: "#", image: SEOImage },
   ];
 
   return (
@@ -143,19 +143,19 @@ const ProjectCatalog = () => {
 
 const Consultations = () => {
   const catalogs: TProjectCatalog[] = [
-    { label: "Web Programming", path: "/", image: WebProgramingImage },
+    { label: "Web Programming", path: "#", image: WebProgramingImage },
     {
       label: "AI & Machine Learning",
-      path: "/",
+      path: "#",
       image: AIMarchineLearningImage,
     },
-    { label: "Marketing Strategy", path: "/", image: MarketingStrategyImage },
+    { label: "Marketing Strategy", path: "#", image: MarketingStrategyImage },
     {
       label: "Social Media Marketing",
-      path: "/",
+      path: "#",
       image: SocialMediaMarketingImage,
     },
-    { label: "Website Builders & CMS", path: "/", image: WebsiteBuildersImage },
+    { label: "Website Builders & CMS", path: "#", image: WebsiteBuildersImage },
   ];
 
   return (
@@ -167,7 +167,7 @@ const Consultations = () => {
           availability and book a time that works for you.
         </p>
         <Link
-          href="/"
+          href="#"
           className="flex items-center gap-1 mt-4 text-blue-500 underline hover:no-underline text-xs"
         >
           Explore all categories
@@ -222,7 +222,7 @@ const FindTalent = () => {
     {
       title: "Get advice from an industry expert",
       subtitle: "Consultations",
-      path: "/",
+      path: "#",
       children: <Consultations />,
     },
   ];

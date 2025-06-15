@@ -224,7 +224,7 @@ const AIServices = () => {
             >
               <p className="text-white">FOR TALENT :</p>
               <Link
-                href="/"
+                href="#"
                 className="text-blue-500 underline"
                 aria-label="Find AI jobs and develop your skills"
               >
@@ -255,7 +255,7 @@ const AIServices = () => {
             <p className="mt-4">
               Book a paid 1-on-1 consultation with an expert. They can help you
               create a plan for how AI fits into your innovation strategy.{" "}
-              <Link href="/" className="text-blue-600 underline">
+              <Link href="#" className="text-blue-600 underline">
                 See all consultants
               </Link>
             </p>
@@ -298,7 +298,7 @@ const AIServices = () => {
               Find a pro with the skills and experience you need. Sign up to
               invite them to a job, then start a contract on Charlie Unicorn AI
               - Freelancer when you've figured out the details.{" "}
-              <Link href="/" className="text-blue-600 underline">
+              <Link href="#" className="text-blue-600 underline">
                 See all talent
               </Link>
             </p>

@@ -12,22 +12,22 @@ const WhyCharlie = () => {
     {
       title: "Success stories",
       description: "Discover how teams work strategically and grow together.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Reviews",
       description: "See what it's like to collaborate on Charlie Unicorn AI.",
-      path: "/",
+      path: "#",
     },
     {
       title: "How to hire",
       description: "Learn about the different ways to get work done.",
-      path: "/",
+      path: "#",
     },
     {
       title: "How to find work",
       description: "Learn about how to grow your independent career.",
-      path: "/",
+      path: "#",
     },
   ];
 
@@ -79,7 +79,7 @@ const WhyCharlie = () => {
         </div>
 
         <Link
-          href="/"
+          href="#"
           className="flex items-center gap-1 text-sm text-blue-600 underline mt-6"
         >
           See Resources

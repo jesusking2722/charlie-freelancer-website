@@ -6,17 +6,23 @@ interface ExpandableTextProps {
   title: string;
   description: string;
   children: React.ReactNode;
+  hiddenBorder?: boolean;
 }
 
 const ExpandableText: React.FC<ExpandableTextProps> = ({
   title,
   description,
   children,
+  hiddenBorder,
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <div className="w-full p-4 border-b-[1px] border-b-gray-300">
+    <div
+      className={`w-full p-4 ${
+        !hiddenBorder && "border-b-[1px] border-b-gray-300"
+      }`}
+    >
       <h1 className="text-2xl font-semibold">{title}</h1>
       <p className="mt-4">{description}</p>
 

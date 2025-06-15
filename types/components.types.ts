@@ -127,3 +127,11 @@ export type TProjectCard = {
   };
   isLoading?: boolean;
 };
+
+export type TServiceCard = {
+  title: string;
+  services: TNavItem[];
+  imageUrl?: string;
+  icon?: React.ReactNode;
+  showAll: string;
+};

@@ -6,36 +6,36 @@ const IntroLayout = ({ children }: { children: React.ReactNode }) => {
   const navItems: INavItem[] = [
     {
       label: "Find talent",
-      path: "/",
+      path: "#",
       active: false,
       children: <FindTalent />,
     },
     {
       label: "Find work",
-      path: "/",
+      path: "#",
       active: false,
       children: <FindWork />,
     },
     {
       label: "Why Charlie",
-      path: "/",
+      path: "#",
       active: false,
       children: <WhyCharlie />,
     },
     {
       label: "What's new",
-      path: "/",
+      path: "#",
       active: false,
       children: <WhatNew />,
     },
     {
       label: "Enterprise",
-      path: "/",
+      path: "#",
       active: false,
     },
     {
       label: "Pricing",
-      path: "/",
+      path: "#",
       active: false,
     },
   ];

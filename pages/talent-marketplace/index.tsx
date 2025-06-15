@@ -40,7 +40,7 @@ type TBenefit = {
 const TalentMarketplace = () => {
   const navs: TNavItem[] = [
     { label: "Development & IT", path: "/cat/dev-it" },
-    { label: "AI Services", path: "/" },
+    { label: "AI Services", path: "#" },
     { label: "Design & Creative", path: "/cat/design-creative" },
     { label: "Sales & Marketing", path: "/cat/sales-and-marketing" },
     { label: "Admin & Customer Support", path: "/cat/admin-customer-support" },
@@ -63,37 +63,37 @@ const TalentMarketplace = () => {
       title: "Development & IT",
       subtitle: "20K+ jobs posted weekly",
       image: DevelopmentImage,
-      path: "/",
+      path: "#",
     },
     {
       title: "Sales & Marketing",
       subtitle: "10K+ jobs posted weekly",
       image: MarketingImage,
-      path: "/",
+      path: "#",
     },
     {
       title: "Design & Creative",
       subtitle: "15K+ jobs posted weekly",
       image: DesignImage,
-      path: "/",
+      path: "#",
     },
     {
       title: "Writing & Translation",
       subtitle: "20K+ jobs posted weekly",
       image: WritingImage,
-      path: "/",
+      path: "#",
     },
     {
       title: "Admin & Customer Support",
       subtitle: "10K+ jobs posted weekly",
       image: CustomerSupportImage,
-      path: "/",
+      path: "#",
     },
     {
       title: "Finance & Accounting",
       subtitle: "15K+ jobs posted weekly",
       image: FinanceAccountingImage,
-      path: "/",
+      path: "#",
     },
   ];
 
@@ -101,17 +101,17 @@ const TalentMarketplace = () => {
     {
       label:
         "How Flexible Talent Helps a Fast-Paced Company Improve Productivity",
-      path: "/",
+      path: "#",
     },
     {
       label:
         "How On-Demand Devs Provide PGA of America Time and Budget for Testing New Ideas",
-      path: "/",
+      path: "#",
     },
     {
       label:
         "Singularity University Invents Their Future with On-Demand Independent Experts",
-      path: "/",
+      path: "#",
     },
   ];
 
@@ -519,7 +519,7 @@ const TalentMarketplace = () => {
             </p>
             <div className="mt-10">
               <Link
-                href="/"
+                href="#"
                 className="bg-white text-lg font-semibold py-3 px-8 rounded-xl inline-block"
                 aria-label="Browse ready-made projects in our Project Catalog"
               >

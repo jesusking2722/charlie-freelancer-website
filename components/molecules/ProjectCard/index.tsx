@@ -162,7 +162,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`w-full bg-white border border-gray-300 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ${
+      className={`w-full bg-white border border-gray-300 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
         isHovered ? "shadow-xl" : "shadow-md"
       }`}
       onMouseEnter={() => setIsHovered(true)}

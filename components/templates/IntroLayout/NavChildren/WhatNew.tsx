@@ -11,23 +11,23 @@ const WhatNew = () => {
     {
       title: "Charlie Unicorn AI Updates",
       description: "Checkout our latest products, partners, and enhancements.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Blog",
       description: "News and stories from the world's work marketplace.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Research Institute",
       description:
         "Insights and tools for business leaders navigating a new world of work.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Release notes",
       description: "Our latest product news, additions and improvements.",
-      path: "/",
+      path: "#",
     },
   ];
 

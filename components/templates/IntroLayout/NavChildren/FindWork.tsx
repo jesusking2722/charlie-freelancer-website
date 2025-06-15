@@ -12,23 +12,23 @@ const FindWork = () => {
       title: "Ways to earn",
       description:
         "Learn why Charlie Unicorn AI has the right opportunities for you.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Find work for your skills",
       description: "Explore the kind of work available in your filed.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Win work with ads",
       description: "Get noticed by the right client.",
-      path: "/",
+      path: "#",
     },
     {
       title: "Join Freelancer Plus",
       description:
         "Access more Connects, get strategic insights on competitors, and try out the latest tools.",
-      path: "/",
+      path: "#",
     },
   ];
 
