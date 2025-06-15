@@ -1,6 +1,6 @@
 import Link from "next/link";
 import IntroLayout from "../IntroLayout";
-import NavLayout from "../NavLayout";
+import NavLayout, { TNavItem } from "../NavLayout";
 import {
   Avatar,
   AvatarGroup,
@@ -33,11 +33,6 @@ import HowITExpertsWorkNowImage from "@/public/assets/webps/cat/dev-it/how_it_ex
 import { formatNumberWithCommas } from "@/utils/math";
 
 import ReadArticleImage from "@/public/assets/pngs/cat/admin-customer-support/read_article.png";
-
-type TNavItem = {
-  label: string;
-  path: string;
-};
 
 export type TCatLayoutIntro = {
   title: string;
