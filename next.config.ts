@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     domains: [
       "images.unsplash.com",
       "cdn.prod.website-files.com",
+      "res.cloudinary.com",
+      "www.upwork.com",
     ],
   },
 };

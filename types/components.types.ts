@@ -1,3 +1,5 @@
+import { TNavItem } from "@/components/templates/NavLayout";
+
 export interface INavItem {
   label: string;
   path: string;
@@ -102,4 +104,25 @@ export type TFreelancer = {
   };
   skills: string[];
   jobs: number;
+};
+
+export type TServiceCategoryCard = {
+  image: string;
+  label: string;
+  path: string;
+};
+
+export type TProjectCard = {
+  images: string[];
+  title: TNavItem;
+  deliveryTime: string;
+  price: string;
+  seller: {
+    name: string;
+    avatar: string;
+    ranking: number;
+    reviewCount: number;
+    badge: TFreelancerBadge;
+    isOnline?: boolean;
+  };
 };

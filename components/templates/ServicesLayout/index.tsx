@@ -20,7 +20,7 @@ const ServicesLayout: React.FC<ServicesLayoutProps> = ({ seo, children }) => {
         title={{ label: "Project Catalog", path: "/services" }}
         navItems={SERVICES_NAV_ITEMS}
       />
-      <div className="w-full flex flex-col gap-14">{children}</div>
+      <main className="w-full py-8 mt-[150px]">{children}</main>
     </IntroLayout>
   );
 };

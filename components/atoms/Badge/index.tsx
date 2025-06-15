@@ -4,9 +4,10 @@ import Image from "next/image";
 interface BadgeProps {
   type: TBadgeType;
   badge: TFreelancerBadge;
+  size?: "sm" | "md" | "lg";
 }
 
-const Badge: React.FC<BadgeProps> = ({ type, badge }) => {
+const Badge: React.FC<BadgeProps> = ({ type, badge, size }) => {
   // Handle different badge types
   const getBadgeContent = () => {
     switch (type) {
@@ -20,14 +21,14 @@ const Badge: React.FC<BadgeProps> = ({ type, badge }) => {
                 "https://cdn.prod.website-files.com/603fea6471d9d8559d077603/662e89079cf27c1b6bfc0aeb_top-rated-plus%20(1).svg"
               }
               alt={badge.type}
-              width={badge.width || 32}
-              height={badge.height || 32}
+              width={size === "sm" ? 24 : 32}
+              height={size === "sm" ? 24 : 32}
               className="rounded-full"
             />
             {badge.title ? (
               <span className="text-sm">{badge.title}</span>
             ) : (
-              <span className="text-sm">
+              <span className={`${size === "sm" ? "text-xs" : "text-sm"}`}>
                 {badge.type === "TOP_RATED_PLUS"
                   ? "Top Rated Plus"
                   : badge.type === "TOP_RATED"
