@@ -50,7 +50,7 @@ const TalentMarketplace = () => {
           Learn about working with talent or explore your specific hiring needs.
         </p>
         <Link
-          href="/"
+          href="/talent-marketplace"
           className="flex items-center gap-1 mt-4 text-blue-500 underline hover:no-underline text-xs"
         >
           Hire on Talent Marketplace
@@ -106,7 +106,7 @@ const ProjectCatalog = () => {
           Browse and buy projects that have a clear scope and price.
         </p>
         <Link
-          href="/"
+          href="/services"
           className="flex items-center gap-1 mt-4 text-blue-500 underline hover:no-underline text-xs"
         >
           Browse Project Catalog
@@ -216,7 +216,7 @@ const FindTalent = () => {
     {
       title: "Browse and buy projects",
       subtitle: "Project Catalog",
-      path: "/",
+      path: "/services",
       children: <ProjectCatalog />,
     },
     {

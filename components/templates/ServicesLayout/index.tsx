@@ -1,5 +1,4 @@
 import IntroLayout from "../IntroLayout";
-import NavLayout from "../NavLayout";
 import { SEO } from "@/components/atoms";
 import { TSEO } from "@/types/components.types";
 import { NavHoverDropdown } from "@/components/organisms";
@@ -17,12 +16,10 @@ const ServicesLayout: React.FC<ServicesLayoutProps> = ({ seo, children }) => {
       {seo && <SEO {...seo} />}
 
       {/* Navigation Menu */}
-      <NavLayout>
-        <NavHoverDropdown
-          title={{ label: "Project Catalog", path: "/services" }}
-          navItems={SERVICES_NAV_ITEMS}
-        />
-      </NavLayout>
+      <NavHoverDropdown
+        title={{ label: "Project Catalog", path: "/services" }}
+        navItems={SERVICES_NAV_ITEMS}
+      />
       <div className="w-full flex flex-col gap-14">{children}</div>
     </IntroLayout>
   );
