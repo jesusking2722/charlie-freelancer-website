@@ -9,6 +9,7 @@ export type TServiceCatLayoutProject = {
 };
 
 interface ServicesCatLayoutProps {
+  title: string;
   param: string;
   seo: TSEO | null;
   services: TServiceCard[] | null;
@@ -16,6 +17,7 @@ interface ServicesCatLayoutProps {
 }
 
 const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
+  title,
   param,
   seo,
   services,
@@ -30,7 +32,7 @@ const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
 
         {/* Page Title by param */}
         <div className="space-y-6">
-          <h1 className="text-4xl font-semibold">Shop Design Projects</h1>
+          <h1 className="text-4xl font-semibold">Shop {title} Projects</h1>
           <div className="flex items-center gap-2">
             <p>Captivate your audience. (No creative prowess needed.)</p>
             <button className="flex items-center gap-1 text-blue-600 font-medium">

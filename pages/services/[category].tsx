@@ -12,6 +12,7 @@ const ServicesCategory = () => {
 
   return (
     <ServicesCatLayout
+      title="Design"
       param={category as string}
       seo={SERVICES_DESIGN_SEO}
       services={SERVICES_DESIGN_SERVICES}

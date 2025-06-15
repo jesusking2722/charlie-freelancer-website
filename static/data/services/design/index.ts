@@ -28,6 +28,8 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
   {
     title: "NFT Art",
     services: [],
+    imageUrl:
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/nft-art.jpg",
     showAll: "#",
   },
   {
@@ -40,7 +42,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
       { label: "Fashion Design", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/nft-art.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/drawing-illustration.jpg",
     showAll: "#",
   },
   {
@@ -53,7 +55,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
       { label: "Car Wraps", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/drawing-illustration.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/packaging-merchandise-design.jpg",
     showAll: "#",
   },
   {
