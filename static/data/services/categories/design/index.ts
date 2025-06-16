@@ -1,7 +1,7 @@
 import { TServiceCatLayoutProject } from "@/components/templates/ServicesCatLayout";
-import { TServiceCard } from "@/types/components.types";
+import { TSEO, TServiceCard } from "@/types/components.types";
 
-export const SERVICES_DESIGN_SEO = {
+export const SERVICES_DESIGN_SEO: TSEO = {
   title: "Online Design Services | Charlie Unicorn AI - Freelancer",
   description:
     "Discover a wide range of online design services including logo design, brand identity, illustration, packaging, digital and print design, photography, building & home design, infographics, and product & game design by Charlie Unicorn AI.",
@@ -12,7 +12,7 @@ export const SERVICES_DESIGN_SEO = {
 
 export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
   {
-    title: "Brand Identity Design",
+    title: { label: "Brand Identity Design", path: "#" },
     services: [
       { label: "Logo Design", path: "#" },
       { label: "Business Cards & Stationery Design", path: "#" },
@@ -25,14 +25,14 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "NFT Art",
+    title: { label: "NFT Art", path: "#" },
     services: [],
     imageUrl:
       "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/nft-art.jpg",
     showAll: "#",
   },
   {
-    title: "Drawing & Illustration",
+    title: { label: "Drawing & Illustration", path: "#" },
     services: [
       { label: "Illustration", path: "#" },
       { label: "Vector Tracing", path: "#" },
@@ -45,7 +45,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Packaging & Merchandise Design",
+    title: { label: "Packaging & Merchandise Design", path: "#" },
     services: [
       { label: "T-Shirts & Merchandise Design", path: "#" },
       { label: "Book Design", path: "#" },
@@ -58,7 +58,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Digital Design",
+    title: { label: "Digital Design", path: "#" },
     services: [
       { label: "Social Media Design", path: "#" },
       { label: "Web & Mobile Design", path: "#" },
@@ -70,7 +70,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Photography & Image Editing",
+    title: { label: "Photography & Image Editing", path: "#" },
     services: [
       { label: "Photoshop Editing", path: "#" },
       { label: "Local Photography", path: "#" },
@@ -81,7 +81,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Building & Home Design",
+    title: { label: "Building & Home Design", path: "#" },
     services: [
       { label: "Architecture & Interior Design", path: "#" },
       { label: "Building Information Modeling", path: "#" },
@@ -93,7 +93,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Infographics & Presentation Design",
+    title: { label: "Infographics & Presentation Design", path: "#" },
     services: [
       { label: "Presentation Design", path: "#" },
       { label: "Infographic Design", path: "#" },
@@ -104,7 +104,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Print Design",
+    title: { label: "Print Design", path: "#" },
     services: [
       { label: "Flyer Design", path: "#" },
       { label: "Brochure Design", path: "#" },
@@ -117,7 +117,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Product & Game Design",
+    title: { label: "Product & Game Design", path: "#" },
     services: [
       { label: "Industrial & Product Design", path: "#" },
       { label: "Graphics for Streamers", path: "#" },
@@ -129,7 +129,7 @@ export const SERVICES_DESIGN_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Other Design",
+    title: { label: "Other Design", path: "#" },
     services: [],
     imageUrl:
       "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/other-design.jpg",
@@ -1380,5 +1380,58 @@ export const SERVICES_DESIGN_PROJECTS: TServiceCatLayoutProject[] = [
         },
       },
     ],
+  },
+];
+
+export const SERVICES_DESIGN_SUBCATEGORIES_DATA = [
+  {
+    brandidentitydesign: {
+      title: "Brand Identity Design",
+      subtitle: "You know who you are. Now let's show your customers.",
+      seo: {
+        title: "",
+        description: "",
+        keywords: "",
+        url: "/",
+        image: "",
+      } as TSEO,
+      services: [
+        {
+          title: { label: "Logo Design", path: "#" },
+          services: [],
+          imageUrl:
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_133,w_178/catalog-ui-assets/taxonomy/category/logo-design.jpg",
+          showAll: "#",
+        },
+        {
+          title: { label: "Business Cards & Stationery Design", path: "#" },
+          services: [],
+          imageUrl:
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_133,w_178/catalog-ui-assets/taxonomy/category/business-cards-stationery-design.jpg",
+          showAll: "#",
+        },
+        {
+          title: { label: "Brand Style Guides", path: "#" },
+          services: [],
+          imageUrl:
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_133,w_178/catalog-ui-assets/taxonomy/category/brand-style-guides.jpg",
+          showAll: "#",
+        },
+        {
+          title: { label: "Branding Services", path: "#" },
+          services: [],
+          imageUrl:
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_133,w_178/catalog-ui-assets/taxonomy/category/branding.jpg",
+          showAll: "#",
+        },
+        {
+          title: { label: "Brand Voice & Tone", path: "#" },
+          services: [],
+          imageUrl:
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_133,w_178/catalog-ui-assets/taxonomy/category/brand-voice-tone.jpg",
+          showAll: "#",
+        },
+      ] as TServiceCard[],
+    },
   },
 ];

@@ -6,9 +6,15 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
     path: "/services/design",
     categories: [
       {
-        title: { label: "Brand Identity Design", path: "#" },
+        title: {
+          label: "Brand Identity Design",
+          path: "/services/design/brand-identity-design",
+        },
         items: [
-          { label: "Logo Design", path: "#" },
+          {
+            label: "Logo Design",
+            path: "/services/design/brand-identity-design/logo-design",
+          },
           { label: "Business Cards & Stationery Design", path: "#" },
           { label: "Brand Style Guides", path: "#" },
           { label: "Branding Services", path: "#" },
@@ -330,7 +336,7 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
   },
   {
     label: "More",
-    path: "/more",
+    path: "#",
     categories: [
       {
         title: { label: "Admin & Customer Support", path: "#" },

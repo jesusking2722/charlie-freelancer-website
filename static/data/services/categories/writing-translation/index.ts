@@ -12,7 +12,7 @@ export const SERVICES_WRITING_TRANSLATION_SEO: TSEO = {
 
 export const SERVICES_WRITING_TRANSLATION_SERVICES: TServiceCard[] = [
   {
-    title: "Content Writing",
+    title: { label: "Content Writing", path: "#" },
     services: [
       { label: "Articles & Blog Posts", path: "#" },
       { label: "Book & Ebook Writing", path: "#" },
@@ -25,14 +25,14 @@ export const SERVICES_WRITING_TRANSLATION_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Translation & Localization",
+    title: { label: "Translation & Localization", path: "#" },
     services: [],
     imageUrl:
       "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/translation-localization.jpg",
     showAll: "#",
   },
   {
-    title: "Professional & Business Writing",
+    title: { label: "Professional & Business Writing", path: "#" },
     services: [
       { label: "Resume Writing", path: "#" },
       { label: "Cover Letters", path: "#" },
@@ -45,7 +45,7 @@ export const SERVICES_WRITING_TRANSLATION_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Editing & Beta Reading",
+    title: { label: "Editing & Beta Reading", path: "#" },
     services: [
       { label: "Proofreading & Editing", path: "#" },
       { label: "Beta Reading", path: "#" },
@@ -55,7 +55,7 @@ export const SERVICES_WRITING_TRANSLATION_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Copywriting",
+    title: { label: "Copywriting", path: "#" },
     services: [
       { label: "Product Descriptions", path: "#" },
       { label: "Sales Copy", path: "#" },
@@ -67,7 +67,7 @@ export const SERVICES_WRITING_TRANSLATION_SERVICES: TServiceCard[] = [
     showAll: "#",
   },
   {
-    title: "Other Writing & Translation",
+    title: { label: "Other Writing & Translation", path: "#" },
     services: [],
     imageUrl:
       "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/other-writing-translation.jpg",

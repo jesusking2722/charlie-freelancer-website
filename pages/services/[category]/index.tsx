@@ -4,27 +4,27 @@ import {
   SERVICES_DESIGN_PROJECTS,
   SERVICES_DESIGN_SEO,
   SERVICES_DESIGN_SERVICES,
-} from "@/static/data/services/design";
+} from "@/static/data/services/categories/design";
 import {
   SERVICES_DEVELOPMENT_IT_PROJECTS,
   SERVICES_DEVELOPMENT_IT_SEO,
   SERVICES_DEVELOPMENT_IT_SERVICES,
-} from "@/static/data/services/development-it";
+} from "@/static/data/services/categories/development-it";
 import {
   SERVICES_MARKETING_PROJECTS,
   SERVICES_MARKETING_SEO,
   SERVICES_MARKETING_SERVICES,
-} from "@/static/data/services/marketing";
+} from "@/static/data/services/categories/marketing";
 import {
   SERVICES_VIDEO_AUDIO_PROJECTS,
   SERVICES_VIDEO_AUDIO_SEO,
   SERVICES_VIDEO_AUDIO_SERVICES,
-} from "@/static/data/services/video-audio";
+} from "@/static/data/services/categories/video-audio";
 import {
   SERVICES_WRITING_TRANSLATION_PROJECTS,
   SERVICES_WRITING_TRANSLATION_SEO,
   SERVICES_WRITING_TRANSLATION_SERVICES,
-} from "@/static/data/services/writing-translation";
+} from "@/static/data/services/categories/writing-translation";
 import { useRouter } from "next/router";
 
 const ServicesCategory = () => {

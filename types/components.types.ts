@@ -129,7 +129,7 @@ export type TProjectCard = {
 };
 
 export type TServiceCard = {
-  title: string;
+  title: TNavItem;
   services: TNavItem[];
   imageUrl?: string;
   icon?: React.ReactNode;

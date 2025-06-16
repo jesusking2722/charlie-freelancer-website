@@ -27,13 +27,12 @@ const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
 }) => {
   return (
     <ServicesLayout seo={seo}>
-      <div className="w-full flex flex-col gap-10">
-        <div className="flex items-start">
+      <main className="w-full flex flex-col gap-10">
+        <header className="flex items-start">
           <SearchInput placeholder="Search projects" className="w-1/2" />
-        </div>
+        </header>
 
-        {/* Page Title by param */}
-        <div className="space-y-6">
+        <section className="space-y-6">
           <h1 className="text-4xl font-semibold">Shop {title} Projects</h1>
           <div className="flex items-center gap-2">
             <p>{subtitle}</p>
@@ -42,35 +41,36 @@ const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
               <Icon icon="solar:play-circle-linear" className="w-5 h-5" />
             </button>
           </div>
-        </div>
+        </section>
 
-        {/* Services Categories */}
         {services && (
-          <div className="w-full">
+          <section className="w-full" aria-label="Service categories">
             <div className="w-full grid grid-cols-4 gap-8">
               {services.map((service, index) => (
                 <ServiceCard key={index} {...service} />
               ))}
             </div>
-          </div>
+          </section>
         )}
 
-        {/* Projects Categories */}
         {projects && (
-          <div className="w-full mt-8 space-y-20">
+          <section
+            className="w-full mt-8 space-y-20"
+            aria-label="Project categories"
+          >
             {projects.map((project, index) => (
-              <div key={index} className="w-full space-y-8">
-                <h1 className="text-4xl font-semibold">{project.title}</h1>
+              <article key={index} className="w-full space-y-8">
+                <h2 className="text-4xl font-semibold">{project.title}</h2>
                 <div className="w-full grid grid-cols-4 gap-8">
                   {project.projects.map((pro, idx) => (
                     <ProjectCard key={idx} {...pro} />
                   ))}
                 </div>
-              </div>
+              </article>
             ))}
-          </div>
+          </section>
         )}
-      </div>
+      </main>
     </ServicesLayout>
   );
 };

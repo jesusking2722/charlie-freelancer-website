@@ -1,86 +1,89 @@
 import { TServiceCatLayoutProject } from "@/components/templates/ServicesCatLayout";
 import { TSEO, TServiceCard } from "@/types/components.types";
 
-export const SERVICES_MARKETING_SEO: TSEO = {
-  title: "Online Digital Marketing Services | Charlie Unicorn AI - Freelancer",
+export const SERVICES_VIDEO_AUDIO_SEO: TSEO = {
+  title: "Video & Audio Services | Charlie Unicorn AI - Freelancer",
   description:
-    "Find expert freelance marketing services including SEO, social media management, email marketing, influencer campaigns, PR, market research, and more. Grow your brand with tailored digital strategies.",
+    "Explore high-quality freelance services including logo design, web development, content writing, and more. Find the right professional for your business needs.",
   keywords:
-    "digital marketing, SEO, social media marketing, influencer marketing, email marketing, podcast marketing, video marketing, marketing strategy, web analytics, PR, market research, Charlie Unicorn AI",
-  url: "/services/marketing",
+    "freelance services, project catalog, logo design, web development, SEO, Charlie Unicorn AI",
+  url: "/services/video-audio",
 };
 
-export const SERVICES_MARKETING_SERVICES: TServiceCard[] = [
+export const SERVICES_VIDEO_AUDIO_SERVICES: TServiceCard[] = [
   {
-    title: "Digital Marketing & PR",
+    title: { label: "Animation & Motion Graphics", path: "#" },
     services: [
-      { label: "Video Marketing", path: "#" },
-      { label: "Music Promotion", path: "#" },
-      { label: "Podcast Marketing", path: "#" },
-      { label: "Email Marketing", path: "#" },
+      { label: "Animated GIFs", path: "#" },
+      { label: "Logo Animation", path: "#" },
+      { label: "Animated Whiteboard & Explainer Videos", path: "#" },
+      { label: "3D Product Animation", path: "#" },
+      { label: "Animation for Kids", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/digital-marketing-pr.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/animation-motion-graphics.jpg",
     showAll: "#",
   },
   {
-    title: "Social Media Marketing",
+    title: { label: "Video Production & Editing", path: "#" },
     services: [
-      { label: "Social Media Management", path: "#" },
-      { label: "Social Media Advertising", path: "#" },
-      { label: "Influencer Marketing", path: "#" },
+      { label: "Video Editing", path: "#" },
+      { label: "Short Video Ads", path: "#" },
+      { label: "Lyric & Music Videos", path: "#" },
+      { label: "Article to Video", path: "#" },
+      { label: "Book Trailers", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/social-media-marketing.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/video-production-editing.jpg",
     showAll: "#",
   },
   {
-    title: "Search Marketing",
+    title: { label: "Audio Production & Editing", path: "#" },
     services: [
-      { label: "SEO", path: "#" },
-      { label: "Search Engine Marketing", path: "#" },
-      { label: "Web Traffic Optimization", path: "#" },
-      { label: "Local SEO", path: "#" },
-      { label: "Domain Research", path: "#" },
+      { label: "Podcast Editing", path: "#" },
+      { label: "Voiceover Recordings", path: "#" },
+      { label: "Audio Ads Production", path: "#" },
+      { label: "Audiobook Production", path: "#" },
+      { label: "Dialogue Editing", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/search-marketing.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/audio-production-editing.jpg",
     showAll: "#",
   },
   {
-    title: "Analytics & Strategy",
+    title: { label: "Music Production & Editing", path: "#" },
     services: [
-      { label: "Market Research", path: "#" },
-      { label: "Marketing Strategy", path: "#" },
-      { label: "Web Analytics", path: "#" },
-      { label: "Surveys", path: "#" },
+      { label: "Music Production & Composition", path: "#" },
+      { label: "Music Transcription", path: "#" },
+      { label: "Mixing & Mastering", path: "#" },
+      { label: "DJ Drops & Producer Tags", path: "#" },
+      { label: "Online Music Lessons", path: "#" },
     ],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/analytics-strategy.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/occupation/music-production-editing.jpg",
     showAll: "#",
   },
   {
-    title: "Other Marketing",
+    title: { label: "Other Video & Audio", path: "#" },
     services: [],
     imageUrl:
-      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/other-marketing.jpg",
+      "https://res.cloudinary.com/upwork-cloud/image/upload/c_fill,h_168,w_224/catalog-ui-assets/taxonomy/category/other-video-audio.jpg",
     showAll: "#",
   },
 ];
 
-export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
+export const SERVICES_VIDEO_AUDIO_PROJECTS: TServiceCatLayoutProject[] = [
   {
-    title: "Digital Marketing & PR",
+    title: "Animation & Motion Graphics",
     projects: [
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1691000352/catalog/1508673436711391232/tpwnfommy2uvhynozkfc.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
         ],
         title: {
-          label:
-            "Squarespace Website Design or redesign I Squarespace Designer",
+          label: "Expert-Crafted Logo Design with Unlimited Revisions",
           path: "#",
         },
         deliveryTime: "2 day delivery",
@@ -102,7 +105,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1717948481/catalog/1799830255841692985/hgn9nmfdkkbxql2rjdhe.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709833056/catalog/1330105541436067840/eeopj0worj6p3esnbcds.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
         ],
@@ -129,7 +132,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1685286330/catalog/1662830408561532928/xwqq1rkxsws7xuzwgrze.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1727726853/catalog/1840843202292167596/ofqs2huk9szvxeby2zxr.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
         ],
@@ -156,7 +159,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1691690553/catalog/1639571711599415296/sh0zrlxpwyd4jcaq4ulz.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
           "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
           "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
         ],
@@ -184,11 +187,11 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
     ],
   },
   {
-    title: "Social Media Marketing",
+    title: "Video Production & Editing",
     projects: [
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1707172430/catalog/1350001580869898240/ccwm2xah4zp1r4tgkzex.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1747725594/catalog/1882743427529191059/ndv0jyvlhn0b1ayolit6.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
         ],
@@ -215,7 +218,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1732809906/catalog/1782865733367839434/jvofn1vlwev9nxhdusli.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1745814300/catalog/1915250103239876273/hl4qxob81m90jowgrimk.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
         ],
@@ -242,7 +245,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1699113868/catalog/1364210329176174592/ufu1acsfrglnoy4xalra.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709837100/catalog/1338066434763034624/o7pobllwcqmy3cioudur.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
         ],
@@ -269,7 +272,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1707151517/catalog/1352849909269397504/j84py6r1ye2edacxnccx.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1729015964/catalog/1427794627437449216/mdbdukwbyvyenmu4h4mx.jpg",
           "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
           "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
         ],
@@ -297,11 +300,11 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
     ],
   },
   {
-    title: "Search Marketing",
+    title: "Audio Production & Editing",
     projects: [
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1698933495/catalog/1720070092947488768/odzwaeclls1zc4pufqr8.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1740201905/catalog/1893168002191734522/eqfkkkieen9n8eqbsbvy.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
         ],
@@ -328,7 +331,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1700546578/catalog/1724141677690454016/lcgbpf2jgaornzv5q8xf.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709572021/catalog/1659718031206518784/uuo7ux2zigmttwmd014x.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
         ],
@@ -355,7 +358,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1707168257/catalog/1351137222117175296/abuj12mtisoe0dcgfkl9.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1706204085/catalog/1346504429311967232/tsd2bnggxo4r7ometgem.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
         ],
@@ -382,7 +385,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709575132/catalog/1663184886074646528/zkkpii3tao7fqkbkagcq.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1743638551/catalog/1907581136532683316/whecefhchjfdx6jdkvbz.jpg",
           "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
           "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
         ],
@@ -410,11 +413,11 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
     ],
   },
   {
-    title: "Analytics & Strategy",
+    title: "Music Production & Editing",
     projects: [
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709845393/catalog/1372184422494801920/kadasowb80zuzqyl6x0y.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709852188/catalog/1386040888290914304/oavv8yun3sdaypxntsrc.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
         ],
@@ -441,7 +444,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1729841751/catalog/1755562611964686336/llhsstngryvt3zhkhz5a.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709833341/catalog/1331333445145309184/ai2zybcrydnl9tmy9cld.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
         ],
@@ -468,7 +471,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1704200076/catalog/1742166131678928896/mrqki30fwffptpubukuy.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1691514959/catalog/1688954730479161344/vy0qbefw7tqryojmmksu.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
         ],
@@ -495,7 +498,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709135759/catalog/1588862104292810752/ja6jaljkmjfwr71b4n8w.webp",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709877832/catalog/1429058295935565824/xm04wjlolyfetyqg8hgv.webp",
           "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
           "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
         ],
@@ -523,11 +526,11 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
     ],
   },
   {
-    title: "Other Marketing",
+    title: "Other Video & Audio",
     projects: [
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1745501240/catalog/1911124373634925988/ifjraujyivexqvk5y5ov.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1733417963/catalog/1538891354462093312/ms4psv4fyqx5pnil5pvp.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
         ],
@@ -554,7 +557,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1715448056/catalog/1789297718527816026/lpexfenhokipbbpukkod.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856647/catalog/1393441244683726848/xd0res0zqtcolguhiiht.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
         ],
@@ -581,7 +584,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1715205931/catalog/1788321127745072928/iywzphmeovbe7lnui6g9.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1747241543/catalog/1397502256234926080/iubvxybwkxratlsvv49h.jpg",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
           "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
         ],
@@ -608,7 +611,7 @@ export const SERVICES_MARKETING_PROJECTS: TServiceCatLayoutProject[] = [
       },
       {
         images: [
-          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1744350873/catalog/1861724642068772934/ola3ccsfkwapeluefara.jpg",
+          "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1739278472/catalog/1889282054418555880/wnwcjzfoo874kbvkgrq9.jpg",
           "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
           "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
         ],

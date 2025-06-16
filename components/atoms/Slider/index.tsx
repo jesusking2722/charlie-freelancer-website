@@ -120,7 +120,7 @@ const Slider: React.FC<SliderProps> = ({
             {children.map((child, index) => (
               <div
                 key={index}
-                className="flex-shrink-0"
+                className={`flex-shrink-0 grid`}
                 style={{
                   width: `${itemWidth}px`,
                   marginRight: index < children.length - 1 ? `${gap}px` : "0",
