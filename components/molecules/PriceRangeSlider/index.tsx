@@ -100,7 +100,7 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   return (
     <div className="w-full max-w-md mx-auto px-1">
       {/* Title */}
-      <h3 className="mb-2 text-gray-800">Select range</h3>
+      <h3 className="mb-2 text-gray-800 text-sm">Select range</h3>
       {/* Price labels */}
       <div className="flex justify-between text-sm text-gray-600 mb-6">
         <span className="py-1 px-2 border border-gray-300 rounded-md shadow-md">
