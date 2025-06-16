@@ -218,7 +218,7 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
   },
   {
     label: "Marketing",
-    path: "/marketing",
+    path: "/services/marketing",
     categories: [
       {
         title: { label: "Digital Marketing & PR", path: "#" },
@@ -272,7 +272,7 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
   },
   {
     label: "Writing & Translation",
-    path: "/writing-translation",
+    path: "/services/writing-translation",
     categories: [
       {
         title: { label: "Content Writing", path: "#" },
