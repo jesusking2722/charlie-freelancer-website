@@ -4,6 +4,7 @@ export { default as AvatarGroup } from "./AvatarGroup";
 export { default as Badge } from "./Badge";
 export { default as Button } from "./Button";
 export { default as ExpandableText } from "./ExpandableText";
+export { default as FilterDropdown } from "./FilterDropdown";
 export { default as FreelancerCard } from "./FreelancerCard";
 export { default as LinkDropdown } from "./LinkDropdown";
 export { default as Menu } from "./Menu";

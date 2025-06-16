@@ -1,10 +1,15 @@
 import { TSEO, TServiceCard } from "@/types/components.types";
 import ServicesLayout from "../ServicesLayout";
-import { SearchInput, ServiceCard } from "@/components/molecules";
+import {
+  PriceRangeSlider,
+  SearchInput,
+  ServiceCard,
+} from "@/components/molecules";
 import { TNavItem } from "../NavLayout";
 import { Breadcrumbs } from "@/components/organisms";
 import { Icon } from "@iconify/react";
-import { Slider } from "@/components/atoms";
+import { FilterDropdown, Slider } from "@/components/atoms";
+import { useState } from "react";
 
 interface ServicesSubcatLayoutProps {
   title: string;
@@ -21,6 +26,19 @@ const ServicesSubcatLayout: React.FC<ServicesSubcatLayoutProps> = ({
   category,
   services,
 }) => {
+  const [minPrice, setMinPrice] = useState<number>(5);
+  const [maxPrice, setMaxPrice] = useState<number>(1000);
+
+  const handleOnPriceClear = (min: number, max: number) => {
+    setMinPrice(5);
+    setMaxPrice(1000);
+  };
+
+  const handleOnPriceApply = (min: number, max: number) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+  };
+
   return (
     <ServicesLayout seo={seo}>
       <div className="w-full flex flex-col gap-10">
@@ -65,6 +83,25 @@ const ServicesSubcatLayout: React.FC<ServicesSubcatLayoutProps> = ({
               <ServiceCard key={index} {...service} size="small" />
             ))}
           </Slider>
+        </section>
+
+        {/* Filters Group */}
+        <section className="w-full flex flex-row items-center gap-4">
+          <FilterDropdown placeholder="Price">
+            <div className="w-[400px]">
+              <h1 className="mb-4 px-1 text-lg">Price</h1>
+              <PriceRangeSlider
+                minValue={minPrice}
+                maxValue={maxPrice}
+                minLimit={5}
+                maxLimit={1000}
+                onMinValue={setMinPrice}
+                onMaxValue={setMaxPrice}
+                onClear={handleOnPriceClear}
+                onApply={handleOnPriceApply}
+              />
+            </div>
+          </FilterDropdown>
         </section>
       </div>
     </ServicesLayout>
