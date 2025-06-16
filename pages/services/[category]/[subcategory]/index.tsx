@@ -41,6 +41,7 @@ const ServicesSubcategory = () => {
       category={getBreadcrumbsNavs()}
       seo={data?.seo || null}
       services={data?.services || []}
+      projects={data?.projects || []}
     />
   );
 };

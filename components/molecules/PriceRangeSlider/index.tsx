@@ -8,7 +8,7 @@ interface PriceRangeSliderProps {
   maxLimit: number;
   onMinValue: (min: number) => void;
   onMaxValue: (max: number) => void;
-  onClear: (minValue: number, maxValue: number) => void;
+  onClear: () => void;
   onApply: (minValue: number, maxValue: number) => void;
 }
 
@@ -187,7 +187,7 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
       <div className="w-full flex items-center justify-between mt-6">
         <button
           className="text-blue-600 hover:text-blue-500 cursor-pointer text-sm py-[10px] px-4"
-          onClick={() => onClear(minValue, maxValue)}
+          onClick={() => onClear()}
         >
           Clear
         </button>

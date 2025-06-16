@@ -6,6 +6,7 @@ export interface IRadioOption {
   label: string;
   count?: number;
   color?: "blue" | "black" | "gray";
+  children?: React.ReactNode;
 }
 
 interface RadioGroupProps {
@@ -44,12 +45,12 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
     if (isSelected) {
       switch (color) {
-        case "blue":
-          return `${baseStyles} border-blue-600`;
+        case "gray":
+          return `${baseStyles} border-gray-400`;
         case "black":
           return `${baseStyles} border-black`;
         default:
-          return `${baseStyles} border-gray-400`;
+          return `${baseStyles} border-blue-600`;
       }
     }
 
@@ -58,12 +59,12 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
   const getBackgroundColor = (color?: string) => {
     switch (color) {
-      case "blue":
-        return "bg-blue-500";
+      case "gray":
+        return "bg-gray-400";
       case "black":
         return "bg-black";
       default:
-        return "bg-gray-400";
+        return "bg-blue-500";
     }
   };
 
@@ -101,14 +102,15 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
             </div>
 
             <div className="flex-1">
-              <span className="text-sm">
-                {option.label}
+              <div className="flex flex-row items-center gap-1">
+                {option.children}
+                <span className="text-sm">{option.label}</span>
                 {option.count && (
-                  <span className="text-gray-600 ml-1 text-sm">
+                  <span className="text-gray-600 text-sm">
                     ({option.count.toLocaleString()})
                   </span>
                 )}
-              </span>
+              </div>
             </div>
           </label>
         );

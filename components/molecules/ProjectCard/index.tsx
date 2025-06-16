@@ -63,11 +63,11 @@ const ProjectCardSkeleton: React.FC = () => {
 
 // ProjectCard Component
 interface ProjectCardProps {
-  images: string[];
-  title: TNavItem;
-  deliveryTime: string;
-  price: string;
-  seller: {
+  images?: string[];
+  title?: TNavItem;
+  deliveryTime?: string;
+  price?: string;
+  seller?: {
     name: string;
     avatar: string;
     ranking: number;
@@ -102,7 +102,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [direction, setDirection] = useState(0); // Track slide direction
 
   const canGoLeft = currentImageIndex > 0;
-  const canGoRight = currentImageIndex < images.length - 1;
+  const canGoRight = images ? currentImageIndex < images.length - 1 : 0;
 
   const goLeft = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -187,7 +187,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            drag={images.length > 1 ? "x" : false}
+            drag={images && images.length > 1 ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
             onDragEnd={(e, { offset, velocity }) => {
@@ -204,8 +204,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="absolute inset-0 w-full h-full"
           >
             <Image
-              src={images[currentImageIndex]}
-              alt={title.label}
+              src={images ? images[currentImageIndex] : ""}
+              alt={title?.label || ""}
               fill
               className="w-full h-full object-cover"
               draggable={false}
@@ -240,7 +240,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </motion.button>
 
         {/* Image Navigation Buttons - Shows on image hover */}
-        {images.length > 1 && (
+        {images && images.length > 1 && (
           <>
             <motion.button
               onClick={goLeft}
@@ -293,7 +293,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
 
         {/* Image Dots Indicator */}
-        {images.length > 1 && (
+        {images && images.length > 1 && (
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
             {images.map((_, index) => (
               <motion.div
@@ -321,7 +321,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="p-4">
         {/* Title */}
         <Link
-          href={title.path}
+          href={title?.path || ""}
           className="text-base underline font-medium mb-3 line-clamp-2 leading-tight hover:text-blue-600 transition-colors duration-200 block overflow-hidden"
           style={{
             display: "-webkit-box",
@@ -331,7 +331,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             textOverflow: "ellipsis",
           }}
         >
-          {title.label}
+          {title?.label}
         </Link>
 
         {/* Delivery Time and Price */}
@@ -351,10 +351,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex items-center w-full overflow-hidden">
             {/* Avatar with Status */}
             <SAvatar
-              src={seller.avatar}
-              alt={seller.name}
+              src={seller?.avatar || ""}
+              alt={seller?.name || ""}
               size="md"
-              isOnline={seller.isOnline}
+              isOnline={seller?.isOnline}
               className="mr-2 flex-shrink-0"
             />
 
@@ -363,7 +363,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               {/* Name & Rate & Reviews */}
               <div className="w-full flex items-center justify-between">
                 <span className="text-sm font-medium text-gray-900">
-                  {seller.name}
+                  {seller?.name}
                 </span>
                 <div className="flex items-center">
                   <Icon
@@ -371,16 +371,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     className="w-5 h-5 text-yellow-500 fill-current mr-1"
                   />
                   <span className="text-sm font-medium text-gray-900 mr-1">
-                    {formatNumber(seller.ranking)}
+                    {formatNumber(seller?.ranking || 0)}
                   </span>
                   <span className="text-sm text-gray-600">
-                    ({seller.reviewCount})
+                    ({seller?.reviewCount})
                   </span>
                 </div>
               </div>
 
               {/* Seller Badges */}
-              {seller.badge && (
+              {seller?.badge && (
                 <div className="flex items-center mt-2">
                   <Badge type="FREELANCER" badge={seller.badge} size="sm" />
                 </div>

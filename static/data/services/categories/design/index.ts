@@ -1,5 +1,5 @@
 import { TServiceCatLayoutProject } from "@/components/templates/ServicesCatLayout";
-import { TSEO, TServiceCard } from "@/types/components.types";
+import { TProjectCard, TSEO, TServiceCard } from "@/types/components.types";
 
 export const SERVICES_DESIGN_SEO: TSEO = {
   title: "Online Design Services | Charlie Unicorn AI - Freelancer",
@@ -1432,6 +1432,656 @@ export const SERVICES_DESIGN_SUBCATEGORIES_DATA = [
           showAll: "#",
         },
       ] as TServiceCard[],
+      projects: [
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1711541971/catalog/1701495083035004928/a2urj78u8bwt2cc9lskr.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503312/catalog/1701495083035004928/lq6t93olocvp26tqcv88.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1694503333/catalog/1701495083035004928/iyplynmql5gwjzybzn7g.jpg",
+          ],
+          title: {
+            label: "Expert-Crafted Logo Design with Unlimited Revisions",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+          isLoading: false,
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255550/catalog/1316710336994029568/oevacvxixshhpdu3brtt.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255470/catalog/1316710336994029568/vd02fxl56z4g2n6uh3o0.jpg",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1708255572/catalog/1316710336994029568/kvjonemm3uffektwlcge.jpg",
+          ],
+          title: {
+            label: "Modern Logo Design, Modern Logo with Multiple Concepts",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+            isOnline: true,
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828133/catalog/1321564870845366272/zpviuvzp8ugaeg64od4p.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828137/catalog/1321564870845366272/r5tmea9mla4o09zz28t6.webp",
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709828141/catalog/1321564870845366272/tzc7y3nhc1tamzvswnan.webp",
+          ],
+          title: {
+            label:
+              "A great PowerPoint template to feature your message with impact.....",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+        {
+          images: [
+            "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_400/v1709856108/catalog/1354790801200893952/kaghmu6ktpnxe1vox4qo.jpg",
+            "https://images.unsplash.com/photo-1634942536790-a8bc6580e1fa?w=400&h=300&fit=crop",
+            "https://images.unsplash.com/photo-1634979149798-e9a118734e97?w=400&h=300&fit=crop",
+          ],
+          title: {
+            label:
+              "Investor-ready Pitch deck or professional presentation - for your business",
+            path: "#",
+          },
+          deliveryTime: "2 day delivery",
+          price: "$25",
+          seller: {
+            name: "Haroon A.",
+            avatar:
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+            ranking: 5.0,
+            reviewCount: 2176,
+            badge: {
+              type: "TOP_RATED_PLUS",
+              title: "",
+              value: "",
+              iconUrl: "",
+            },
+          },
+        },
+      ] as TProjectCard[],
     },
   },
 ];
