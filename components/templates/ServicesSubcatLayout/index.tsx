@@ -249,12 +249,8 @@ const ServicesSubcatLayout: React.FC<ServicesSubcatLayoutProps> = ({
             <div className="w-[400px]">
               <h1 className="mb-4 px-1 text-lg font-semibold">Price</h1>
               <PriceRangeSlider
-                minValue={minPrice}
-                maxValue={maxPrice}
                 minLimit={5}
                 maxLimit={1000}
-                onMinValue={setMinPrice}
-                onMaxValue={setMaxPrice}
                 onClear={handleOnPriceClear}
                 onApply={handleOnPriceApply}
               />

@@ -2,26 +2,20 @@ import React, { useState, useRef, useCallback } from "react";
 import Button from "../../atoms/Button";
 
 interface PriceRangeSliderProps {
-  minValue: number;
-  maxValue: number;
   minLimit: number;
   maxLimit: number;
-  onMinValue: (min: number) => void;
-  onMaxValue: (max: number) => void;
   onClear: () => void;
   onApply: (minValue: number, maxValue: number) => void;
 }
 
 const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
-  minValue,
-  maxValue,
   minLimit,
   maxLimit,
-  onMinValue,
-  onMaxValue,
   onClear,
   onApply,
 }) => {
+  const [minValue, setMinValue] = useState(minLimit);
+  const [maxValue, setMaxValue] = useState(maxLimit);
   const [isDragging, setIsDragging] = useState(null);
   const [showTooltip, setShowTooltip] = useState({ min: false, max: false });
 
@@ -64,9 +58,9 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
       const newValue = Math.round(getValueFromPosition(e.clientX));
 
       if (isDragging === "min") {
-        onMinValue(Math.min(newValue, maxValue - 1));
+        setMinValue(Math.min(newValue, maxValue - 1));
       } else if (isDragging === "max") {
-        onMaxValue(Math.max(newValue, minValue + 1));
+        setMaxValue(Math.max(newValue, minValue + 1));
       }
     },
     [isDragging, minValue, maxValue]
@@ -91,23 +85,23 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   const handleInputChange = (type: any, value: any) => {
     const numValue = parseFloat(value) || 0;
     if (type === "min") {
-      onMinValue(Math.max(minPrice, Math.min(numValue, maxValue - 1)));
+      setMinValue(Math.max(minPrice, Math.min(numValue, maxValue - 1)));
     } else {
-      onMaxValue(Math.min(maxPrice, Math.max(numValue, minValue + 1)));
+      setMaxValue(Math.min(maxPrice, Math.max(numValue, minValue + 1)));
     }
   };
 
   return (
     <div className="w-full max-w-md mx-auto px-1">
       {/* Title */}
-      <h3 className="mb-2 text-gray-800 text-sm">Select range</h3>
+      <h3 className="mb-2 text-gray-800">Select range</h3>
       {/* Price labels */}
       <div className="flex justify-between text-sm text-gray-600 mb-6">
         <span className="py-1 px-2 border border-gray-300 rounded-md shadow-md">
           ${minValue}
         </span>
         <span className="py-1 px-2 border border-gray-300 rounded-md shadow-md">
-          ${maxValue === maxLimit ? `1K+` : maxPrice}
+          ${maxValue === maxLimit ? `1K+` : maxValue}
         </span>
       </div>
 
@@ -187,7 +181,11 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
       <div className="w-full flex items-center justify-between mt-6">
         <button
           className="text-blue-600 hover:text-blue-500 cursor-pointer text-sm py-[10px] px-4"
-          onClick={() => onClear()}
+          onClick={() => {
+            setMinValue(minLimit);
+            setMaxValue(maxLimit);
+            onClear();
+          }}
         >
           Clear
         </button>
