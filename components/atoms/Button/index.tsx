@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       size === "small"
         ? "px-3 py-1 text-xs"
         : size === "medium"
-        ? "px-7 py-3 text-sm"
+        ? "px-7 py-[10px] text-sm"
         : "px-12 py-3 text-lg"
     } ${width === "full" && "w-full"}`,
     fontSize: `${
@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
       <motion.button
         whileTap={{ scale: 0.95 }}
-        className={`${buttonClasses.primary} ${buttonClasses.size} font-semibold rounded-xl transition-all duration-150 ease-in-out`}
+        className={`${buttonClasses.primary} ${buttonClasses.size} rounded-xl transition-all duration-150 ease-in-out`}
         onClick={onClick}
       >
         {icon && !loading && (
@@ -114,10 +114,12 @@ const Button: React.FC<ButtonProps> = ({
     );
   }
 
-  if (type === "text") {
+  if (type === "text" && size) {
     return (
       <button
-        className={`${size} transition-all duration-300 ease-in-out cursor-pointer ${
+        className={`${
+          sizeClasses[size]
+        } transition-all duration-300 ease-in-out cursor-pointer ${
           theme === "light" ? "text-black" : "text-white"
         }`}
       >

@@ -173,7 +173,7 @@ export const SERVICES_NAV_ITEMS: TNavHoverItem[] = [
   },
   {
     label: "Development & IT",
-    path: "/development-it",
+    path: "/services/development-it",
     categories: [
       {
         title: { label: "Development", path: "#" },

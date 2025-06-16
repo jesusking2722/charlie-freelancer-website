@@ -10,6 +10,7 @@ export type TServiceCatLayoutProject = {
 
 interface ServicesCatLayoutProps {
   title: string;
+  subtitle: string;
   param: string;
   seo: TSEO | null;
   services: TServiceCard[] | null;
@@ -18,6 +19,7 @@ interface ServicesCatLayoutProps {
 
 const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
   title,
+  subtitle,
   param,
   seo,
   services,
@@ -34,7 +36,7 @@ const ServicesCatLayout: React.FC<ServicesCatLayoutProps> = ({
         <div className="space-y-6">
           <h1 className="text-4xl font-semibold">Shop {title} Projects</h1>
           <div className="flex items-center gap-2">
-            <p>Captivate your audience. (No creative prowess needed.)</p>
+            <p>{subtitle}</p>
             <button className="flex items-center gap-1 text-blue-600 font-medium cursor-pointer">
               How it works
               <Icon icon="solar:play-circle-linear" className="w-5 h-5" />
