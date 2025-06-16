@@ -20,118 +20,90 @@ import {
   SERVICES_VIDEO_AUDIO_SEO,
   SERVICES_VIDEO_AUDIO_SERVICES,
 } from "@/static/data/services/video-audio";
-import { TSEO, TServiceCard } from "@/types/components.types";
+import {
+  SERVICES_WRITING_TRANSLATION_PROJECTS,
+  SERVICES_WRITING_TRANSLATION_SEO,
+  SERVICES_WRITING_TRANSLATION_SERVICES,
+} from "@/static/data/services/writing-translation";
 import { useRouter } from "next/router";
 
 const ServicesCategory = () => {
   const router = useRouter();
   const { category } = router.query;
 
-  // marketing
+  // writing-translation
 
-  const getTitle = (): string => {
+  const getCategoryData = (category: string) => {
     switch (category) {
       case "design":
-        return "Design";
+        return {
+          title: "Design",
+          subtitle: "Captivate your audience. (No creative prowess needed.)",
+          seo: SERVICES_DESIGN_SEO,
+          services: SERVICES_DESIGN_SERVICES,
+          projects: SERVICES_DESIGN_PROJECTS,
+        };
 
       case "video-audio":
-        return "Video & Audio";
+        return {
+          title: "Video & Audio",
+          subtitle:
+            "Find the perfect video or audio talent to tell your unique story.",
+          seo: SERVICES_VIDEO_AUDIO_SEO,
+          services: SERVICES_VIDEO_AUDIO_SERVICES,
+          projects: SERVICES_VIDEO_AUDIO_PROJECTS,
+        };
 
       case "development-it":
-        return "Development & IT";
+        return {
+          title: "Development & IT",
+          subtitle:
+            "Build, streamline, and secure your digital presence. Then test it and perfect it.",
+          seo: SERVICES_DEVELOPMENT_IT_SEO,
+          services: SERVICES_DEVELOPMENT_IT_SERVICES,
+          projects: SERVICES_DEVELOPMENT_IT_PROJECTS,
+        };
 
       case "marketing":
-        return "Marketing";
+        return {
+          title: "Marketing",
+          subtitle:
+            "Get the word out. Create marketing systems and communications that drive sales.",
+          seo: SERVICES_MARKETING_SEO,
+          services: SERVICES_MARKETING_SERVICES,
+          projects: SERVICES_MARKETING_PROJECTS,
+        };
+
+      case "writing-translation":
+        return {
+          title: "Writing & Translation",
+          subtitle: "Make your content sing — in any language.",
+          seo: SERVICES_WRITING_TRANSLATION_SEO,
+          services: SERVICES_WRITING_TRANSLATION_SERVICES,
+          projects: SERVICES_WRITING_TRANSLATION_PROJECTS,
+        };
 
       default:
-        return "";
+        return {
+          title: "",
+          subtitle: "",
+          seo: null,
+          services: null,
+          projects: null,
+        };
     }
   };
 
-  const getSubtitle = (): string => {
-    switch (category) {
-      case "design":
-        return "Captivate your audience. (No creative prowess needed.)";
-
-      case "video-audio":
-        return "Find the perfect video or audio talent to tell your unique story.";
-
-      case "development-it":
-        return "Build, streamline, and secure your digital presence. Then test it and perfect it.";
-
-      case "marketing":
-        return "Get the word out. Create marketing systems and communications that drive sales.";
-
-      default:
-        return "";
-    }
-  };
-
-  const getSEO = (): TSEO | null => {
-    switch (category) {
-      case "design":
-        return SERVICES_DESIGN_SEO;
-
-      case "video-audio":
-        return SERVICES_VIDEO_AUDIO_SEO;
-
-      case "development-it":
-        return SERVICES_DEVELOPMENT_IT_SEO;
-
-      case "marketing":
-        return SERVICES_MARKETING_SEO;
-
-      default:
-        return null;
-    }
-  };
-
-  const getServices = (): TServiceCard[] | null => {
-    switch (category) {
-      case "design":
-        return SERVICES_DESIGN_SERVICES;
-
-      case "video-audio":
-        return SERVICES_VIDEO_AUDIO_SERVICES;
-
-      case "development-it":
-        return SERVICES_DEVELOPMENT_IT_SERVICES;
-
-      case "marketing":
-        return SERVICES_MARKETING_SERVICES;
-
-      default:
-        return null;
-    }
-  };
-
-  const getProjects = (): TServiceCatLayoutProject[] | null => {
-    switch (category) {
-      case "design":
-        return SERVICES_DESIGN_PROJECTS;
-
-      case "video-audio":
-        return SERVICES_VIDEO_AUDIO_PROJECTS;
-
-      case "development-it":
-        return SERVICES_DEVELOPMENT_IT_PROJECTS;
-
-      case "marketing":
-        return SERVICES_MARKETING_PROJECTS;
-
-      default:
-        return null;
-    }
-  };
+  const data = getCategoryData(category as string);
 
   return (
     <ServicesCatLayout
-      title={getTitle()}
-      subtitle={getSubtitle()}
+      title={data.title}
+      subtitle={data.subtitle}
       param={category as string}
-      seo={getSEO()}
-      services={getServices()}
-      projects={getProjects()}
+      seo={data.seo}
+      services={data.services}
+      projects={data.projects}
     />
   );
 };

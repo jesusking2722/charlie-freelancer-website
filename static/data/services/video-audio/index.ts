@@ -7,7 +7,7 @@ export const SERVICES_VIDEO_AUDIO_SEO: TSEO = {
     "Explore high-quality freelance services including logo design, web development, content writing, and more. Find the right professional for your business needs.",
   keywords:
     "freelance services, project catalog, logo design, web development, SEO, Charlie Unicorn AI",
-  url: "/services",
+  url: "/services/video-audio",
 };
 
 export const SERVICES_VIDEO_AUDIO_SERVICES: TServiceCard[] = [

@@ -7,7 +7,7 @@ export const SERVICES_DEVELOPMENT_IT_SEO: TSEO = {
     "Discover expert freelance solutions in web and mobile app development, blockchain, AI, WordPress, cybersecurity, data analysis, QA testing, and IT support. Hire top talent to power your digital growth.",
   keywords:
     "web development, mobile apps, blockchain, cryptocurrency, NFT, WordPress, ecommerce, AI, machine learning, data analysis, QA testing, cybersecurity, IT support, Charlie Unicorn AI",
-  url: "/services",
+  url: "/services/development-it",
 };
 
 export const SERVICES_DEVELOPMENT_IT_SERVICES: TServiceCard[] = [

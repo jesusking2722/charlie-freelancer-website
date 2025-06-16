@@ -4,10 +4,10 @@ import { TSEO, TServiceCard } from "@/types/components.types";
 export const SERVICES_MARKETING_SEO: TSEO = {
   title: "Online Digital Marketing Services | Charlie Unicorn AI - Freelancer",
   description:
-    "Explore high-quality freelance services including logo design, web development, content writing, and more. Find the right professional for your business needs.",
+    "Find expert freelance marketing services including SEO, social media management, email marketing, influencer campaigns, PR, market research, and more. Grow your brand with tailored digital strategies.",
   keywords:
-    "freelance services, project catalog, logo design, web development, SEO, Charlie Unicorn AI",
-  url: "/services",
+    "digital marketing, SEO, social media marketing, influencer marketing, email marketing, podcast marketing, video marketing, marketing strategy, web analytics, PR, market research, Charlie Unicorn AI",
+  url: "/services/marketing",
 };
 
 export const SERVICES_MARKETING_SERVICES: TServiceCard[] = [
